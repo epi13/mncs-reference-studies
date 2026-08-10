@@ -41,6 +41,10 @@ The existing MNCS repository already contains research case studies such as Cach
 
 The migration landing zone and current inventory are in [`case-studies/README.md`](case-studies/README.md).
 
+### Existing MNCS research studies (`studies/`)
+
+The core MNCS repository also has a separate `studies/` tree containing Recursive Analyzer, Recursive Architecture Comparison, and Recursive Experience Substrate work. Those are not the new MRS series, so this repository preserves a distinct [`studies/`](studies/README.md) migration lane for them rather than renaming them during the move.
+
 ## What this repository is trying to measure
 
 Runtime performance matters, but it is only one axis. Studies should capture, when applicable:
@@ -71,7 +75,8 @@ See [`methodology/evidence-and-claims.md`](methodology/evidence-and-claims.md).
 ## Repository layout
 
 ```text
-case-studies/          existing MNCS experiments migrated from the standards repo
+case-studies/          existing MNCS case studies migrated from the standards repo
+studies/               existing MNCS research studies migrated from the standards repo
 reference-studies/     numbered MRS reimplementation experiments
 methodology/           shared experimental protocol and measurement rules
 schemas/               machine-readable study metadata contracts
