@@ -126,6 +126,7 @@ def main() -> int:
     required_paths = [
         ROOT / "README.md",
         ROOT / "case-studies" / "README.md",
+        ROOT / "studies" / "README.md",
         REFERENCE_ROOT / "README.md",
         ROOT / "methodology" / "experimental-protocol.md",
         ROOT / "schemas" / "study.schema.json",
