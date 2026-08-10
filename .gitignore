@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Rust
+**/target/
+
+# Build and benchmark scratch
+build/
+dist/
+.tmp/
+tmp/
+*.profraw
+*.profdata
+
+# Local evidence / protected inputs
+**/evidence/private/
+**/protected-inputs/
+**/corpora/private/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

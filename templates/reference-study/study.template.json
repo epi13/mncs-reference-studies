@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "id": "MRS-000",
+  "slug": "subject",
+  "title": "Subject reference reimplementation",
+  "tier": 1,
+  "status": "PLANNED",
+  "subject": "Subject",
+  "upstream": {
+    "name": null,
+    "url": null,
+    "version": null,
+    "commit": null,
+    "license": null,
+    "frozen": false
+  },
+  "arms": [
+    "reference",
+    "conventional-rust",
+    "mncs-rust",
+    "mncs-language-future"
+  ],
+  "primary_questions": ["question"],
+  "metric_families": ["behavioral-correctness"],
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/epi13/mncs-reference-studies/schemas/study.schema.json",
+  "title": "MNCS Reference Study Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "slug",
+    "title",
+    "tier",
+    "status",
+    "subject",
+    "upstream",
+    "arms",
+    "primary_questions",
+    "metric_families",
+    "formal_mncs_status",
+    "formal_mncds_status",
+    "promotion_authorized"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "id": {"type": "string", "pattern": "^MRS-[0-9]{3}$"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "title": {"type": "string", "minLength": 1},
+    "tier": {"type": "integer", "minimum": 1},
+    "status": {
+      "type": "string",
+      "enum": [
+        "PLANNED",
+        "SELECTING_REFERENCE",
+        "IMPLEMENTING",
+        "DEVELOPMENT_EVALUATION",
+        "PROTECTED_EVALUATION",
+        "REVIEW_REQUIRED",
+        "COMPLETE",
+        "ARCHIVED"
+      ]
+    },
+    "subject": {"type": "string", "minLength": 1},
+    "upstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "version", "commit", "license", "frozen"],
+      "properties": {
+        "name": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]},
+        "version": {"type": ["string", "null"]},
+        "commit": {"type": ["string", "null"]},
+        "license": {"type": ["string", "null"]},
+        "frozen": {"type": "boolean"}
+      }
+    },
+    "arms": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "primary_questions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "metric_families": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "formal_mncs_status": {"type": "string", "enum": ["UNKNOWN", "REVIEW_REQUIRED", "ESTABLISHED", "NOT_APPLICABLE"]},
+    "formal_mncds_status": {"type": "string", "enum": ["UNKNOWN", "REVIEW_REQUIRED", "ESTABLISHED", "NOT_APPLICABLE"]},
+    "promotion_authorized": {"type": "boolean"}
+  }
+}
