@@ -5,16 +5,16 @@ This roadmap is intentionally evidence-first. Dates are not promises; phases des
 ## Phase 0 — repository foundation
 
 - [x] Separate empirical studies from the core MNCS standards repository.
-- [x] Establish `case-studies/` and `reference-studies/` as distinct research lanes.
+- [x] Establish `case-studies/`, `studies/`, and `reference-studies/` as distinct research lanes.
 - [x] Define initial MRS metadata and repository validation.
 - [x] Draft shared protocol, metrics, evidence, agent-evaluation, and reproducibility guidance.
 - [x] Scaffold MRS-001, MRS-002, and MRS-003.
 
-## Phase 1 — migrate existing MNCS case studies
+## Phase 1 — migrate existing MNCS research
 
-Move the existing `case-studies/` body from `machine-native-complexity-standard` in reviewable batches. Preserve source commit identity, evidence boundaries, commands, and study-local history/provenance notes. Update the standards repository to link here only after target content is merged and validated.
+Move the existing `case-studies/` and `studies/` bodies from `machine-native-complexity-standard` in reviewable batches. Preserve source commit identity, evidence boundaries, commands, and study-local history/provenance notes. Update the standards repository to link here only after target content is merged and validated.
 
-Initial migration inventory:
+### Case-study migration inventory
 
 - CacheForge
 - Composed Gateway
@@ -25,6 +25,14 @@ Initial migration inventory:
 - Multilingual Stream
 - RAVEL
 - Remote Water Control
+
+### Study migration inventory
+
+- Recursive Analyzer
+- Recursive Architecture Comparison
+- Recursive Experience Substrate
+
+The source root Makefile currently couples these studies to targets including `recursive-study`, `recursive-architecture-study-check`, `recursive-experience-substrate-check`, `cacheforge-*`, `ravel-*`, `multilingual-*`, `go-gateway`, and `composed-gateway`. Migration PRs must repair those root/workflow dependencies deliberately rather than copying them blindly.
 
 ## Phase 2 — Tier 1 reference reimplementations
 
