@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "id": "MRS-003",
+  "slug": "http-parser",
+  "title": "HTTP/1 parser reference reimplementation",
+  "tier": 1,
+  "status": "PLANNED",
+  "subject": "HTTP/1 parser",
+  "upstream": {
+    "name": null,
+    "url": null,
+    "version": null,
+    "commit": null,
+    "license": null,
+    "frozen": false
+  },
+  "arms": [
+    "reference",
+    "conventional-rust",
+    "mncs-rust",
+    "mncs-language-future"
+  ],
+  "primary_questions": [
+    "state-machine-assurance",
+    "adversarial-input",
+    "agent-maintainability"
+  ],
+  "metric_families": [
+    "behavioral-correctness",
+    "streaming-state",
+    "adversarial-input",
+    "resource-bounds",
+    "fuzzing",
+    "mutation-testing",
+    "runtime",
+    "agent-evaluation"
+  ],
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false
+}

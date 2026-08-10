@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1.0",
+  "id": "MRS-002",
+  "slug": "lz4",
+  "title": "LZ4-style block codec reference reimplementation",
+  "tier": 1,
+  "status": "PLANNED",
+  "subject": "LZ4-style block codec",
+  "upstream": {
+    "name": null,
+    "url": null,
+    "version": null,
+    "commit": null,
+    "license": null,
+    "frozen": false
+  },
+  "arms": [
+    "reference",
+    "conventional-rust",
+    "mncs-rust",
+    "mncs-language-future"
+  ],
+  "primary_questions": [
+    "performance",
+    "bounds-assurance",
+    "machine-verifiability"
+  ],
+  "metric_families": [
+    "behavioral-correctness",
+    "adversarial-input",
+    "resource-bounds",
+    "fuzzing",
+    "mutation-testing",
+    "runtime",
+    "memory",
+    "agent-evaluation"
+  ],
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false
+}

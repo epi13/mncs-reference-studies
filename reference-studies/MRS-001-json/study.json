@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1.0",
+  "id": "MRS-001",
+  "slug": "json",
+  "title": "JSON parser reference reimplementation",
+  "tier": 1,
+  "status": "PLANNED",
+  "subject": "JSON parser",
+  "upstream": {
+    "name": null,
+    "url": null,
+    "version": null,
+    "commit": null,
+    "license": null,
+    "frozen": false
+  },
+  "arms": [
+    "reference",
+    "conventional-rust",
+    "mncs-rust",
+    "mncs-language-future"
+  ],
+  "primary_questions": [
+    "correctness",
+    "machine-verifiability",
+    "agent-maintainability"
+  ],
+  "metric_families": [
+    "behavioral-correctness",
+    "adversarial-input",
+    "resource-bounds",
+    "fuzzing",
+    "mutation-testing",
+    "runtime",
+    "agent-evaluation"
+  ],
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false
+}
