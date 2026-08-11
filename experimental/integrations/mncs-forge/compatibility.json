@@ -1,0 +1,55 @@
+{
+  "record_type": "experimental-non-normative-integration",
+  "forge": {
+    "commit": "7e0599a080a36d3415780ba9e9ff617a7d012fbd",
+    "mcp_sdk": ">=1.29,<2",
+    "python": ">=3.11,<3.14",
+    "repository": "https://github.com/epi13/mncs-forge-mcp",
+    "version": "0.1.0a2"
+  },
+  "mncs": {
+    "base_commit": "82ed50b1bf3393300d596b38972a195c4da7ff4c",
+    "provider_protocol": "0.1",
+    "repository": "https://github.com/epi13/machine-native-complexity-standard"
+  },
+  "codex": {
+    "cli_version": "0.144.6",
+    "registration_mode": "development",
+    "registration_requires_restart_for_new_inventory": true,
+    "transport": "local stdio"
+  },
+  "joern_transition": {
+    "default": false,
+    "historical_evidence": "FROZEN",
+    "legacy_provider": "OPTIONAL_EXPLICIT_CONFIGURATION",
+    "project_owned_mcp_registration": "NONE_REMOVED",
+    "unrelated_registration": "LEFT_UNTOUCHED",
+    "unsupported_capability_result": "UNKNOWN"
+  },
+  "scope": "provider-neutral project workflows, provider discovery, and retained EdgeStream read-only inspection",
+  "status_boundaries": {
+    "governance_approval": "UNKNOWN",
+    "independent_evaluation": "UNKNOWN",
+    "protected_holdout": "UNKNOWN",
+    "promotion": "PROHIBITED",
+    "witnessed_evidence": "UNKNOWN"
+  },
+  "tested_development_mcp_tools": [
+    "mncs_forge_bundle_build",
+    "mncs_forge_candidate_compare",
+    "mncs_forge_candidate_freeze",
+    "mncs_forge_candidate_register",
+    "mncs_forge_candidate_reject",
+    "mncs_forge_candidate_select",
+    "mncs_forge_capability_blockers",
+    "mncs_forge_claim_blockers",
+    "mncs_forge_claim_status",
+    "mncs_forge_development_checks_run",
+    "mncs_forge_epoch_begin",
+    "mncs_forge_evidence_reconcile",
+    "mncs_forge_failure_explain",
+    "mncs_forge_project_inspect",
+    "mncs_forge_provider_probe",
+    "mncs_forge_providers_list"
+  ]
+}

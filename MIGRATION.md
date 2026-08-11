@@ -21,6 +21,13 @@ records and are not evidence-bearing artifacts. The checked-in evidence files
 remain byte-identical to the frozen inventory after restoring a locally
 generated EdgeStream scratch result.
 
+Shared empirical infrastructure that was coupled to the old root was moved here as
+well: language-evidence profiles/providers/fixtures and schema, cross-study regression
+tests, empirical Forge configuration/provider fixtures, and the historical Wave Five
+roadmap. Normative schemas, the `mncs_validator` package, and standards conformance
+remain owned by the source repository and are referenced only through the explicit
+`MNCS_STANDARDS_ROOT` boundary.
+
 The normal cross-repository copy does not preserve Git file history. Each
 study has its own `MIGRATION.md` with the source path, destination path, last
 source-touching commit, and study-specific adaptation record.

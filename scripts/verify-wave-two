@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+import json
+import subprocess
+import sys
+from pathlib import Path
+from jsonschema import Draft202012Validator
+
+ROOT = Path(__file__).resolve().parents[1]
+PAIRS = [
+    ("experimental/language-evidence/profiles/go-1.23-v0.2.json", "schemas/mncs-language-evidence-profile.schema.json"),
+    ("case-studies/composed-gateway/boundary-native.json", "schemas/mncs-boundary-contract.schema.json"),
+    ("case-studies/composed-gateway/boundary-process.json", "schemas/mncs-boundary-contract.schema.json"),
+    ("case-studies/composed-gateway/composed-assurance.json", "schemas/mncs-composed-assurance-case.schema.json"),
+]
+
+
+def load(path: str) -> object:
+    return json.loads((ROOT / path).read_text())
+
+
+def main() -> int:
+    for data, schema in PAIRS:
+        errors = list(Draft202012Validator(load(schema)).iter_errors(load(data)))
+        if errors:
+            print(f"{data}: {errors[0].message}")
+            return 1
+    subprocess.run([sys.executable, str(ROOT / "scripts/run-wave-two-provider-corpus")], check=True)
+    print("wave two static and provider checks: PASS")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

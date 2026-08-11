@@ -1,0 +1,315 @@
+# Non-normative project development control plane for the separate MNCS Forge repository.
+version = 1
+environment_allowlist = [
+  "PATH", "LANG", "LC_ALL", "CC", "CFLAGS", "RUSTFLAGS", "CARGO_HOME", "RUSTUP_HOME"
+]
+required_capabilities = [
+  "evidence-change-impact",
+  "artifact-manifest-identity",
+  "mncs-assurance-graph-impact",
+  "mncs-record-dispatch",
+]
+
+[project]
+name = "MNCS provider-neutral development control plane"
+identity = "mncs-forge-development-v3"
+root = "."
+
+[paths]
+candidates = ["case-studies/edgestream/machine"]
+generated = ["case-studies/edgestream/build"]
+contracts = ["case-studies/edgestream/specification"]
+references = ["case-studies/edgestream/reference"]
+evaluators = [
+  "case-studies/edgestream/tools/study_evaluation.py",
+  "case-studies/edgestream/tools/harness_regression.py",
+  "experimental/integrations/mncs-forge/providers/project_provider.py",
+  "experimental/integrations/mncs-forge/providers/project_provider_hardened.py",
+]
+acceptance_policies = ["case-studies/edgestream/preregistration.json"]
+development_evidence = [
+  "case-studies/edgestream/evidence",
+  "case-studies/edgestream/mncds",
+  "examples/release-candidate-0.3",
+  "examples/mncds-0.1-rc",
+  "experimental/integrations/mncs-forge/fixtures",
+]
+protected = []
+outputs = [".mncs-forge/outputs"]
+
+[limits]
+timeout_seconds = 3600
+output_bytes = 1048576
+
+[verifier_limits]
+max_batch = 4
+request_bytes = 65536
+batch_timeout_seconds = 30
+witness_bytes = 16384
+stderr_bytes = 4096
+result_bytes = 131072
+max_changed_paths = 64
+max_dependency_identities = 64
+max_question_parameters = 16
+
+[commands]
+mncs = [".venv/bin/mncs"]
+mncds = [".venv/bin/mncds"]
+
+[authority.development]
+may_write_candidates = true
+may_write_generated = true
+may_run_providers = true
+
+[authority.evaluator]
+candidate_read_only = true
+authority_read_only = true
+require_frozen_identities = true
+withhold_repair_feedback = true
+
+[policies]
+selection = "case-studies/edgestream/preregistration.json"
+useful_benefit_objective = "case-studies/edgestream/preregistration.json"
+
+[[providers]]
+id = "mncs-project-micro-verifiers"
+name = "MNCS project bounded micro-verifiers"
+identity = "mncs-project-micro-verifiers-v0.1"
+version = "0.1"
+command = ["experimental/integrations/mncs-forge/providers/project_provider_hardened.py"]
+transport = "stdio-jsonl"
+required = true
+capabilities = [
+  "evidence-change-impact",
+  "artifact-manifest-identity",
+  "mncs-assurance-graph-impact",
+  "mncs-record-dispatch",
+]
+supported_constructs = [
+  "bounded-path-envelope",
+  "bounded-manifest-identity",
+  "mncs-0.3-required-graph-impact",
+  "mncs-0.3-exact-record-dispatch",
+]
+unsupported_constructs = [
+  "whole-program-semantic-independence",
+  "organizational-independence",
+  "protected-custody",
+  "arbitrary-executables",
+  "network-evidence",
+]
+limitations = [
+  "project-owned non-normative development provider",
+  "no capability establishes MNCS/MNCDS conformance, independence, custody, certification, or promotion",
+]
+
+[[workflows]]
+name = "mncs-project-structural-verifiers"
+category = "bounded_structural_analysis"
+mode = "development"
+command = ["experimental/integrations/mncs-forge/providers/project_provider_hardened.py"]
+provider_protocol = true
+provider_id = "mncs-project-micro-verifiers"
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "mncs-project-evidence-verifiers"
+category = "evidence_derivation"
+mode = "development"
+command = ["experimental/integrations/mncs-forge/providers/project_provider_hardened.py"]
+provider_protocol = true
+provider_id = "mncs-project-micro-verifiers"
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "mncs-project-inspection-verifiers"
+category = "inspection"
+mode = "development"
+command = ["experimental/integrations/mncs-forge/providers/project_provider_hardened.py"]
+provider_protocol = true
+provider_id = "mncs-project-micro-verifiers"
+subject = "project"
+disclosure = "compact"
+
+[[verifiers]]
+id = "evidence.change-impact"
+version = "0.1"
+workflow = "mncs-project-structural-verifiers"
+provider = "mncs-project-micro-verifiers"
+method = "evidence-change-impact"
+claim = "Explicit changed paths do not intersect a caller-declared bounded evidence dependency envelope."
+category = "bounded_structural_analysis"
+modes = ["development"]
+artifact_types = ["evidence", "source"]
+scopes = ["evidence", "dependency-slice"]
+input_kinds = ["candidate_identity", "changed_paths", "question_parameters"]
+limitations = [
+  "Path separation does not establish semantic or whole-program independence.",
+  "An incomplete caller envelope cannot prove evidence independence.",
+]
+assumptions = ["dependency_paths names the caller's intended bounded evidence dependency envelope"]
+timeout_seconds = 5
+cost = "low"
+uncertainty_classes = ["evidence-freshness", "change-impact"]
+tags = ["identity", "metadata"]
+parameter_keys = ["dependency_paths"]
+
+[[verifiers]]
+id = "artifact.manifest-identity"
+version = "0.1"
+workflow = "mncs-project-evidence-verifiers"
+provider = "mncs-project-micro-verifiers"
+method = "artifact-manifest-identity"
+claim = "Bounded ordered artifact paths, sizes, SHA-256 identities, and ordered digest agree with a declared manifest."
+category = "evidence_derivation"
+modes = ["development"]
+artifact_types = ["artifact", "manifest"]
+scopes = ["artifact"]
+input_kinds = ["candidate_identity", "question_parameters"]
+limitations = ["Identity agreement does not establish artifact truth, behavior, or adequacy."]
+assumptions = ["the manifest names the intended bounded artifact set and ordering"]
+timeout_seconds = 5
+cost = "low"
+uncertainty_classes = ["artifact-identity", "manifest-drift"]
+tags = ["identity", "manifest"]
+parameter_keys = ["manifest_path", "artifact_paths"]
+
+[[verifiers]]
+id = "mncs.assurance-graph-impact"
+version = "0.1"
+workflow = "mncs-project-structural-verifiers"
+provider = "mncs-project-micro-verifiers"
+method = "mncs-assurance-graph-impact"
+claim = "A proposed revalidation scope covers the required graph-impact closure for declared material changes."
+category = "bounded_structural_analysis"
+modes = ["development"]
+artifact_types = ["assurance-record"]
+scopes = ["dependency-slice"]
+input_kinds = ["candidate_identity", "question_parameters"]
+limitations = [
+  "This method uses the current Python implementation family and is not independent verification.",
+  "Undeclared real dependencies remain outside the computed closure.",
+]
+assumptions = ["the supplied assurance record declares the intended dependency graph"]
+timeout_seconds = 5
+cost = "low"
+uncertainty_classes = ["graph-impact", "partial-revalidation"]
+tags = ["graph", "revalidation"]
+parameter_keys = ["record_path", "material_changes", "proposed_scope_claim_ids"]
+
+[[verifiers]]
+id = "mncs.record-dispatch"
+version = "0.1"
+workflow = "mncs-project-inspection-verifiers"
+provider = "mncs-project-micro-verifiers"
+method = "mncs-record-dispatch"
+claim = "A bounded record uses an exact supported schema version and kind without downgrade substitution."
+category = "inspection"
+modes = ["development"]
+artifact_types = ["record"]
+scopes = ["artifact", "contract"]
+input_kinds = ["candidate_identity", "question_parameters"]
+limitations = ["Dispatch support does not establish adequacy, independence, or conformance PASS."]
+assumptions = ["the caller states the intended record kind and expected exact version"]
+timeout_seconds = 5
+cost = "low"
+uncertainty_classes = ["schema-confusion", "downgrade"]
+tags = ["dispatch", "schema"]
+parameter_keys = ["record_path", "kind", "expected_schema_version", "evaluation_time"]
+
+[[workflows]]
+name = "tooling-inspect"
+category = "inspection"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "tooling-inspect"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "release-candidate-check"
+category = "evidence_derivation"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "release-candidate-check"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "release-candidate-corpus"
+category = "evidence_derivation"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "release-candidate-corpus"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "python-rust-comparison"
+category = "evidence_derivation"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "python-rust-comparison"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "recursive-analyzer-study"
+category = "evidence_derivation"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "recursive-analyzer-study"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "core-check"
+category = "build"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "core-check"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "ravel-0.4-check"
+category = "inspection"
+mode = "development"
+command = ["scripts/forge_workflow_hardened.py", "ravel-0.4-check"]
+provider_protocol = false
+subject = "project"
+disclosure = "compact"
+
+[[workflows]]
+name = "edgestream-read-only-inspect"
+category = "inspection"
+mode = "development"
+command = ["python3", "-c", "import json; from pathlib import Path; required=['case-studies/edgestream/specification/contract.md','case-studies/edgestream/reference/edgestream_reference.c','case-studies/edgestream/machine/edgestream_generated.c','case-studies/edgestream/preregistration.json','case-studies/edgestream/mncds/development-record.json','case-studies/edgestream/evidence/results/study-summary.json']; missing=[p for p in required if not Path(p).is_file()]; print(json.dumps({'status':'PASS' if not missing else 'UNKNOWN','witnesses':[{'visible_file':p} for p in required if p not in missing],'limitations':['path visibility is not proof of evidence validity, independence, or protected custody']+[f'missing required example path: {p}' for p in missing],'unsupported_constructs':['independent evaluation','protected holdout','witnessed evidence','governance approval']},sort_keys=True))"]
+provider_protocol = false
+disclosure = "compact"
+
+[[workflows]]
+name = "edgestream-smoke"
+category = "differential_behavior"
+mode = "development"
+command = ["python", "case-studies/edgestream/tools/smoke.py"]
+provider_protocol = false
+disclosure = "compact"
+
+[[workflows]]
+name = "edgestream-mncs-validate"
+category = "mncs_bundle_validation"
+mode = "both"
+command = [".venv/bin/mncs", "validate-bundle", "case-studies/edgestream", "--json"]
+provider_protocol = false
+disclosure = "status-only"
+
+[[workflows]]
+name = "edgestream-mncds-validate"
+category = "mncds_record_validation"
+mode = "both"
+command = [".venv/bin/mncds", "validate", "case-studies/edgestream/mncds/development-record.json", "--json"]
+provider_protocol = false
+disclosure = "status-only"

@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "manifest_id": "mncs-forge-fixture-manifest-v1",
+  "artifacts": [
+    {
+      "path": "experimental/integrations/mncs-forge/fixtures/artifact-a.txt",
+      "size": 39,
+      "sha256": "sha256:3f193125553eee3e7423293d53b5f9b5ad014c304ba5353968d22922aadaf8b7"
+    },
+    {
+      "path": "experimental/integrations/mncs-forge/fixtures/artifact-b.txt",
+      "size": 39,
+      "sha256": "sha256:5ce291d1b365c132b9921e1d1bf25c8bda09484beb45bf27caff29c4680266d0"
+    }
+  ],
+  "ordered_digest": "sha256:405c5d480d02f544b6c1d9022051348bbd5475c717f61060c4c088ffec082986"
+}

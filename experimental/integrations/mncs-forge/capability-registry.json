@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1",
+  "registry_id": "mncs-project-forge-capabilities-v0.1",
+  "normative": false,
+  "capabilities": [
+    {
+      "id": "evidence.change-impact",
+      "version": "0.1",
+      "narrow_claim": "Explicit changed paths do not intersect a caller-declared bounded evidence dependency envelope.",
+      "provider_protocol_method": "evidence-change-impact",
+      "category": "bounded_structural_analysis",
+      "languages": [],
+      "artifact_types": ["evidence", "source"],
+      "scopes": ["evidence", "dependency-slice"],
+      "accepted_input_kinds": ["candidate_identity", "changed_paths", "question_parameters"],
+      "expected_witnesses": ["intersecting normalized paths"],
+      "assumptions": ["The caller-declared dependency paths name the intended bounded envelope."],
+      "limitations": ["Path separation does not establish semantic or whole-program independence."],
+      "unsupported_constructs": ["implicit dependencies", "whole-program semantic independence"],
+      "uncertainty_classes": ["evidence-freshness", "change-impact"],
+      "dependency_envelope_requirements": {
+        "paths": "Caller-supplied normalized dependency paths.",
+        "complete_for_claim": false
+      },
+      "expected_cost": "low",
+      "timeout_class": "short",
+      "required": true,
+      "consumers": {
+        "workflows": ["mncs-project-structural-verifiers"],
+        "verifiers": ["evidence.change-impact"]
+      },
+      "escalation_path": "Expand the declared dependency envelope or use a separately evidenced structural/data-flow analyzer."
+    },
+    {
+      "id": "artifact.manifest-identity",
+      "version": "0.1",
+      "narrow_claim": "Bounded ordered artifact paths, sizes, SHA-256 identities, and the ordered digest agree with a declared manifest.",
+      "provider_protocol_method": "artifact-manifest-identity",
+      "category": "evidence_derivation",
+      "languages": [],
+      "artifact_types": ["artifact", "manifest"],
+      "scopes": ["artifact"],
+      "accepted_input_kinds": ["candidate_identity", "question_parameters"],
+      "expected_witnesses": ["artifact count", "ordered digest", "bounded mismatch tuples"],
+      "assumptions": ["The manifest identifies the intended artifact set and ordering."],
+      "limitations": ["Identity agreement does not establish artifact truth, behavior, or adequacy."],
+      "unsupported_constructs": ["symlinks", "unbounded manifests", "protected paths", "remote artifacts"],
+      "uncertainty_classes": ["artifact-identity", "manifest-drift"],
+      "dependency_envelope_requirements": {
+        "paths": "Manifest plus every ordered artifact path.",
+        "complete_for_claim": true
+      },
+      "expected_cost": "low",
+      "timeout_class": "short",
+      "required": true,
+      "consumers": {
+        "workflows": ["mncs-project-evidence-verifiers"],
+        "verifiers": ["artifact.manifest-identity"]
+      },
+      "escalation_path": "Regenerate the manifest under its declared authority or retain UNKNOWN when material is unavailable."
+    },
+    {
+      "id": "mncs.assurance-graph-impact",
+      "version": "0.1",
+      "narrow_claim": "A proposed revalidation scope covers the required graph-impact closure for declared material changes.",
+      "provider_protocol_method": "mncs-assurance-graph-impact",
+      "category": "bounded_structural_analysis",
+      "languages": [],
+      "artifact_types": ["assurance-record"],
+      "scopes": ["dependency-slice"],
+      "accepted_input_kinds": ["candidate_identity", "question_parameters"],
+      "expected_witnesses": ["direct claims", "transitive closure", "proposed scope", "missing claims"],
+      "assumptions": ["The supplied assurance record declares the intended dependency graph."],
+      "limitations": ["This method uses the current Python implementation family and is not independent verification."],
+      "unsupported_constructs": ["undeclared dependencies", "non-0.3 assurance records", "whole-program inference"],
+      "uncertainty_classes": ["graph-impact", "partial-revalidation"],
+      "dependency_envelope_requirements": {
+        "paths": "The supplied assurance record.",
+        "complete_for_claim": true
+      },
+      "expected_cost": "low",
+      "timeout_class": "short",
+      "required": true,
+      "consumers": {
+        "workflows": ["mncs-project-structural-verifiers"],
+        "verifiers": ["mncs.assurance-graph-impact"]
+      },
+      "escalation_path": "Use the separately implemented Rust consumer or a broader structural analyzer when implementation-family diversity is required."
+    },
+    {
+      "id": "mncs.record-dispatch",
+      "version": "0.1",
+      "narrow_claim": "A bounded record uses an exact public-validator-supported schema version and kind without downgrade substitution.",
+      "provider_protocol_method": "mncs-record-dispatch",
+      "category": "inspection",
+      "languages": [],
+      "artifact_types": ["record"],
+      "scopes": ["artifact", "contract"],
+      "accepted_input_kinds": ["candidate_identity", "question_parameters"],
+      "expected_witnesses": ["record kind", "schema version", "public dispatch category", "issue codes"],
+      "assumptions": ["The caller states the intended record kind and expected exact version."],
+      "limitations": ["Dispatch support does not establish adequacy, independence, or conformance PASS."],
+      "unsupported_constructs": ["implicit upgrades", "unknown schema versions", "unlisted record families"],
+      "uncertainty_classes": ["schema-confusion", "downgrade"],
+      "dependency_envelope_requirements": {
+        "paths": "The supplied record path.",
+        "complete_for_claim": true
+      },
+      "expected_cost": "low",
+      "timeout_class": "short",
+      "required": true,
+      "consumers": {
+        "workflows": ["mncs-project-inspection-verifiers"],
+        "verifiers": ["mncs.record-dispatch"]
+      },
+      "escalation_path": "Use the exact offline validator matching the record family; do not rewrite a version string."
+    }
+  ],
+  "limitations": [
+    "This registry is experimental, provider-neutral at the protocol boundary, and non-normative.",
+    "Registry membership and successful probes do not establish MNCS/MNCDS conformance.",
+    "Local verifier results cannot create independence, protected custody, witnessing, governance approval, certification, or promotion."
+  ]
+}

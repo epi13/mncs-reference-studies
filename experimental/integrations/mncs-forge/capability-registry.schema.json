@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mncs.dev/schema/experimental/mncs-forge-capability-registry-0.1.json",
+  "title": "MNCS project-owned Forge capability registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "registry_id", "normative", "capabilities", "limitations"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "registry_id": {"type": "string", "minLength": 1},
+    "normative": {"const": false},
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/capability"}
+    },
+    "limitations": {"$ref": "#/$defs/strings"}
+  },
+  "$defs": {
+    "strings": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "narrow_claim",
+        "provider_protocol_method",
+        "category",
+        "languages",
+        "artifact_types",
+        "scopes",
+        "accepted_input_kinds",
+        "expected_witnesses",
+        "assumptions",
+        "limitations",
+        "unsupported_constructs",
+        "uncertainty_classes",
+        "dependency_envelope_requirements",
+        "expected_cost",
+        "timeout_class",
+        "required",
+        "consumers",
+        "escalation_path"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        "version": {"type": "string", "minLength": 1},
+        "narrow_claim": {"type": "string", "minLength": 1},
+        "provider_protocol_method": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "category": {"type": "string", "minLength": 1},
+        "languages": {"$ref": "#/$defs/strings"},
+        "artifact_types": {"$ref": "#/$defs/strings"},
+        "scopes": {"$ref": "#/$defs/strings"},
+        "accepted_input_kinds": {"$ref": "#/$defs/strings"},
+        "expected_witnesses": {"$ref": "#/$defs/strings"},
+        "assumptions": {"$ref": "#/$defs/strings"},
+        "limitations": {"$ref": "#/$defs/strings"},
+        "unsupported_constructs": {"$ref": "#/$defs/strings"},
+        "uncertainty_classes": {"$ref": "#/$defs/strings"},
+        "dependency_envelope_requirements": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["paths", "complete_for_claim"],
+          "properties": {
+            "paths": {"type": "string", "minLength": 1},
+            "complete_for_claim": {"type": "boolean"}
+          }
+        },
+        "expected_cost": {"enum": ["low", "medium", "high"]},
+        "timeout_class": {"enum": ["short", "standard", "extended"]},
+        "required": {"type": "boolean"},
+        "consumers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["workflows", "verifiers"],
+          "properties": {
+            "workflows": {"$ref": "#/$defs/strings"},
+            "verifiers": {"$ref": "#/$defs/strings"}
+          }
+        },
+        "escalation_path": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

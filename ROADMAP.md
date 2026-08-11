@@ -12,7 +12,7 @@ This roadmap is intentionally evidence-first. Dates are not promises; phases des
 
 ## Phase 1 — migrate existing MNCS research
 
-Move the existing `case-studies/` and `studies/` bodies from `machine-native-complexity-standard` in reviewable batches. Preserve source commit identity, evidence boundaries, commands, and study-local history/provenance notes. Update the standards repository to link here only after target content is merged and validated.
+The existing `case-studies/` and `studies/` bodies from `machine-native-complexity-standard` have been imported in reviewable batches. Source commit identity, evidence boundaries, commands, and study-local provenance notes are preserved. The standards repository now links here for empirical work.
 
 Migration status: all nine historical case studies and all three historical research studies are present in this repository at frozen source commit `80f08d312dce963265c7f69ac5b4bae8245bd692`. The destination owns empirical checks; normative MNCS/MNCDS validation remains a separately declared dependency.
 
@@ -34,7 +34,9 @@ Migration status: all nine historical case studies and all three historical rese
 - [Recursive Architecture Comparison](studies/recursive-architecture-comparison/README.md) — VALIDATED
 - [Recursive Experience Substrate](studies/recursive-experience-substrate/README.md) — VALIDATED
 
-The source root Makefile currently couples these studies to targets including `recursive-study`, `recursive-architecture-study-check`, `recursive-experience-substrate-check`, `cacheforge-*`, `ravel-*`, `multilingual-*`, `go-gateway`, and `composed-gateway`. Migration PRs must repair those root/workflow dependencies deliberately rather than copying them blindly.
+The destination `GNUmakefile` owns the empirical compatibility targets. Normative
+validator dependencies remain explicit through `MNCS_STANDARDS_ROOT`; no sibling
+checkout is required for the default destination check.
 
 ## Phase 2 — Tier 1 reference reimplementations
 

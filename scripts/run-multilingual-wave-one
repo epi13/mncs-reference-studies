@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+PYTHONPATH=src ./scripts/validate-language-profile experimental/language-evidence/profiles/c11-reference-v0.1.json
+PYTHONPATH=src ./scripts/validate-language-profile experimental/language-evidence/profiles/rust-1.97.1-edition-2024-v0.1.json
+PYTHONPATH=src ./scripts/validate-language-profile experimental/language-evidence/profiles/python-cpython-3.11-v0.1.json
+./scripts/run-language-provider-corpus
+./scripts/verify-cacheforge-language-profile
+make -C case-studies/multilingual-stream check

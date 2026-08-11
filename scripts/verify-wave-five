@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+from jsonschema import Draft202012Validator, FormatChecker
+
+ROOT = Path(__file__).resolve().parents[1]
+WAVE = ROOT / "case-studies/composed-gateway/wave-five"
+
+
+def load(path: Path) -> dict[str, Any]:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        raise ValueError(f"{path} is not an object")
+    return value
+
+
+def main() -> int:
+    findings: list[str] = []
+    schemas = [
+        ROOT / "schemas/mncs-portable-evaluation-bundle.schema.json",
+        ROOT / "schemas/mncs-host-execution-record.schema.json",
+        ROOT / "schemas/mncs-reproduction-cohort.schema.json",
+    ]
+    for schema_path in schemas:
+        Draft202012Validator.check_schema(load(schema_path))
+
+    cohort_schema = load(ROOT / "schemas/mncs-reproduction-cohort.schema.json")
+    pending = load(WAVE / "evidence/pending-cohort.json")
+    validator = Draft202012Validator(cohort_schema, format_checker=FormatChecker())
+    findings.extend(error.message for error in validator.iter_errors(pending))
+
+    lock = load(WAVE / "bundle-lock.json")
+    for name in ("manifest_identity", "archive_identity", "candidate_freeze_identity"):
+        value = lock.get(name)
+        if not isinstance(value, str) or not value.startswith("sha256:") or len(value) != 71:
+            findings.append(f"{name} is not a sha256 identity")
+
+    report = {
+        "wave": "five",
+        "status": "PASS" if not findings else "FAIL",
+        "findings": sorted(findings),
+    }
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return int(bool(findings))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
