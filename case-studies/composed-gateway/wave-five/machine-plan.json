@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.5-experimental",
+  "plan_id": "composed-gateway-wave5-alexander-five-host-v1",
+  "operator_id": "operator:alexander",
+  "bundle_id": "composed-gateway-wave5-portable-evaluator-v1",
+  "required_machine_labels": [
+    "windows-a",
+    "windows-b",
+    "fedora-a",
+    "fedora-b",
+    "pios-arm"
+  ],
+  "expected_environment_classes": [
+    "Windows x86 or x86_64",
+    "Windows x86 or x86_64 on distinct hardware",
+    "Fedora Linux x86_64",
+    "Fedora Linux x86_64 on distinct hardware",
+    "Raspberry Pi OS on ARM"
+  ],
+  "thresholds": {
+    "minimum_hosts": 5,
+    "minimum_os_families": 2,
+    "minimum_distributions": 3,
+    "minimum_architectures": 2
+  },
+  "all_planned_hosts_required": true,
+  "evidence_class": "OPERATOR_CONTROLLED_CROSS_HOST",
+  "claim_boundary": "A passing cohort establishes operator-controlled public reproduction across the declared machines. It does not establish protected holdout, independent evaluation, independent custody, or formal MNCS promotion."
+}

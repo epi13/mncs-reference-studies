@@ -1,0 +1,136 @@
+{
+  "compilers": {
+    "clang": {
+      "builds": {
+        "candidate": {
+          "binary_sha256": "sha256:0c8279baaaae0cc190e01173736541ef3116d00d847a02204039ed77d9adc17e",
+          "command": [
+            "clang",
+            "-std=c11",
+            "-D_POSIX_C_SOURCE=200809L",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wconversion",
+            "-Wshadow",
+            "-Wformat=2",
+            "-Wstrict-prototypes",
+            "-Wcast-align",
+            "-Wnull-dereference",
+            "-Werror",
+            "-fno-common",
+            "-Iinclude",
+            "-O3",
+            "runner/edgestream_cli.c",
+            "machine/edgestream_generated.c",
+            "-o",
+            "build/candidate-clang"
+          ],
+          "status": "PASS"
+        },
+        "reference": {
+          "binary_sha256": "sha256:24422ab25eff89bb478865dabda183e0473f08c005353c1d4d0f4d05ac9ad8de",
+          "command": [
+            "clang",
+            "-std=c11",
+            "-D_POSIX_C_SOURCE=200809L",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wconversion",
+            "-Wshadow",
+            "-Wformat=2",
+            "-Wstrict-prototypes",
+            "-Wcast-align",
+            "-Wnull-dereference",
+            "-Werror",
+            "-fno-common",
+            "-Iinclude",
+            "-O3",
+            "runner/edgestream_cli.c",
+            "reference/edgestream_reference.c",
+            "-o",
+            "build/reference-clang"
+          ],
+          "status": "PASS"
+        }
+      },
+      "version": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)"
+    },
+    "gcc": {
+      "builds": {
+        "candidate": {
+          "binary_sha256": "sha256:062a5bb90115093cc85d2c3dfc0cf0881ac983d2eb3e258060e902b7d45a2c74",
+          "command": [
+            "gcc",
+            "-std=c11",
+            "-D_POSIX_C_SOURCE=200809L",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wconversion",
+            "-Wshadow",
+            "-Wformat=2",
+            "-Wstrict-prototypes",
+            "-Wcast-align",
+            "-Wnull-dereference",
+            "-Werror",
+            "-fno-common",
+            "-Iinclude",
+            "-O3",
+            "runner/edgestream_cli.c",
+            "machine/edgestream_generated.c",
+            "-o",
+            "build/candidate-gcc"
+          ],
+          "status": "PASS"
+        },
+        "reference": {
+          "binary_sha256": "sha256:8d28ac9634b1e88d44a51f18089500be45ac791abd07d204727f4e0b1237adb8",
+          "command": [
+            "gcc",
+            "-std=c11",
+            "-D_POSIX_C_SOURCE=200809L",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wconversion",
+            "-Wshadow",
+            "-Wformat=2",
+            "-Wstrict-prototypes",
+            "-Wcast-align",
+            "-Wnull-dereference",
+            "-Werror",
+            "-fno-common",
+            "-Iinclude",
+            "-O3",
+            "runner/edgestream_cli.c",
+            "reference/edgestream_reference.c",
+            "-o",
+            "build/reference-gcc"
+          ],
+          "status": "PASS"
+        }
+      },
+      "version": "gcc (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)"
+    }
+  },
+  "status": "PASS",
+  "strict_flags": [
+    "-std=c11",
+    "-D_POSIX_C_SOURCE=200809L",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wconversion",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wstrict-prototypes",
+    "-Wcast-align",
+    "-Wnull-dereference",
+    "-Werror",
+    "-fno-common",
+    "-Iinclude",
+    "-O3"
+  ]
+}

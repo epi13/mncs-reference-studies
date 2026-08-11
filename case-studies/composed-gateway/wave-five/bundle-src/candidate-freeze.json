@@ -1,0 +1,8 @@
+{
+  "freeze_id": "composed-gateway-wave5-portable-freeze-v1",
+  "parent_commit": "1a6c040ae54ad8f677ec7479b573417332d1b808",
+  "system_contract_id": "contract:composed-gateway-wave3-0.2+service-v1",
+  "portable_contract_id": "contract:composed-gateway-wave5-portable-v1",
+  "scope": "portable deterministic semantic, checkpoint, corruption, and environment evidence",
+  "promotion_authorized": false
+}

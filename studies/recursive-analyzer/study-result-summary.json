@@ -1,0 +1,28 @@
+{
+  "study_id": "recursive-analyzer-two-epoch-v1",
+  "identity_match": true,
+  "development": {
+    "epoch_one": {"true_positives": 1, "false_positives": 0, "false_negatives": 1, "incorrect_pass": 2, "unknown": 1, "crashes": 0, "timeouts": 0, "unsupported": 2, "diagnostic_utility": 3},
+    "epoch_two": {"true_positives": 2, "false_positives": 0, "false_negatives": 0, "incorrect_pass": 0, "unknown": 2, "crashes": 0, "timeouts": 0, "unsupported": 2, "diagnostic_utility": 5}
+  },
+  "final": {
+    "epoch_one_comparator": {"true_positives": 0, "false_positives": 0, "false_negatives": 2, "incorrect_pass": 3, "unknown": 1, "crashes": 0, "timeouts": 0, "unsupported": 2, "diagnostic_utility": 2},
+    "epoch_two": {"true_positives": 2, "false_positives": 0, "false_negatives": 0, "incorrect_pass": 0, "unknown": 2, "crashes": 0, "timeouts": 0, "unsupported": 2, "diagnostic_utility": 5}
+  },
+  "comparison": {
+    "incorrect_pass_delta": -3,
+    "false_negative_delta": -2,
+    "false_positive_delta": 0,
+    "diagnostic_utility_delta": 3,
+    "crash_delta": 0,
+    "timeout_delta": 0
+  },
+  "selection": {
+    "selected_tool_id": "analyzer.epoch-two",
+    "internal_selection_status": "PASS",
+    "mncs_claim_status": "UNKNOWN",
+    "external_independence": "UNKNOWN"
+  },
+  "runtime_and_resource_note": "The reproducible runner reports per-run min/max wall time and maximum child RSS; those host-dependent values are intentionally not frozen in this summary.",
+  "non_promotion_boundary": "No external independence, protected custody, governance acceptance, or MNCS PASS is claimed."
+}

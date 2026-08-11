@@ -1,0 +1,9 @@
+.PHONY: test race fuzz check
+
+test:
+	go test ./...
+race:
+	go test -race ./...
+fuzz:
+	go test -run=^$$ -fuzz=FuzzParse -fuzztime=2s ./...
+check: test race fuzz

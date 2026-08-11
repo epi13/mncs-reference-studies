@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.5-experimental",
+  "cohort_id": "composed-gateway-wave5-operator-cohort-pending-v1",
+  "plan_id": "composed-gateway-wave5-alexander-five-host-v1",
+  "bundle_id": "composed-gateway-wave5-portable-evaluator-v1",
+  "manifest_identity": "sha256:ca4053025b6cdc0b17ee910c0a09011eba18fd5774df891d87a7465277126402",
+  "candidate_freeze_identity": "sha256:d858508276593494f9e8a255e07a2265954ac37424212f71f4bfa94aacbc4de9",
+  "source_records": [],
+  "status": "UNKNOWN",
+  "evidence_class": "NO_EVIDENCE",
+  "public_reproduction_status": "UNKNOWN",
+  "independent_evaluation_status": "UNKNOWN",
+  "findings": [
+    "the five planned physical host records have not yet been collected",
+    "same-operator reproduction cannot establish independent evaluation"
+  ],
+  "summary": {
+    "machine_count": 0,
+    "operator_count": 0,
+    "os_families": [],
+    "distributions": [],
+    "architectures": [],
+    "semantic_output_digests": [],
+    "required_machine_labels": ["fedora-a", "fedora-b", "pios-arm", "windows-a", "windows-b"],
+    "missing_machine_labels": ["fedora-a", "fedora-b", "pios-arm", "windows-a", "windows-b"],
+    "result_status": "UNKNOWN",
+    "gate_status": "UNKNOWN"
+  },
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false,
+  "evaluator_identity": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "extensions": {
+    "mncs.dev:wave": "five",
+    "mncs.dev:operator_controlled": true
+  }
+}

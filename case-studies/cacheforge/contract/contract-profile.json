@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "contract_id": "mncs.cacheforge.kv-cache.contract.v1",
+  "component_id": "mncs.cacheforge.kv-cache-planner.v1",
+  "applicability": {
+    "domain": "trace-driven LLM KV-cache planning simulation",
+    "included": [
+      "full-attention and sliding-window cache groups",
+      "exact prefix identity reuse",
+      "bounded block allocation and eviction",
+      "request cancellation",
+      "checkpoint and restore",
+      "deterministic generated eviction proposals"
+    ],
+    "excluded": [
+      "GPU kernels or device memory",
+      "live model execution",
+      "CUDA, ROCm, or accelerator runtimes",
+      "production multi-tenant security",
+      "integration with vLLM or another inference server",
+      "probabilistic workload prediction"
+    ]
+  },
+  "authority_boundary": {
+    "machine_role": "propose an ordered list of evictable block identifiers",
+    "human_readable_role": "validate identities, uniqueness, liveness, capacity, and fallback safety before mutating state",
+    "direct_machine_state_mutation": false
+  },
+  "hard_invariants": [
+    "resident block count never exceeds the declared capacity",
+    "one group and cache key pair maps to exactly one physical block",
+    "a block with live owners is never evicted",
+    "duplicate and unknown victim identifiers are rejected",
+    "request completion and cancellation release every live owner reference",
+    "checkpoint restore is bound to the selected policy identity",
+    "the same trace and policy identity produce the same final state digest",
+    "invalid machine proposals fall back without corrupting cache state"
+  ],
+  "claim_boundary": {
+    "development_target": "MNCS-L4 / MNCDS-D2 evidence pattern",
+    "formal_mncs_status": "UNKNOWN",
+    "formal_mncds_status": "UNKNOWN"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.4-experimental",
+  "agreement_id": "composed-gateway-wave4-cross-host-pending-v1",
+  "source_records": ["artifact:wave-three-ubuntu-pending", "artifact:wave-three-macos-pending"],
+  "system_contract_id": "contract:composed-gateway-wave3-0.2",
+  "epoch_id": "composed-gateway-wave3-epoch-2",
+  "status": "UNKNOWN",
+  "findings": ["hosted artifacts have not been supplied to the reconciler", "artifact identities and semantic agreement are unverified"],
+  "summary": {
+    "record_count": 2,
+    "host_environments": ["ubuntu-latest:unknown", "macos-latest:unknown"],
+    "semantic_output_digests": [],
+    "required_gate_status": "UNKNOWN"
+  },
+  "evaluator_identity": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "extensions": {"mncs.dev:wave": "four", "mncs.dev:pending": true}
+}

@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import subprocess
+import sys
+from pathlib import Path
+
+from mncs_validator.schemas import load_schema
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main() -> int:
+    load_schema("boundary-contract")
+    load_schema("composed-assurance-case")
+    load_schema("composed-evidence-epoch")
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "case-studies/composed-gateway/wave-three/tools/verify_static.py"),
+        ],
+        cwd=ROOT,
+        check=False,
+    )
+    return completed.returncode
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.2",
+  "study_id": "mncs.edgestream-remote-water.integration.development.v2",
+  "status": "PASS",
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "checks": {
+    "edge_events_complete": "PASS",
+    "adapter_sample_count": "PASS",
+    "adapted_samples_equal_direct_samples": "PASS",
+    "authorized_intents_equal": "PASS",
+    "journal_tail_equal": "PASS",
+    "component_evidence_separate": "PASS",
+    "distinct_component_identities": "PASS",
+    "claim_promotion_forbidden": "PASS",
+    "replayed_sequence_rejected": "PASS",
+    "mixed_device_rejected": "PASS",
+    "duplicate_metric_rejected": "PASS",
+    "invalid_power_rejected": "PASS",
+    "invalid_quality_rejected": "PASS"
+  },
+  "compile_command": [
+    "cc",
+    "-std=c11",
+    "-D_POSIX_C_SOURCE=200809L",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wconversion",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wstrict-prototypes",
+    "-Werror",
+    "-Iinclude",
+    "runner/edgestream_cli.c",
+    "machine/edgestream_generated.c",
+    "-o",
+    "<temporary-binary>"
+  ],
+  "chunk_size": 7,
+  "frame_count": 16,
+  "edge_record_count": 17,
+  "edge_event_count": 16,
+  "adapted_sample_count": 4,
+  "intervention_counts": {
+    "accepted": 4,
+    "modified": 0,
+    "held": 0,
+    "rejected": 0
+  },
+  "identities": {
+    "boundary_manifest": "sha256:f0c1de8aa2e502260429c3748a222ff2b83a9a8b987f65c306b84d182e3b51c4",
+    "integration_runner": "sha256:381e870e2249fc9ad97ac74c8eecd559eeefa76f61f663644899154a648168bf",
+    "edgestream_manifest": "sha256:1b5ee9b5402c63798e55edbc9d48f24d5b1f525af6c423d3ac0c202061c58bb2",
+    "edgestream_candidate": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+    "remote_water_assurance": "sha256:dc8b7c4c89d995225d3135dfb63629061d2fd1b7a869df1bb29c23e46d9a7bc1",
+    "remote_water_controller": "sha256:a7660217094c2c6c92cf73cfab13b7390324c71d13e9751024e6a0df62dc0d97",
+    "remote_water_planner": "sha256:b4c6d4728388bddd5a38edde6356b48a866b6fda0db6c6c786540f7fe5ad19b7",
+    "remote_water_safety_kernel": "sha256:62ddc80409e3fbecb743c4efa9a0287c905f42b5c673a6dfbc8c0e638bdeb6ea",
+    "input_frames": "sha256:a603ce1f7cf37581881596fe75e766c4c67d793883e74e185681d97d1b898542",
+    "canonical_edge_output": "sha256:221c3d984cd35d22cef611f72723133f8810b6cf31442e9b17317fee9ac84884",
+    "authorized_intents": "sha256:90204160cba235c2183fd4447ba434830bfb8530f7b6e7dcc35f80f0d5e90e37"
+  },
+  "component_boundaries": [
+    {
+      "component_id": "mncs.edgestream.telemetry.v1",
+      "evidence_path": "case-studies/edgestream/manifest.json",
+      "component_status": "MNCS-L4 PASS in its captured development environment",
+      "copied_or_rewritten_by_integration": false,
+      "invalidation_trigger": "Any EdgeStream frame, canonical event, candidate identity, or manifest change."
+    },
+    {
+      "component_id": "mncs.remote-water.supervisory-control.v1",
+      "evidence_path": "case-studies/remote-water-control/assurance-case.json",
+      "component_status": "Formal MNCS-L5 and MNCDS-D3 status UNKNOWN",
+      "copied_or_rewritten_by_integration": false,
+      "invalidation_trigger": "Any Remote Water telemetry, planner, safety-kernel, or assurance identity change."
+    }
+  ],
+  "limitations": [
+    "This study exercises a local file and process boundary, not a network transport or live SCADA path.",
+    "An integration PASS does not promote either component claim or authorize production control.",
+    "The adapter contract is limited to one device and four declared metric mappings."
+  ]
+}

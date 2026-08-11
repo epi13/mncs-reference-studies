@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "clang": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)",
+    "gcc": "gcc (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2)",
+    "strict_flags": "-std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wformat=2 -Wstrict-prototypes -Wcast-align -Wnull-dereference -Werror -fno-common -Iinclude -O3"
+  },
+  "description": "Strict-warning compiler matrix used by the development run.",
+  "extensions": {},
+  "identity_id": "identity-compiler",
+  "identity_kind": "compiler",
+  "mncs_version": "0.2",
+  "name": "GCC and Clang strict C11 matrix",
+  "schema_version": "0.2",
+  "version": "2.0"
+}

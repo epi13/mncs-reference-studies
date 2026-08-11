@@ -1,0 +1,318 @@
+{
+  "$defs": {
+    "capability": {
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "enum": [
+            "complete-for-declared-scope",
+            "bounded",
+            "conditional",
+            "unsupported"
+          ]
+        },
+        "evidence": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "limitations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tools": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "evidence",
+        "coverage",
+        "tools",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "extensions": {
+      "additionalProperties": true,
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9.-]*:[A-Za-z0-9][A-Za-z0-9._-]*$"
+      },
+      "type": "object"
+    },
+    "id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+      "type": "string"
+    },
+    "provider": {
+      "additionalProperties": false,
+      "properties": {
+        "command": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "configuration_identity": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "command",
+        "configuration_identity"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://mncs.dev/schema/experimental/0.1/mncs-language-evidence-profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Non-normative description of bounded evidence support for one programming language environment.",
+  "properties": {
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "conditional": {
+          "items": {
+            "$ref": "#/$defs/capability"
+          },
+          "type": "array"
+        },
+        "supported": {
+          "items": {
+            "$ref": "#/$defs/capability"
+          },
+          "type": "array"
+        },
+        "unsupported": {
+          "items": {
+            "$ref": "#/$defs/capability"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "supported",
+        "conditional",
+        "unsupported"
+      ],
+      "type": "object"
+    },
+    "coverage_limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "environment_observations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "identities": {
+      "additionalProperties": false,
+      "properties": {
+        "build_system": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "dependency_lock": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "generated_artifacts": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "providers": {
+          "items": {
+            "$ref": "#/$defs/provider"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "source": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "source",
+        "generated_artifacts",
+        "build_system",
+        "dependency_lock",
+        "providers"
+      ],
+      "type": "object"
+    },
+    "language": {
+      "additionalProperties": false,
+      "properties": {
+        "edition_or_runtime": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "implementation_requirements": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "edition_or_runtime",
+        "implementation_requirements"
+      ],
+      "type": "object"
+    },
+    "mechanisms": {
+      "additionalProperties": false,
+      "properties": {
+        "advanced_testing": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "malformed_input": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "nondeterminism": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "resource_performance": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "runtime_safety": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "structural_semantic": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "structural_semantic",
+        "runtime_safety",
+        "malformed_input",
+        "advanced_testing",
+        "resource_performance",
+        "nondeterminism"
+      ],
+      "type": "object"
+    },
+    "profile_id": {
+      "$ref": "#/$defs/id"
+    },
+    "profile_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "profile_version": {
+      "pattern": "^[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1-experimental"
+    },
+    "status": {
+      "const": "experimental"
+    },
+    "unknown_conditions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile_id",
+    "profile_name",
+    "profile_version",
+    "status",
+    "language",
+    "identities",
+    "capabilities",
+    "environment_observations",
+    "mechanisms",
+    "coverage_limitations",
+    "unknown_conditions",
+    "extensions"
+  ],
+  "title": "Experimental MNCS language evidence profile",
+  "type": "object"
+}

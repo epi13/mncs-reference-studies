@@ -1,0 +1,57 @@
+{
+  "alignment": "not applicable",
+  "binding_identity": "sha256:2afa2ad65de2673cd79453c9d44eec65ae70087fcbe0423169043ee48753d048",
+  "boundary_id": "boundary:go-loopback-service-v1",
+  "boundary_type": "service",
+  "callee_component": "go-wave4-loopback-service-v1",
+  "caller_component": "go-wave4-client-v1",
+  "cancellation": "caller context cancellation terminates the request; shutdown uses bounded context",
+  "compatibility_policy": "source and protocol identities must match this record",
+  "containment": "service panic or process exit cannot unwind into the caller",
+  "endianness": "text serialization",
+  "error_mapping": {
+    "400": "malformed or unknown field",
+    "404": "method or path mismatch",
+    "415": "content type mismatch",
+    "422": "version or value contract violation",
+    "context cancellation": "operational cancellation"
+  },
+  "extensions": {
+    "mncs.dev:claim": "development service-boundary evidence only",
+    "mncs.dev:wave": "four"
+  },
+  "generator_identity": "manual-readable-service-protocol-v1",
+  "integer_widths": [
+    "JSON integer constrained to uint32 <= 100000"
+  ],
+  "interface_version": "V1",
+  "malformed_input": "unknown fields, trailing JSON, oversized body, wrong method, wrong path, wrong content type, missing id, version mismatch, and out-of-range value reject",
+  "nullability": "JSON fields are required; null and missing fields reject",
+  "ownership": "client and service retain independent request and response buffers",
+  "resource_limits": {
+    "listener": "127.0.0.1 only",
+    "max_body_bytes": 1024,
+    "max_value": 100000,
+    "request_concurrency": "HTTP server bounded by host process policy"
+  },
+  "retry": "no automatic retry in Wave Four",
+  "schema_version": "0.2-experimental",
+  "serialization": "bounded JSON over HTTP/1.1 loopback",
+  "source_identity": "sha256:df2afeb9f68b5a651019f17343e2dd9deac7e99e4a4356af950ef6a31f902709",
+  "tested_failures": [
+    "unknown field",
+    "malformed JSON",
+    "oversized body",
+    "wrong method",
+    "version mismatch",
+    "cancelled request",
+    "bounded shutdown"
+  ],
+  "timeout": "one-second HTTP server limits plus caller context",
+  "unknown_conditions": [
+    "kernel and HTTP stack behavior outside declared hosts",
+    "production service-manager restart semantics",
+    "network behavior beyond loopback"
+  ],
+  "version_negotiation": "exact V1; no downgrade"
+}

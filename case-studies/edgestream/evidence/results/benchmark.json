@@ -1,0 +1,1882 @@
+{
+  "latency_by_workload": {
+    "high-cardinality.bin": {
+      "candidate": {
+        "maximum_ns": 116673984.0,
+        "minimum_ns": 111664775.0,
+        "p50_ns": 113004850.0,
+        "p95_ns": 116673984.0,
+        "p99_ns": 116673984.0
+      },
+      "p99_ratio": 0.6590699868997155,
+      "raw_batch_elapsed_ns": {
+        "candidate": [
+          112142772.0,
+          112687067.0,
+          112997882.0,
+          113004850.0,
+          116673984.0,
+          116547509.0,
+          112085327.0,
+          112341043.0,
+          115891858.0,
+          113044141.0,
+          115204991.0,
+          115125492.0,
+          112847357.0,
+          111664775.0,
+          115593865.0
+        ],
+        "reference": [
+          170711595.0,
+          177028216.0,
+          174690013.0,
+          171352648.0,
+          172539736.0,
+          176229177.0,
+          171578993.0,
+          171506680.0,
+          174888956.0,
+          171404458.0,
+          170461610.0,
+          176774271.0,
+          175359729.0,
+          170638287.0,
+          172869562.0
+        ]
+      },
+      "reference": {
+        "maximum_ns": 177028216.0,
+        "minimum_ns": 170461610.0,
+        "p50_ns": 172539736.0,
+        "p95_ns": 177028216.0,
+        "p99_ns": 177028216.0
+      }
+    },
+    "steady.bin": {
+      "candidate": {
+        "maximum_ns": 120574337.0,
+        "minimum_ns": 116157667.0,
+        "p50_ns": 118575032.0,
+        "p95_ns": 120574337.0,
+        "p99_ns": 120574337.0
+      },
+      "p99_ratio": 0.6438682956968551,
+      "raw_batch_elapsed_ns": {
+        "candidate": [
+          117194684.0,
+          117188164.0,
+          120574337.0,
+          119981210.0,
+          117220755.0,
+          118640450.0,
+          117748839.0,
+          116157667.0,
+          119157049.0,
+          120367900.0,
+          117768394.0,
+          119495025.0,
+          118575032.0,
+          116700455.0,
+          120016639.0
+        ],
+        "reference": [
+          182310518.0,
+          183839913.0,
+          184502958.0,
+          179246447.0,
+          179224111.0,
+          184278194.0,
+          185446649.0,
+          180760574.0,
+          186710035.0,
+          179413949.0,
+          178376971.0,
+          184487119.0,
+          183101637.0,
+          186233013.0,
+          187265529.0
+        ]
+      },
+      "reference": {
+        "maximum_ns": 187265529.0,
+        "minimum_ns": 178376971.0,
+        "p50_ns": 183839913.0,
+        "p95_ns": 187265529.0,
+        "p99_ns": 187265529.0
+      }
+    }
+  },
+  "maximum_latency_ratio": 1.1,
+  "mean_paired_throughput_ratio": 1.5333360592859095,
+  "mean_throughput_ratio": 1.5331633457601608,
+  "mean_throughput_ratio_method": "arithmetic mean candidate throughput divided by arithmetic mean reference throughput",
+  "median_paired_throughput_ratio": 1.5304949787401463,
+  "paired_mean_ratio_bootstrap_ci95": {
+    "lower": 1.5227622002598766,
+    "upper": 1.5437309868999933
+  },
+  "protocol": {
+    "cpu_affinity": {
+      "cpu": 0,
+      "governor": "powersave",
+      "pinned": true,
+      "supported": true
+    },
+    "maximum_batch_iterations": 64,
+    "minimum_observed_sample_elapsed_ns": 111664775,
+    "order_policy": "deterministically counterbalanced by paired repetition",
+    "outlier_policy": "retain every measured sample in execution order",
+    "repetitions_per_workload": 15,
+    "target_minimum_sample_elapsed_ns": 100000000,
+    "timer": "CLOCK_MONOTONIC inside each process; batch values sum raw runs",
+    "warmup_runs_per_implementation": 3
+  },
+  "repetitions_per_workload": 15,
+  "sample_count_per_implementation": 30,
+  "samples": [
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 117194684,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 11993386,
+        "minimum_run_elapsed_ns": 11526774,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11695054,
+          11555441,
+          11823332,
+          11993386,
+          11823679,
+          11642500,
+          11606508,
+          11526774,
+          11794579,
+          11733431
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 182310518,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 18804167,
+        "minimum_run_elapsed_ns": 17760671,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18804167,
+          18515480,
+          18239518,
+          18115927,
+          18354002,
+          18200677,
+          17853875,
+          18372945,
+          18093256,
+          17760671
+        ]
+      },
+      "repetition": 1,
+      "throughput_ratio": 1.5556210553031569,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 117188164,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12031341,
+        "minimum_run_elapsed_ns": 11534949,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11869413,
+          12031341,
+          11781382,
+          11789168,
+          11676082,
+          11626389,
+          11579548,
+          11622219,
+          11534949,
+          11677673
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 183839913,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 18881884,
+        "minimum_run_elapsed_ns": 17913529,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17913529,
+          18021400,
+          18184901,
+          18310994,
+          18651163,
+          18279937,
+          18881884,
+          18379559,
+          18741968,
+          18474578
+        ]
+      },
+      "repetition": 2,
+      "throughput_ratio": 1.5687583688059146,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 120574337,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12832131,
+        "minimum_run_elapsed_ns": 11639777,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          12832131,
+          11639777,
+          12308923,
+          12293871,
+          12135217,
+          11938542,
+          11871072,
+          11900361,
+          11817657,
+          11836786
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 184502958,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 19075092,
+        "minimum_run_elapsed_ns": 17919657,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18346980,
+          18464586,
+          17919657,
+          18118289,
+          18191150,
+          18929958,
+          19057634,
+          19075092,
+          18459255,
+          17940357
+        ]
+      },
+      "repetition": 3,
+      "throughput_ratio": 1.5302008917536076,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 119981210,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12293102,
+        "minimum_run_elapsed_ns": 11798596,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11950297,
+          12100216,
+          11928418,
+          11798596,
+          11920207,
+          12153906,
+          11842500,
+          12142363,
+          11851605,
+          12293102
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 179246447,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 18211025,
+        "minimum_run_elapsed_ns": 17749568,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18211025,
+          17865355,
+          17749568,
+          17785619,
+          17911304,
+          17978891,
+          18205553,
+          17940280,
+          17847554,
+          17751298
+        ]
+      },
+      "repetition": 4,
+      "throughput_ratio": 1.4939543200139422,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 117220755,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12077719,
+        "minimum_run_elapsed_ns": 11427053,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11867674,
+          11601921,
+          11427053,
+          11578854,
+          11605159,
+          11571949,
+          11802605,
+          11946625,
+          12077719,
+          11741196
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 179224111,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 18336071,
+        "minimum_run_elapsed_ns": 17713272,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17747941,
+          17846552,
+          17792939,
+          17811942,
+          17788362,
+          17713272,
+          17848067,
+          18078768,
+          18260197,
+          18336071
+        ]
+      },
+      "repetition": 5,
+      "throughput_ratio": 1.528945202579526,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 118640450,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12231872,
+        "minimum_run_elapsed_ns": 11572211,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11573035,
+          11572211,
+          11712066,
+          11692408,
+          12188328,
+          11902230,
+          11872470,
+          11943478,
+          12231872,
+          11952352
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 184278194,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 19689471,
+        "minimum_run_elapsed_ns": 17962522,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17980809,
+          17962522,
+          18033870,
+          19689471,
+          18419792,
+          17995571,
+          18584384,
+          18846380,
+          18467364,
+          18298031
+        ]
+      },
+      "repetition": 6,
+      "throughput_ratio": 1.553249283865663,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 117748839,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 11973620,
+        "minimum_run_elapsed_ns": 11568857,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11973620,
+          11970982,
+          11713407,
+          11568857,
+          11707794,
+          11809090,
+          11692906,
+          11738716,
+          11908941,
+          11664526
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 185446649,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 19452257,
+        "minimum_run_elapsed_ns": 17761172,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18464736,
+          18603985,
+          18380376,
+          18730206,
+          18082620,
+          18756995,
+          19452257,
+          19058787,
+          18155515,
+          17761172
+        ]
+      },
+      "repetition": 7,
+      "throughput_ratio": 1.5749339914935383,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 116157667,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 11697843,
+        "minimum_run_elapsed_ns": 11532364,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11668753,
+          11580062,
+          11697843,
+          11532364,
+          11608232,
+          11608319,
+          11533221,
+          11600924,
+          11678395,
+          11649554
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 180760574,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 18388823,
+        "minimum_run_elapsed_ns": 17758869,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17785849,
+          17803874,
+          17758869,
+          18075097,
+          18038768,
+          18122745,
+          18306503,
+          18283380,
+          18388823,
+          18196666
+        ]
+      },
+      "repetition": 8,
+      "throughput_ratio": 1.556165672645612,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 119157049,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12167942,
+        "minimum_run_elapsed_ns": 11632562,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11632562,
+          11952255,
+          11838384,
+          12167942,
+          11903230,
+          11916733,
+          12122666,
+          11759731,
+          11883375,
+          11980171
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 186710035,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 20289843,
+        "minimum_run_elapsed_ns": 18023670,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18225542,
+          18146434,
+          18493388,
+          20289843,
+          19116575,
+          18947874,
+          18197902,
+          18023670,
+          18351138,
+          18917669
+        ]
+      },
+      "repetition": 9,
+      "throughput_ratio": 1.5669239593202748,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 120367900,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12348269,
+        "minimum_run_elapsed_ns": 11825800,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11997795,
+          11894338,
+          11971548,
+          12150693,
+          12348269,
+          11825800,
+          12051764,
+          11986159,
+          12131971,
+          12009563
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 179413949,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 18402428,
+        "minimum_run_elapsed_ns": 17762514,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17788312,
+          17803376,
+          17811060,
+          18345462,
+          18045135,
+          18402428,
+          17887573,
+          17762514,
+          17802800,
+          17765289
+        ]
+      },
+      "repetition": 10,
+      "throughput_ratio": 1.4905464745999557,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 117768394,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12195711,
+        "minimum_run_elapsed_ns": 11536926,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11616113,
+          11536926,
+          11583772,
+          11594240,
+          12109456,
+          12195711,
+          11784597,
+          11764471,
+          11878814,
+          11704294
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 178376971,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 17974003,
+        "minimum_run_elapsed_ns": 17730186,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17910604,
+          17730186,
+          17788844,
+          17900951,
+          17805289,
+          17974003,
+          17870135,
+          17827249,
+          17764556,
+          17805154
+        ]
+      },
+      "repetition": 11,
+      "throughput_ratio": 1.5146421288550476,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 119495025,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12163164,
+        "minimum_run_elapsed_ns": 11751692,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11805778,
+          12053360,
+          12161842,
+          11854850,
+          11877929,
+          11829642,
+          12158735,
+          12163164,
+          11751692,
+          11838033
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 184487119,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 19429870,
+        "minimum_run_elapsed_ns": 17843888,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17843888,
+          19429870,
+          18746989,
+          18511726,
+          18465356,
+          18607827,
+          18202397,
+          18160712,
+          18310984,
+          18207370
+        ]
+      },
+      "repetition": 12,
+      "throughput_ratio": 1.5438895384975233,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 118575032,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12329326,
+        "minimum_run_elapsed_ns": 11474457,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11679358,
+          11872979,
+          11764959,
+          11836684,
+          11474457,
+          11825542,
+          12329326,
+          12177207,
+          11789223,
+          11825297
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 183101637,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 19752288,
+        "minimum_run_elapsed_ns": 17812056,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18370420,
+          18173147,
+          17930314,
+          18175326,
+          19752288,
+          18747674,
+          17860671,
+          17812056,
+          18102776,
+          18176965
+        ]
+      },
+      "repetition": 13,
+      "throughput_ratio": 1.5441837451918208,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 116700455,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 11813118,
+        "minimum_run_elapsed_ns": 11555829,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          11677897,
+          11728105,
+          11647458,
+          11661126,
+          11813118,
+          11682822,
+          11626496,
+          11747854,
+          11559750,
+          11555829
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 186233013,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 20381295,
+        "minimum_run_elapsed_ns": 17771758,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17932013,
+          17771758,
+          17875086,
+          18869568,
+          18100121,
+          18181122,
+          18792222,
+          20381295,
+          19791039,
+          18538789
+        ]
+      },
+      "repetition": 14,
+      "throughput_ratio": 1.5958207960714463,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 10,
+      "candidate": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 120016639,
+        "implementation": "machine-generated",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 12576105,
+        "minimum_run_elapsed_ns": 11749827,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          12083090,
+          12031311,
+          12095061,
+          11749827,
+          11889748,
+          11917670,
+          12576105,
+          12047025,
+          11876764,
+          11750038
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 384000,
+        "accepted_per_run": 38400,
+        "bytes": 12288320,
+        "bytes_per_run": 1228832,
+        "elapsed_ns": 187265529,
+        "implementation": "reference",
+        "iterations": 10,
+        "maximum_run_elapsed_ns": 19444459,
+        "minimum_run_elapsed_ns": 18025511,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          18999099,
+          18099244,
+          18745520,
+          18777746,
+          19043419,
+          18761474,
+          18832087,
+          19444459,
+          18025511,
+          18536970
+        ]
+      },
+      "repetition": 15,
+      "throughput_ratio": 1.560329722281258,
+      "workload": "steady.bin",
+      "workload_sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 112142772,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16286968,
+        "minimum_run_elapsed_ns": 15838310,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          15842944,
+          16218317,
+          16002074,
+          16286968,
+          16105665,
+          15848494,
+          15838310
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 170711595,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25077916,
+        "minimum_run_elapsed_ns": 24133196,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          25077916,
+          24414502,
+          24267341,
+          24394294,
+          24149395,
+          24274951,
+          24133196
+        ]
+      },
+      "repetition": 1,
+      "throughput_ratio": 1.5222701557617997,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 112687067,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16614699,
+        "minimum_run_elapsed_ns": 15836182,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          15855437,
+          15836182,
+          15900604,
+          16109070,
+          16614699,
+          16344837,
+          16026238
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 177028216,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 26895699,
+        "minimum_run_elapsed_ns": 24237137,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24237137,
+          25106219,
+          24585688,
+          26895699,
+          25183583,
+          25086706,
+          25933184
+        ]
+      },
+      "repetition": 2,
+      "throughput_ratio": 1.57097190221483,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 112997882,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16805124,
+        "minimum_run_elapsed_ns": 15957406,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16025371,
+          15960506,
+          15957406,
+          16285958,
+          16805124,
+          16004975,
+          15958542
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 174690013,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25506728,
+        "minimum_run_elapsed_ns": 24548099,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24919508,
+          24923915,
+          24548099,
+          25113141,
+          25506728,
+          24675046,
+          25003576
+        ]
+      },
+      "repetition": 3,
+      "throughput_ratio": 1.5459582950413178,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 113004850,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16450220,
+        "minimum_run_elapsed_ns": 15958319,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          15970960,
+          16450220,
+          16389294,
+          15958319,
+          16077593,
+          15970726,
+          16187738
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 171352648,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 24976217,
+        "minimum_run_elapsed_ns": 24157930,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24976217,
+          24712409,
+          24263065,
+          24157930,
+          24551109,
+          24308738,
+          24383180
+        ]
+      },
+      "repetition": 4,
+      "throughput_ratio": 1.5163300336224508,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 116673984,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 17158166,
+        "minimum_run_elapsed_ns": 15940666,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16103484,
+          16635430,
+          15940666,
+          17158166,
+          17100993,
+          16754034,
+          16981211
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 172539736,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25139455,
+        "minimum_run_elapsed_ns": 24155137,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24251724,
+          24155137,
+          24800290,
+          24497926,
+          24920850,
+          24774354,
+          25139455
+        ]
+      },
+      "repetition": 5,
+      "throughput_ratio": 1.4788192713124462,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 116547509,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 17487428,
+        "minimum_run_elapsed_ns": 16078789,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16267945,
+          16078789,
+          17487428,
+          16672276,
+          16568486,
+          16859723,
+          16612862
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 176229177,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25625725,
+        "minimum_run_elapsed_ns": 24787883,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24787883,
+          25320519,
+          25086358,
+          24864761,
+          25225101,
+          25318830,
+          25625725
+        ]
+      },
+      "repetition": 6,
+      "throughput_ratio": 1.5120801680969431,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 112085327,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16400201,
+        "minimum_run_elapsed_ns": 15866665,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          15895894,
+          15886296,
+          15869213,
+          15866665,
+          16135034,
+          16400201,
+          16032024
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 171578993,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25312446,
+        "minimum_run_elapsed_ns": 24184059,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          25312446,
+          24445745,
+          24354185,
+          24751419,
+          24263557,
+          24267582,
+          24184059
+        ]
+      },
+      "repetition": 7,
+      "throughput_ratio": 1.5307890657266852,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 112341043,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16350546,
+        "minimum_run_elapsed_ns": 15839941,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16001896,
+          16350546,
+          15987575,
+          16041590,
+          15839941,
+          15982676,
+          16136819
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 171506680,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 24808015,
+        "minimum_run_elapsed_ns": 24155403,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24155403,
+          24440929,
+          24561747,
+          24369937,
+          24434676,
+          24735973,
+          24808015
+        ]
+      },
+      "repetition": 8,
+      "throughput_ratio": 1.5266609194646696,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 115891858,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 17424581,
+        "minimum_run_elapsed_ns": 16005520,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          17424581,
+          16607112,
+          16347807,
+          16439499,
+          16005520,
+          16518492,
+          16548847
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 174888956,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25611856,
+        "minimum_run_elapsed_ns": 24344964,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24606752,
+          24821002,
+          24344964,
+          25285772,
+          25068035,
+          25150575,
+          25611856
+        ]
+      },
+      "repetition": 9,
+      "throughput_ratio": 1.5090702575499306,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 113044141,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16493719,
+        "minimum_run_elapsed_ns": 15882668,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16327289,
+          16058065,
+          16424659,
+          16493719,
+          15932094,
+          15882668,
+          15925647
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 171404458,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25095431,
+        "minimum_run_elapsed_ns": 24039354,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24398210,
+          24445281,
+          24345025,
+          24515931,
+          24565226,
+          25095431,
+          24039354
+        ]
+      },
+      "repetition": 10,
+      "throughput_ratio": 1.5162613160110616,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 115204991,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 17039392,
+        "minimum_run_elapsed_ns": 16132654,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16146220,
+          17039392,
+          16614268,
+          16628551,
+          16492836,
+          16151070,
+          16132654
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 170461610,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 24754037,
+        "minimum_run_elapsed_ns": 24111528,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24754037,
+          24282821,
+          24317711,
+          24512757,
+          24203754,
+          24111528,
+          24279002
+        ]
+      },
+      "repetition": 11,
+      "throughput_ratio": 1.4796373709191124,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 115125492,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16884794,
+        "minimum_run_elapsed_ns": 15784917,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16646625,
+          15784917,
+          16384461,
+          16884794,
+          16519693,
+          16707514,
+          16197488
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 176774271,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25691053,
+        "minimum_run_elapsed_ns": 24619328,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          25376979,
+          25206720,
+          25564565,
+          25691053,
+          25619162,
+          24619328,
+          24696464
+        ]
+      },
+      "repetition": 12,
+      "throughput_ratio": 1.5354919916433452,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 112847357,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 17011143,
+        "minimum_run_elapsed_ns": 15638482,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16517364,
+          15988303,
+          15728240,
+          15971079,
+          15992746,
+          17011143,
+          15638482
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 175359729,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 26411443,
+        "minimum_run_elapsed_ns": 24377407,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24632034,
+          25439730,
+          24762797,
+          25137679,
+          26411443,
+          24377407,
+          24598639
+        ]
+      },
+      "repetition": 13,
+      "throughput_ratio": 1.5539551271900856,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 111664775,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16142343,
+        "minimum_run_elapsed_ns": 15821802,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16142343,
+          15885485,
+          16009408,
+          15821802,
+          15878211,
+          15916824,
+          16010702
+        ]
+      },
+      "execution_order": [
+        "candidate",
+        "reference"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 170638287,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25022770,
+        "minimum_run_elapsed_ns": 23999180,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24411533,
+          23999180,
+          24233567,
+          24132433,
+          24218035,
+          24620769,
+          25022770
+        ]
+      },
+      "repetition": 14,
+      "throughput_ratio": 1.5281299496640726,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    },
+    {
+      "batch_iterations": 7,
+      "candidate": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 115593865,
+        "implementation": "machine-generated",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 16949290,
+        "minimum_run_elapsed_ns": 15972261,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          16212030,
+          16834923,
+          16949290,
+          16463189,
+          16422935,
+          16739237,
+          15972261
+        ]
+      },
+      "execution_order": [
+        "reference",
+        "candidate"
+      ],
+      "reference": {
+        "accepted": 358400,
+        "accepted_per_run": 51200,
+        "bytes": 11470592,
+        "bytes_per_run": 1638656,
+        "elapsed_ns": 172869562,
+        "implementation": "reference",
+        "iterations": 7,
+        "maximum_run_elapsed_ns": 25217297,
+        "minimum_run_elapsed_ns": 24233407,
+        "rejected": 0,
+        "rejected_per_run": 0,
+        "run_elapsed_ns": [
+          24233407,
+          24252633,
+          25217297,
+          24754260,
+          24877924,
+          25146804,
+          24387237
+        ]
+      },
+      "repetition": 15,
+      "throughput_ratio": 1.49549080308025,
+      "workload": "high-cardinality.bin",
+      "workload_sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+    }
+  ],
+  "status": "PASS",
+  "threshold": 1.15,
+  "worst_workload_p99_batch_latency_ratio": 0.6590699868997155
+}

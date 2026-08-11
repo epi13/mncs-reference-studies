@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+PROVIDER = ROOT / "experimental/language-evidence/providers/go_provider.py"
+FIXTURES = ROOT / "experimental/language-evidence/fixtures/providers/go"
+EXPECTED = {"pass": "PASS", "fail": "FAIL", "unknown": "UNKNOWN"}
+
+
+def request(case: str) -> dict[str, object]:
+    return {
+        "protocol_version": "0.1",
+        "type": "analysis_request",
+        "request_id": "go-" + case,
+        "analysis": "go.bounded-concurrency-safety",
+        "component": {
+            "language": "go",
+            "source_text": (FIXTURES / f"{case}.txt").read_text(),
+            "subject_id": "fixture:go:" + case,
+            "contract_id": "contract:provider-conformance-0.2",
+            "environment_id": "environment:go-provider-corpus",
+            "evidence_partition": "public-conformance",
+        },
+        "limits": {"wall_seconds": 2, "input_bytes": 65536},
+        "extensions": {},
+    }
+
+
+def run(value: dict[str, object], timeout: float = 2.0) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        [sys.executable, str(PROVIDER)],
+        input=json.dumps(value) + "\n",
+        text=True,
+        capture_output=True,
+        timeout=timeout,
+        env={"PATH": os.environ.get("PATH", ""), "LANG": "C.UTF-8", "LC_ALL": "C.UTF-8"},
+        check=False,
+    )
+
+
+def main() -> int:
+    findings: list[str] = []
+    for case, expected in EXPECTED.items():
+        first = run(request(case))
+        second = run(request(case))
+        if first.returncode or first.stdout != second.stdout:
+            findings.append(case + ": operational or nondeterministic")
+        elif json.loads(first.stdout).get("status") != expected:
+            findings.append(case + ": expected " + expected)
+    crashed = request("pass")
+    crashed["extensions"] = {"mncs.dev:simulate": "crash"}
+    if run(crashed).returncode == 0:
+        findings.append("crash not operational")
+    timed = request("pass")
+    timed["extensions"] = {"mncs.dev:simulate": "timeout"}
+    try:
+        run(timed, 0.1)
+        findings.append("timeout not operational")
+    except subprocess.TimeoutExpired:
+        pass
+    print(json.dumps({"corpus": "mncs-go-provider-conformance-0.2", "status": "PASS" if not findings else "FAIL", "findings": findings}, indent=2))
+    return int(bool(findings))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

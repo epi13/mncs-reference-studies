@@ -1,0 +1,45 @@
+{
+  "benchmark": {
+    "mean_throughput_ratio": 1.5331633457601608,
+    "median_paired_throughput_ratio": 1.5304949787401463,
+    "paired_mean_ratio_bootstrap_ci95": {
+      "lower": 1.5227622002598766,
+      "upper": 1.5437309868999933
+    },
+    "worst_workload_p99_batch_latency_ratio": 0.6590699868997155
+  },
+  "evidence": {
+    "benchmark-summary.json": "sha256:5d5700bd45b54865e071a39d0e657f651f2c446f8ef67f9bca1a59ddbea0071c",
+    "benchmark.json": "sha256:ed7bd45ac3e840f8ffe7ec90d5a9e0d80d401c4046d8d4cbda11307bae1cb0d4",
+    "checkpoint-recovery.json": "sha256:7f75be3009f39b549c512648a0748d7adb6866075b7ec84b8a7a8381f0285c86",
+    "compiler-matrix.json": "sha256:3510492e43eef7ed455441da4736ab45b344826bcdc70edf5d1cde4bed5ceec6",
+    "differential.json": "sha256:e15574bae6ea7c709983112f2e2be360549b326887d110dd551b56e2780c1ad8",
+    "environment.json": "sha256:22caeafe3bd6a9ea515ab6c0aced23001cd7e3fbb93233cbf409e4b67bb316fa",
+    "generation.json": "sha256:eba09593c1c38c7339f3c338890930598e26bb039aab839c037711ffb69d9f47",
+    "harness-regression.json": "sha256:eb7975f0964dbfcbd0f087201a25c9473cf19342641c010b8229fceaa5288bc5",
+    "mutation.json": "sha256:b25fde58d23063aba88a9008081dcda8c21a645ecd4a2877524739268ebefd9f",
+    "sanitizers.json": "sha256:78a2ee6168e55c032ed0b4a13f5f543deacb6ca07ba5bf07157961f94059cd0a",
+    "structural.json": "sha256:a3b146f756ad6f10388a10909def78fbc28734bfa0ce6ce1889e02b3e37b1019",
+    "test-summary.json": "sha256:a60f7af216b79b57e08ecd16b1f257e8b5da98dba8c0f88221c3be653a210edf"
+  },
+  "limitations": [
+    "The performance result is scoped to the captured development host.",
+    "Repository-visible separated workloads are not blind third-party holdout evidence.",
+    "Joern is optional for this study and was unavailable in the captured environment.",
+    "This development run is not an accredited certification claim."
+  ],
+  "status": "PASS",
+  "statuses": {
+    "benchmark": "PASS",
+    "checkpoint_recovery": "PASS",
+    "compiler_matrix": "PASS",
+    "differential": "PASS",
+    "environment": "PASS",
+    "generation": "PASS",
+    "harness_regression": "PASS",
+    "mutation": "PASS",
+    "sanitizers": "PASS",
+    "structural": "PASS"
+  },
+  "target": "MNCDS-D2 / MNCS-L4 development study"
+}

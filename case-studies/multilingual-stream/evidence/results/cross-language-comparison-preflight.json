@@ -1,0 +1,98 @@
+{
+  "benchmark_protocol": {
+    "raw_samples_required": true,
+    "repetitions": 7,
+    "status": "PREREGISTERED",
+    "threshold": "one candidate median ratio <= 0.95",
+    "warmups": 2
+  },
+  "claim_boundary": {
+    "development_result": "REVIEW_REQUIRED",
+    "formal_mncds_status": "UNKNOWN",
+    "formal_mncs_status": "UNKNOWN",
+    "promotion_authorized": false
+  },
+  "contract_id": "contract:multilingual-bounded-stream-0.1",
+  "environment": {
+    "executed_environment": "UNKNOWN_UNTIL_CI",
+    "id": "environment:multilingual-stream-wave1-linux-x86_64",
+    "status": "DECLARED"
+  },
+  "extensions": {
+    "mncs.dev:evidence_phase": "preflight",
+    "mncs.dev:replacement_report": "CI-generated artifact receives its own environment-bound identity"
+  },
+  "observations": {
+    "directly_comparable": [
+      {
+        "observation": "shared contract and corpus identity",
+        "status": "PASS"
+      },
+      {
+        "observation": "C11 local contract execution",
+        "status": "PASS"
+      },
+      {
+        "observation": "Rust pinned contract execution",
+        "status": "UNKNOWN"
+      }
+    ],
+    "language_specific": [
+      {
+        "observation": "C11 ASan/UBSan",
+        "status": "UNKNOWN"
+      },
+      {
+        "observation": "Rust safe boundary, clippy, and test evidence",
+        "status": "UNKNOWN"
+      }
+    ],
+    "non_comparable": [
+      {
+        "observation": "universal source complexity score",
+        "status": "NOT_DEFINED"
+      }
+    ],
+    "normalized_imperfect": [
+      {
+        "observation": "same-host candidate/reference latency",
+        "reason": "pinned joint execution not yet attached",
+        "status": "UNKNOWN"
+      }
+    ],
+    "unknown": [
+      {
+        "observation": "cross-host performance",
+        "status": "UNKNOWN"
+      },
+      {
+        "observation": "independent protected holdout",
+        "status": "UNKNOWN"
+      }
+    ]
+  },
+  "report_id": "multilingual-stream-wave1-preflight",
+  "schema_version": "0.1-experimental",
+  "subjects": [
+    {
+      "id": "c11-readable-reference-v1",
+      "language": "C11",
+      "role": "reference"
+    },
+    {
+      "id": "c11-generated-candidate-v1",
+      "language": "C11",
+      "role": "candidate"
+    },
+    {
+      "id": "rust-readable-reference-v1",
+      "language": "Rust",
+      "role": "reference"
+    },
+    {
+      "id": "rust-generated-candidate-v1",
+      "language": "Rust",
+      "role": "candidate"
+    }
+  ]
+}

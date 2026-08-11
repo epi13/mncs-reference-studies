@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.5-experimental",
+  "plan_id": "composed-gateway-wave5-github-hosts-v1",
+  "operator_id": "operator:github-actions",
+  "bundle_id": "composed-gateway-wave5-portable-evaluator-v1",
+  "required_machine_labels": ["ci-Linux", "ci-Windows", "ci-macOS"],
+  "expected_environment_classes": ["GitHub Ubuntu runner", "GitHub Windows runner", "GitHub macOS runner"],
+  "thresholds": {
+    "minimum_hosts": 3,
+    "minimum_os_families": 3,
+    "minimum_distributions": 3,
+    "minimum_architectures": 1
+  },
+  "all_planned_hosts_required": true,
+  "evidence_class": "OPERATOR_CONTROLLED_CROSS_HOST",
+  "claim_boundary": "CI cohort PASS establishes portable execution across declared hosted runner families only. It is not independent evaluation or protected evidence."
+}

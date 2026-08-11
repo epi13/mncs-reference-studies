@@ -1,0 +1,25 @@
+{
+  "corpus": "mncs-language-provider-conformance-0.1",
+  "normalized_output_sha256": {
+    "c11/fail": "90a46677ce4289dfc7f47fbfa134dc90e24e7007031e2c5087da4d74df1f43f9",
+    "c11/pass": "c7824975049c6c84329eb62254f38c7ae6dcc4d0b1991ea0ec13be693a40ae9a",
+    "c11/unknown": "4945f91a79948b84109353214ab1567310820716a9e0dd45ee42d607caf5958d",
+    "python/fail": "39961d39a7e6c80591a27519d9e6dc7fde2e33fda7407f98e10cf52470a0418e",
+    "python/pass": "1df6db16e4fce5bf334664f2df5612f7bef6f1d06927c1e5b406674864b5c45e",
+    "python/unknown": "16906d87d179a7668fc8967130d17bfeb913e5178522c53989043bda18b2ce92",
+    "rust/fail": "4d4b47a734bd84753dcbe93e4e0ec17dd8934318945c731107c8c4e4f7917563",
+    "rust/pass": "c858ff5c0bd9e9776ad40f6e8c79d3f241a2aaa7b59b9bf4663151a24c4aa6f0",
+    "rust/unknown": "1163a5d57bdca8626ac42bd8bcd14a42db151c90be4a5787ef7ec1b297d58d6a"
+  },
+  "provider_identities": {
+    "c11": "mncs.experimental.c11-source-provider@0.1.0",
+    "python": "mncs.experimental.python-source-provider@0.1.0",
+    "rust": "mncs.experimental.rust-source-provider@0.1.0"
+  },
+  "required_statuses": [
+    "PASS",
+    "FAIL",
+    "UNKNOWN",
+    "operational_error"
+  ]
+}

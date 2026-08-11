@@ -1,0 +1,8 @@
+{
+  "byte_identical_regeneration": true,
+  "bytes": 14752,
+  "candidate_sha256": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+  "generator_sha256": "sha256:19fc0cf6463782d0685f46ff71550515d9551f2870862b76bf758b335112f587",
+  "reference_sha256": "sha256:7268208dae41cad6a42f9a33ee8cfc31140f3f0cb9da9b45492699efefba3c64",
+  "status": "PASS"
+}

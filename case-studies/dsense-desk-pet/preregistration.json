@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "study_id": "dsense.desk-pet.hardware.epoch-2.v1",
+  "candidate": "dsense-unomax-binary-v5",
+  "baseline": "dsense-interface-telemetry-v4",
+  "target_claim": "bounded development result; formal MNCS and MNCDS status remain UNKNOWN",
+  "frozen_environment": {
+    "board": "Arduino Uno",
+    "mcu": "ATmega328P",
+    "fqbn": "arduino:avr:uno",
+    "program_limit_bytes": 32256,
+    "sram_limit_bytes": 2048,
+    "oled": "128x64 I2C SH1106-compatible",
+    "telemetry_baud": 115200,
+    "telemetry_protocol": 5
+  },
+  "hard_gates": {
+    "avr_compile_success": true,
+    "program_bytes_max": 32256,
+    "global_sram_bytes_max": 2048,
+    "preferred_program_headroom_bytes_min": 512,
+    "binary_packet_sizes": [49, 37, 20],
+    "decoder_checksum_and_resynchronization": "PASS",
+    "quiet_settling_seconds": 10,
+    "quiet_event_rate_hz_max": 0.1,
+    "isolated_tap_required_events": 1,
+    "isolated_tap_retrigger_window_ms": 500,
+    "isolated_tap_extra_events_max": 0,
+    "self_probe_external_events_max": 0,
+    "ldr_only_acoustic_persistent_shift_max": 80,
+    "all_buttons_operational": true,
+    "menu_cognition_continues": true,
+    "settings_power_cycle_persistence": true,
+    "rollback_demonstrated": true
+  },
+  "stimulus_sequence": [
+    "quiet for 20 seconds",
+    "one soft desk tap",
+    "quiet for 10 seconds",
+    "three isolated desk taps separated by two seconds",
+    "quiet for 10 seconds",
+    "voice at one meter for five seconds",
+    "quiet for 10 seconds",
+    "one gentle direct piezo touch",
+    "quiet for 10 seconds",
+    "cover and uncover A0 without touching the desk or piezo",
+    "run one self acoustic probe",
+    "exercise D3, D4, and D2 through every menu layer",
+    "power cycle and verify persisted settings",
+    "flash the rollback image and verify boot"
+  ],
+  "measurement_policy": {
+    "retain_all_records": true,
+    "manual_markers": "recorded on the host without transmission to the Uno",
+    "outliers": "no deletion",
+    "clock": "device milliseconds plus host monotonic elapsed time",
+    "serial_port": "explicit operator-supplied path only",
+    "candidate_identity": "SHA-256 of the exact sketch and decoder",
+    "environment_changes": "invalidate comparison until separately recorded"
+  },
+  "selection_rule": "The V5 candidate receives development PASS only when every hard gate passes. Missing hardware, compiler, persistence, or rollback evidence remains UNKNOWN.",
+  "formal_status_if_development_passes": {
+    "mncs": "UNKNOWN",
+    "mncds": "UNKNOWN",
+    "promotion_authorized": false
+  }
+}

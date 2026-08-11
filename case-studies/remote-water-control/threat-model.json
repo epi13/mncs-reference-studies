@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1",
+  "model_id": "mncs.remote-water.threat-model.v1",
+  "scope": "Development digital twin, generated planner, readable safety kernel, intent journal, checkpoints, evaluator, and evidence.",
+  "threats": [
+    {
+      "threat_id": "planner-authority-escape",
+      "plane": "machine-execution",
+      "path": "Planner writes or influences an actuator intent without readable safety adjudication.",
+      "mitigations": ["Planner protocol returns proposals only.", "Controller owns journaling.", "Safety-kernel tests inject forbidden proposals."],
+      "residual_status": "PASS_DEVELOPMENT"
+    },
+    {
+      "threat_id": "stale-or-conflicting-telemetry",
+      "plane": "evidence-and-operation",
+      "path": "A planner changes pump state from stale or conflicting observations.",
+      "mitigations": ["Safety kernel holds previous command.", "Scenario suite checks no command change during degraded windows."],
+      "residual_status": "PASS_DEVELOPMENT"
+    },
+    {
+      "threat_id": "intent-replay-or-reordering",
+      "plane": "operational-control",
+      "path": "An old or skipped intent is accepted after restart or failover.",
+      "mitigations": ["Exact monotonic sequence rule.", "Hash-chained journal.", "Checkpoint binds sequence and journal tail."],
+      "residual_status": "PASS_DEVELOPMENT"
+    },
+    {
+      "threat_id": "checkpoint-corruption-or-substitution",
+      "plane": "operational-control",
+      "path": "Corrupted state or a checkpoint for another planner is restored.",
+      "mitigations": ["Digest-protected envelope.", "Planner identity binding.", "Corruption and mismatch tests."],
+      "residual_status": "PASS_DEVELOPMENT"
+    },
+    {
+      "threat_id": "holdout-leakage",
+      "plane": "development-control",
+      "path": "Generator or candidate process receives final evaluation scenarios or expected results.",
+      "mitigations": ["Protected holdout is explicitly deferred to an independent epoch."],
+      "residual_status": "UNKNOWN"
+    },
+    {
+      "threat_id": "model-to-field-gap",
+      "plane": "human-control",
+      "path": "Development simulation evidence is misrepresented as authorization for live control.",
+      "mitigations": ["No industrial output interface.", "Prominent production-use exclusion.", "Assurance disposition remains review_required."],
+      "residual_status": "UNKNOWN"
+    },
+    {
+      "threat_id": "correlated-reference-and-evaluator-error",
+      "plane": "evidence",
+      "path": "The same implementation assumptions influence the simulator, evaluator, and expected results.",
+      "mitigations": ["Future protected holdout requires an independently implemented or independently reviewed oracle."],
+      "residual_status": "UNKNOWN"
+    }
+  ]
+}

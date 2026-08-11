@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.2-experimental",
+  "boundary_id": "boundary:c11-go-parser-abi-wave3-v2",
+  "boundary_type": "native-ffi",
+  "caller_component": "go-host-wave3-v2",
+  "callee_component": "c11-parser-v1",
+  "interface_version": "MNCS_PARSER_ABI=1; binding epoch 2",
+  "source_identity": "sha256:6fb0e2cf5e0bbeb73dbcd6c4fcff7cfc07cc1c66cf7f0d67d249231d12570e5d",
+  "binding_identity": "sha256:ac1a0c5b63ddecd8419f1fabc1a82949b35cdd6cf062d4cf1c926a5516eaeee6",
+  "generator_identity": "composed-binding-generator-0.2.0;sha256:b5afe4b5657ff6112cd87f205d94a363e653a0ac3bfd819c0572917513957b0d",
+  "serialization": "native C ABI byte slice, size_t length, and uint32_t output",
+  "ownership": "Go caller retains input and output storage for the duration of the synchronous call; C allocates nothing",
+  "nullability": "empty Go slices are rejected before pointer conversion; C rejects null input and output pointers",
+  "integer_widths": [
+    "uint8_t input elements",
+    "size_t length",
+    "uint32_t output",
+    "Go uint32 result"
+  ],
+  "endianness": "ASCII decimal conversion is endian independent; uint32_t is returned by value through the declared ABI",
+  "alignment": "C compiler alignment for uint32_t output; generated cgo declaration is identity bound",
+  "error_mapping": {
+    "0": "PASS",
+    "1": "null or length bound",
+    "2": "nondecimal byte",
+    "3": "range violation"
+  },
+  "containment": "no callbacks, panic, exception, longjmp, or unwind may cross the ABI",
+  "timeout": "one call is bounded to at most six input bytes and has no internal blocking operation",
+  "cancellation": "cancellation is checked by the Go host between calls; a single bounded parse call is not interruptible",
+  "retry": "retry is allowed only with a corrected immutable input frame",
+  "version_negotiation": "exact MNCS_PARSER_ABI value and exact generated binding/header/spec identities",
+  "resource_limits": {
+    "max_input_bytes": 6,
+    "c_allocations": 0,
+    "outstanding_calls": 1
+  },
+  "malformed_input": "empty, null, nondecimal, oversized, and out-of-range frames reject",
+  "compatibility_policy": "byte-for-byte regenerated Go binding after gofmt plus exact source-header and binding-spec hashes",
+  "tested_failures": [
+    "invalid pointer guards",
+    "length bound",
+    "nondecimal byte",
+    "integer range",
+    "ABI mismatch",
+    "generated integer-width drift",
+    "header identity mismatch"
+  ],
+  "unknown_conditions": [
+    "compiler ABI outside declared hosted environments",
+    "formal use-after-free proof",
+    "whole-program C alias analysis"
+  ],
+  "extensions": {
+    "mncs.dev:wave": "three",
+    "mncs.dev:parent_boundary": "boundary:c11-go-parser-abi-v1"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "../../schemas/mncs-manifest.schema.json",
+  "acceptance_policy": {
+    "conflicting_evidence": "reject",
+    "conformance_level": "MNCS-L4",
+    "mutation_required": true,
+    "objective": {
+      "declared_before_generation": true,
+      "direction": "higher_is_better",
+      "metric": "telemetry throughput",
+      "minimum_sample_count": 30,
+      "noise_policy": "No outlier deletion; paired measurements retained in execution order.",
+      "threshold": 1.15,
+      "unit": "bytes/second"
+    },
+    "on_unknown": "reject",
+    "regression_policy": {
+      "maximum_worst_case_ratio": 1.1
+    },
+    "required_gates": [
+      "behavioral",
+      "compiler_matrix",
+      "safety",
+      "resource_bounds",
+      "mutation",
+      "structural",
+      "measurement_valid",
+      "benefit_threshold",
+      "worst_regression"
+    ]
+  },
+  "claimed_level": "MNCS-L4",
+  "comparison_profile": {
+    "benefit": {
+      "mean_throughput_ratio": 1.5331633457601608
+    },
+    "complexity": {
+      "candidate_source_bytes": 14752.0,
+      "reference_source_bytes": 11162.0
+    },
+    "normalization": "Identical contract, workload corpus, output semantics, compiler mode, and host."
+  },
+  "component": {
+    "contract_id": "mncs.edgestream.telemetry.v1",
+    "criticality": "moderate",
+    "identity_hash": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+    "name": "EdgeStream",
+    "version": "0.1.0-development"
+  },
+  "contract": {
+    "path": "specification/contract.md",
+    "sha256": "sha256:843b402abedd48980f424769db2d7698e0ed9b7618b1cdbc7adcb31fa189d752"
+  },
+  "environment": {
+    "description": "Captured Linux x86_64 local development environment with GCC and Clang.",
+    "fingerprint": "sha256:088a38bf30f1cdf0c9a34128b7dfa516eca2373d30ff4b57c4dc52d89bc1db46",
+    "identity_evidence_id": "identity-environment"
+  },
+  "evidence_index": {
+    "path": "evidence/index.json",
+    "sha256": "sha256:973478f730d99c49e68f713aef56bbb23b749c7e14783950df8c9da268ef1e95"
+  },
+  "extensions": {
+    "mncs.dev:case-study": "edgestream",
+    "mncs.dev:evaluation-epoch": "edgestream-evaluation-epoch-2",
+    "mncs.dev:harness-regression-evidence": "raw-harness-regression",
+    "mncs.dev:mncds-profile": "MNCDS-D2"
+  },
+  "final_status": "PASS",
+  "fuzz_evidence": [
+    "raw-differential"
+  ],
+  "gate_results": {
+    "behavioral": [
+      "gate-behavioral"
+    ],
+    "benefit_threshold": [
+      "performance-throughput"
+    ],
+    "compiler_matrix": [
+      "gate-compiler-matrix"
+    ],
+    "measurement_valid": [
+      "performance-throughput"
+    ],
+    "mutation": [
+      "gate-mutation"
+    ],
+    "resource_bounds": [
+      "gate-resource-bounds"
+    ],
+    "safety": [
+      "gate-safety"
+    ],
+    "structural": [
+      "gate-structural"
+    ],
+    "worst_regression": [
+      "performance-throughput"
+    ]
+  },
+  "generator": {
+    "identity_evidence_id": "identity-generator",
+    "identity_hash": "sha256:a027cbb595cc82aebf4ad9f34dc2f4981e72bfc75f07937cff406ea4424e6ad0",
+    "name": "EdgeStream deterministic specialization generator",
+    "version": "1.0"
+  },
+  "invariants": [
+    "invariant-bounded-storage"
+  ],
+  "limitations": [
+    "Experimental development study on one host.",
+    "Joern-specific analysis was unavailable and is not a required provider for this claim.",
+    "Repository-visible separated workloads are not blind third-party holdout evidence."
+  ],
+  "machine": {
+    "generated_marker": "MNCS-GENERATED",
+    "path": "machine/edgestream_generated.c",
+    "sha256": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62"
+  },
+  "mncs_version": "0.2",
+  "performance_results": [
+    "performance-throughput"
+  ],
+  "reference": {
+    "path": "reference/edgestream_reference.c",
+    "sha256": "sha256:7268208dae41cad6a42f9a33ee8cfc31140f3f0cb9da9b45492699efefba3c64"
+  },
+  "resource_bounds": {
+    "checkpoint_bytes_observed": 14896,
+    "maximum_active_devices": 64,
+    "maximum_metrics_per_device": 4,
+    "maximum_parser_buffer_bytes": 4096,
+    "maximum_window_samples": 8
+  },
+  "schema_version": "0.2",
+  "structural_aggregate": {
+    "bounded": true,
+    "provider_assumptions": [
+      "The Clang AST and source-order provider is bounded to the declared invariant set."
+    ],
+    "required_invariants": [
+      "invariant-bounded-storage"
+    ]
+  }
+}

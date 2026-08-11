@@ -1,0 +1,29 @@
+{
+  "assurance_case_id": "mncs.multilingual-stream.wave1.assurance.v1",
+  "claim": "C11 and Rust implementations can be evaluated under one readable bounded stream contract while retaining language-specific evidence and explicit incomparability.",
+  "component_id": "mncs.multilingual-stream.processor.v1",
+  "development_result": "REVIEW_REQUIRED",
+  "formal_mncds_status": "UNKNOWN",
+  "formal_mncs_status": "UNKNOWN",
+  "promotion_authorized": false,
+  "promotion_blockers": [
+    "pinned Rust execution",
+    "independent protected holdout",
+    "independent evaluator",
+    "cross-host reproduction",
+    "memory measurement",
+    "broader property/fuzz evidence",
+    "release and rollback controls"
+  ],
+  "schema_version": "0.1-experimental",
+  "supporting_records": [
+    "CONTRACT.md",
+    "THREAT-MODEL.md",
+    "environment.json",
+    "preregistration.json",
+    "generator/spec.json",
+    "identities/candidates.json",
+    "evidence/results/wave-one-development.json",
+    "evidence/results/c11-local-development-benchmark-v1.json"
+  ]
+}

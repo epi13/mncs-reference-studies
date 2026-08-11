@@ -1,0 +1,48 @@
+{
+  "assumptions": [
+    "The checked-in contract and declared environment delimit this result."
+  ],
+  "candidate_source_hash": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+  "completed_at": "2026-07-29T02:59:42Z",
+  "component_identity": {
+    "identity_hash": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+    "name": "EdgeStream",
+    "version": "0.1.0-development"
+  },
+  "contract_id": "mncs.edgestream.telemetry.v1",
+  "environment": {
+    "fingerprint": "sha256:088a38bf30f1cdf0c9a34128b7dfa516eca2373d30ff4b57c4dc52d89bc1db46",
+    "identity_evidence_id": "identity-environment"
+  },
+  "evaluator": {
+    "identity_evidence_id": "identity-evaluator",
+    "identity_hash": "sha256:23e54df8cf14244348575172e226ba1cd2f0e0e2d5973a5aa4a3c2644d68a8c1",
+    "name": "EdgeStream study evaluator",
+    "version": "2.0"
+  },
+  "evidence_references": [
+    "contract",
+    "reference",
+    "machine",
+    "identity-evaluator",
+    "identity-environment",
+    "raw-mutation"
+  ],
+  "extensions": {},
+  "gate_kind": "mutation",
+  "limitations": [
+    "Experimental local development evidence; not an accredited assurance claim."
+  ],
+  "mncs_version": "0.2",
+  "observation_counts": {
+    "failed": 0,
+    "passed": 18,
+    "total": 18,
+    "unknown": 0
+  },
+  "reference_source_hash": "sha256:7268208dae41cad6a42f9a33ee8cfc31140f3f0cb9da9b45492699efefba3c64",
+  "result_id": "gate-mutation",
+  "schema_version": "0.2",
+  "started_at": "2026-07-29T02:59:42Z",
+  "status": "PASS"
+}

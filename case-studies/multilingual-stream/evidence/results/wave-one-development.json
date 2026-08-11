@@ -1,0 +1,56 @@
+{
+  "claim_boundary": {
+    "development_status": "REVIEW_REQUIRED",
+    "formal_mncds_status": "UNKNOWN",
+    "formal_mncs_status": "UNKNOWN",
+    "promotion_authorized": false
+  },
+  "epoch_id": "multilingual-stream-wave1-epoch-1",
+  "evidence_id": "multilingual-stream-wave1-development-preflight",
+  "note": "This preflight record receives a new identity and does not modify EdgeStream, CacheForge, or other frozen historical evidence.",
+  "observations": [
+    {
+      "id": "profiles",
+      "scope": "C11, Rust, and Python profile schema validation",
+      "status": "PASS"
+    },
+    {
+      "id": "provider-conformance",
+      "scope": "PASS, FAIL, UNKNOWN, crash, timeout, deterministic output, provider/configuration/subject/environment binding",
+      "status": "PASS"
+    },
+    {
+      "id": "c11-strict-build",
+      "scope": "GCC 14.2.0 local strict C11 build",
+      "status": "PASS"
+    },
+    {
+      "id": "c11-contract",
+      "scope": "valid and malformed shared corpora",
+      "status": "PASS"
+    },
+    {
+      "evidence_id": "multilingual-stream-c11-local-development-benchmark-v1",
+      "id": "c11-local-useful-benefit",
+      "scope": "seven repeated measurements on the declared local C11 environment; candidate/reference median ratio 0.3941151486052267",
+      "status": "PASS"
+    },
+    {
+      "id": "rust-pinned-build",
+      "scope": "requires Rust 1.97.1 CI environment",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "cross-language-benchmark",
+      "scope": "requires pinned C11/Rust CI environment",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "independent-reproduction",
+      "scope": "not performed",
+      "status": "UNKNOWN"
+    }
+  ],
+  "repository_base_commit": "348afe3eef945c8631cb56a8ecb24f481c368a8c",
+  "schema_version": "0.1-experimental"
+}

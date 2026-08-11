@@ -1,0 +1,167 @@
+{
+  "capabilities": {
+    "conditional": [
+      {
+        "coverage": "conditional",
+        "evidence": "property or mutation campaign when dependencies are pinned",
+        "id": "python.property-mutation",
+        "limitations": [
+          "Dependency availability"
+        ],
+        "tools": [
+          "Hypothesis",
+          "mutation harness"
+        ]
+      }
+    ],
+    "supported": [
+      {
+        "coverage": "bounded",
+        "evidence": "compileall/AST parsing",
+        "id": "python.syntax",
+        "limitations": [
+          "Runtime imports and metaprogramming remain dynamic"
+        ],
+        "tools": [
+          "CPython ast",
+          "compileall"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "deterministic unit, malformed, mutation, recovery tests",
+        "id": "python.tests",
+        "limitations": [
+          "Executed paths only"
+        ],
+        "tools": [
+          "pytest or study harness"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "bounded source checks",
+        "id": "python.source-provider",
+        "limitations": [
+          "Reflection and native extensions are outside complete coverage"
+        ],
+        "tools": [
+          "mncs.experimental.python-source-provider"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "repeated measurements under one interpreter identity",
+        "id": "python.performance",
+        "limitations": [
+          "Interpreter and native-library specific"
+        ],
+        "tools": [
+          "perf_counter_ns harness"
+        ]
+      }
+    ],
+    "unsupported": [
+      {
+        "coverage": "unsupported",
+        "evidence": "none from Python source alone",
+        "id": "python.native-extension-proof",
+        "limitations": [
+          "C/C++/Rust extension behavior requires its own profile and evidence"
+        ],
+        "tools": []
+      }
+    ]
+  },
+  "coverage_limitations": [
+    "Monkey-patching, reflection, dynamic imports, and exec/eval can invalidate static observations",
+    "Behavior implemented by native extensions is not Python evidence"
+  ],
+  "environment_observations": [
+    "sys.version and implementation",
+    "PYTHONHASHSEED",
+    "dependency and native-library versions",
+    "locale and timezone",
+    "CPU and resource limits",
+    "thread and accelerator settings"
+  ],
+  "extensions": {
+    "mncs.dev:claim_language": "profile-valid and evidence-supported only; no language compliance claim"
+  },
+  "identities": {
+    "build_system": [
+      "pyproject.toml or study Makefile identity"
+    ],
+    "dependency_lock": [
+      "lockfile or fully pinned environment identity",
+      "native library identities recorded separately"
+    ],
+    "generated_artifacts": [
+      "SHA-256 of generated tables, models, or code"
+    ],
+    "providers": [
+      {
+        "command": [
+          "python3",
+          "experimental/language-evidence/providers/python_provider.py"
+        ],
+        "configuration_identity": "cfg:python-source-provider-0.1.0",
+        "id": "mncs.experimental.python-source-provider",
+        "version": "0.1.0"
+      }
+    ],
+    "source": [
+      "SHA-256 of Python modules and configuration"
+    ]
+  },
+  "language": {
+    "edition_or_runtime": "CPython 3.11+",
+    "implementation_requirements": [
+      "CPython implementation identity recorded",
+      "exact major.minor version recorded",
+      "hash seed and locale declared for deterministic runs"
+    ],
+    "name": "Python"
+  },
+  "mechanisms": {
+    "advanced_testing": [
+      "mutation fixtures",
+      "property tests where pinned",
+      "deterministic stochastic seeds"
+    ],
+    "malformed_input": [
+      "schema-invalid, type-invalid, truncated, oversized, adversarial serialization inputs"
+    ],
+    "nondeterminism": [
+      "PYTHONHASHSEED fixed",
+      "random seeds recorded",
+      "stochastic kernels and thread pools declared"
+    ],
+    "resource_performance": [
+      "perf_counter_ns repeats",
+      "native-library and accelerator identity"
+    ],
+    "runtime_safety": [
+      "exception and invariant tests",
+      "serialization restrictions",
+      "native extension boundary record"
+    ],
+    "structural_semantic": [
+      "AST parsing",
+      "bounded provider source scan"
+    ]
+  },
+  "profile_id": "python-cpython-3.11-v0.1",
+  "profile_name": "CPython 3.11 bounded evidence profile",
+  "profile_version": "0.1.0",
+  "schema_version": "0.1-experimental",
+  "status": "experimental",
+  "unknown_conditions": [
+    "source unavailable",
+    "native extension identity or source unavailable",
+    "unsupported metaprogramming",
+    "import environment mismatch",
+    "uncontrolled stochastic execution",
+    "provider timeout or crash"
+  ]
+}

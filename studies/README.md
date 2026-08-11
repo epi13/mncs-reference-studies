@@ -10,9 +10,9 @@ As of the repository bootstrap, the core MNCS repository contains:
 
 | Source directory | Study | Migration status |
 |---|---|---|
-| `recursive-analyzer/` | Recursive Analyzer study | PENDING |
-| `recursive-architecture-comparison/` | Recursive Architecture Comparison | PENDING |
-| `recursive-experience-substrate/` | Recursive Experience Substrate | PENDING |
+| [`recursive-analyzer/`](recursive-analyzer/README.md) | Recursive Analyzer study | VALIDATED |
+| [`recursive-architecture-comparison/`](recursive-architecture-comparison/README.md) | Recursive Architecture Comparison | VALIDATED |
+| [`recursive-experience-substrate/`](recursive-experience-substrate/README.md) | Recursive Experience Substrate | VALIDATED |
 
 The core repository currently calls these studies from root Makefile targets such as `recursive-study`, `recursive-architecture-study-check`, and `recursive-experience-substrate-check`. Those root dependencies need to move or be replaced with links only after the target study migration is validated here.
 
@@ -27,4 +27,4 @@ Use the same provenance rules as `case-studies/`:
 5. add a `MIGRATION.md` documenting source path and material build/path changes;
 6. validate here before removing or redirecting the source copy.
 
-See [`../methodology/migration.md`](../methodology/migration.md).
+See [`../methodology/migration.md`](../methodology/migration.md) and the study-local `MIGRATION.md` files.

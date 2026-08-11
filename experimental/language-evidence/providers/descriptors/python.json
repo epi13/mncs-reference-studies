@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "experimental/language-evidence/providers/python_provider.py"
+  ],
+  "extensions": {
+    "mncs.dev:execution": "explicit-only",
+    "mncs.dev:profile": "python-cpython-3.11-v0.1"
+  },
+  "protocol_version": "0.1",
+  "timeout_seconds": 2
+}

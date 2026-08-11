@@ -1,0 +1,298 @@
+{
+  "case_count": 28,
+  "cases": [
+    {
+      "checkpoint_bytes": 14896,
+      "checkpoint_sha256": "sha256:9af8cd58e8f5aadb07754632709500f13401bbb112d9c2eac7dc1a4f752dd93c",
+      "consumer": "reference",
+      "expected_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "kind": "cross-implementation-restore",
+      "producer": "reference",
+      "restore_exit": 0,
+      "restored_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "status": "PASS"
+    },
+    {
+      "checkpoint_bytes": 14896,
+      "checkpoint_sha256": "sha256:9af8cd58e8f5aadb07754632709500f13401bbb112d9c2eac7dc1a4f752dd93c",
+      "consumer": "candidate",
+      "expected_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "kind": "cross-implementation-restore",
+      "producer": "reference",
+      "restore_exit": 0,
+      "restored_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "status": "PASS"
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 1,
+      "implementation": "reference",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 2,
+      "implementation": "reference",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 3,
+      "implementation": "reference",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 4,
+      "implementation": "reference",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:4efb8f3da42f6b746d344539041fb677a5613b63716394dd2edac8bd223ce958",
+      "corruption": "payload-bit-flip",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:4efb8f3da42f6b746d344539041fb677a5613b63716394dd2edac8bd223ce958",
+      "corruption": "payload-bit-flip",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:3db596d5adaf253f3330043758850ff9d5427d9aa4c4d6a8f5f11666c86bacd4",
+      "corruption": "bad-magic",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:3db596d5adaf253f3330043758850ff9d5427d9aa4c4d6a8f5f11666c86bacd4",
+      "corruption": "bad-magic",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:1fc53f21669b371c838ddbdabc0d09baed24ca33ee7d97c139eed6f550796005",
+      "corruption": "truncated-header",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:1fc53f21669b371c838ddbdabc0d09baed24ca33ee7d97c139eed6f550796005",
+      "corruption": "truncated-header",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:80f5a14754b64017dc88d7abe4844cb4c1ded9b3dfb569119ddfcf1e2ddc8a02",
+      "corruption": "truncated-payload",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:80f5a14754b64017dc88d7abe4844cb4c1ded9b3dfb569119ddfcf1e2ddc8a02",
+      "corruption": "truncated-payload",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "reference",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "checkpoint_bytes": 14896,
+      "checkpoint_sha256": "sha256:9af8cd58e8f5aadb07754632709500f13401bbb112d9c2eac7dc1a4f752dd93c",
+      "consumer": "reference",
+      "expected_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "kind": "cross-implementation-restore",
+      "producer": "candidate",
+      "restore_exit": 0,
+      "restored_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "status": "PASS"
+    },
+    {
+      "checkpoint_bytes": 14896,
+      "checkpoint_sha256": "sha256:9af8cd58e8f5aadb07754632709500f13401bbb112d9c2eac7dc1a4f752dd93c",
+      "consumer": "candidate",
+      "expected_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "kind": "cross-implementation-restore",
+      "producer": "candidate",
+      "restore_exit": 0,
+      "restored_output_sha256": "sha256:795007fb4b669f321c9fe8853c156a255a185d63582d8f2548ba7a917cd2eac0",
+      "status": "PASS"
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 1,
+      "implementation": "candidate",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 2,
+      "implementation": "candidate",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 3,
+      "implementation": "candidate",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "failure_exit": 1,
+      "fault_step": 4,
+      "implementation": "candidate",
+      "kind": "atomic-checkpoint-fault",
+      "prior_checkpoint_preserved": true,
+      "recovered_output_matches": true,
+      "recovery_exit": 0,
+      "status": "PASS",
+      "temporary_removed": true
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:4efb8f3da42f6b746d344539041fb677a5613b63716394dd2edac8bd223ce958",
+      "corruption": "payload-bit-flip",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:4efb8f3da42f6b746d344539041fb677a5613b63716394dd2edac8bd223ce958",
+      "corruption": "payload-bit-flip",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:3db596d5adaf253f3330043758850ff9d5427d9aa4c4d6a8f5f11666c86bacd4",
+      "corruption": "bad-magic",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:3db596d5adaf253f3330043758850ff9d5427d9aa4c4d6a8f5f11666c86bacd4",
+      "corruption": "bad-magic",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:1fc53f21669b371c838ddbdabc0d09baed24ca33ee7d97c139eed6f550796005",
+      "corruption": "truncated-header",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:1fc53f21669b371c838ddbdabc0d09baed24ca33ee7d97c139eed6f550796005",
+      "corruption": "truncated-header",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "reference",
+      "corrupt_checkpoint_sha256": "sha256:80f5a14754b64017dc88d7abe4844cb4c1ded9b3dfb569119ddfcf1e2ddc8a02",
+      "corruption": "truncated-payload",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    },
+    {
+      "consumer": "candidate",
+      "corrupt_checkpoint_sha256": "sha256:80f5a14754b64017dc88d7abe4844cb4c1ded9b3dfb569119ddfcf1e2ddc8a02",
+      "corruption": "truncated-payload",
+      "failure_record_observed": true,
+      "kind": "corrupt-checkpoint-rejection",
+      "producer": "candidate",
+      "restore_exit": 3,
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

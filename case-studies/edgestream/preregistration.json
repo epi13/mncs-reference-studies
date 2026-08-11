@@ -1,0 +1,45 @@
+{
+  "classification": "development pre-registration",
+  "contract_id": "mncs.edgestream.telemetry.v1",
+  "epoch_id": "edgestream-evaluation-epoch-2",
+  "supersedes_epoch": "edgestream-evaluation-epoch-1",
+  "change_reason": "The first development run exposed insufficient structural semantics, short benchmark samples, incomplete latency observations, thin mutation/sanitizer/recovery records, and no evaluator regression corpus. Thresholds and workload identities remain unchanged.",
+  "target_claim": "MNCDS-D2 / MNCS-L4",
+  "primary_metric": "telemetry throughput in bytes/second",
+  "minimum_useful_benefit_ratio": 1.15,
+  "maximum_worst_case_regression_ratio": 1.1,
+  "repetitions_per_workload": 15,
+  "workloads": [
+    "steady",
+    "high-cardinality"
+  ],
+  "measurement_policy": {
+    "order": "deterministically counterbalanced within each paired repetition",
+    "outliers": "retain every measured sample and every raw batch latency observation",
+    "warmup": "three unrecorded executions per workload and implementation",
+    "minimum_aggregate_sample_duration_ns": 100000000,
+    "batching": "use the same calibrated iteration count for reference and candidate within each workload",
+    "cpu_affinity": "pin the evaluator process to one available CPU when the host permits it and record the result",
+    "uncertainty": "deterministic 4000-resample bootstrap confidence interval over paired throughput ratios",
+    "summary": "arithmetic mean candidate throughput divided by arithmetic mean reference throughput; paired median and confidence interval are also recorded",
+    "latency": "record all aggregate batch latencies and compare the worst per-workload p99 candidate/reference ratio"
+  },
+  "hard_gates": [
+    "behavioral",
+    "compiler_matrix",
+    "safety",
+    "resource_bounds",
+    "mutation",
+    "structural",
+    "measurement_valid",
+    "benefit_threshold",
+    "worst_regression"
+  ],
+  "process_gates": [
+    "deterministic_generation",
+    "evaluator_regression_corpus"
+  ],
+  "holdout_policy": "No D3 or L5 claim. Repository-visible separated workloads are not represented as blind holdout evidence.",
+  "unknown_policy": "reject required UNKNOWN evidence",
+  "noise_policy": "No outlier deletion; paired measurements retained in execution order."
+}

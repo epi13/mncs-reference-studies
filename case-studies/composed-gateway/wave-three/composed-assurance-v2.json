@@ -1,0 +1,86 @@
+{
+  "schema_version": "0.2-experimental",
+  "record_id": "composed-gateway-wave3-assurance-v2",
+  "system_contract_id": "contract:composed-gateway-wave3-0.2",
+  "components": [
+    {
+      "id": "c11-parser-v1",
+      "kind": "component",
+      "required": true,
+      "status": "PASS",
+      "evidence_ref": "evidence/local-development-epoch.json#build_results/c11_build",
+      "environment_id": "env:local-linux-x86_64-cc14"
+    },
+    {
+      "id": "go-host-wave3-v2",
+      "kind": "component",
+      "required": true,
+      "status": "PASS",
+      "evidence_ref": "evidence/local-development-epoch.json#build_results/go_tests",
+      "environment_id": "env:local-go1.23-linux-x86_64"
+    },
+    {
+      "id": "rust-authority-v2",
+      "kind": "component",
+      "required": true,
+      "status": "UNKNOWN",
+      "evidence_ref": "artifact:wave-three-hosted-rust-execution-required",
+      "environment_id": "env:rust-1.97.1-hosted-matrix"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "boundary:c11-go-parser-abi-wave3-v2",
+      "kind": "boundary",
+      "required": true,
+      "status": "PASS",
+      "evidence_ref": "boundary-native-v2.json",
+      "environment_id": "env:local-cgo-cc14-go1.23"
+    },
+    {
+      "id": "boundary:go-rust-authority-process-wave3-v2",
+      "kind": "boundary",
+      "required": true,
+      "status": "UNKNOWN",
+      "evidence_ref": "artifact:wave-three-hosted-process-recovery-required",
+      "environment_id": "env:rust-1.97.1-hosted-matrix"
+    }
+  ],
+  "environments": [
+    "env:local-linux-x86_64-cc14",
+    "env:local-go1.23-linux-x86_64",
+    "env:rust-1.97.1-hosted-matrix",
+    "env:github-ubuntu-latest",
+    "env:github-macos-latest"
+  ],
+  "composition_policy": {
+    "precedence": ["FAIL", "UNKNOWN", "PASS"],
+    "missing_required": "UNKNOWN",
+    "unknown_review": "REVIEW_REQUIRED"
+  },
+  "propagated_result": "REVIEW_REQUIRED",
+  "known_limitations": [
+    "the checked-in local epoch lacks a Rust 1.97.1 execution",
+    "hosted cross-platform artifacts require post-run review before they can update the checked-in claim",
+    "the protected holdout corpus and independent custody record are intentionally absent",
+    "the second evaluator implementation is not organizationally independent"
+  ],
+  "residual_risks": [
+    "bounded scheduler and pipe timing observations",
+    "compiler ABI portability outside declared environments",
+    "platform-dependent resource measurements",
+    "production service-manager and network behavior are not evaluated"
+  ],
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false,
+  "extensions": {
+    "mncs.dev:wave": "three",
+    "mncs.dev:preregistration": "preregistration.json",
+    "mncs.dev:evidence_epoch": "evidence/local-development-epoch.json",
+    "mncs.dev:recovery": "UNKNOWN_PENDING_PINNED_RUST",
+    "mncs.dev:mutation_campaign": "UNKNOWN_PENDING_PINNED_RUST",
+    "mncs.dev:d4_regeneration_replacement_subclaim": "UNKNOWN_PENDING_PINNED_RUST",
+    "mncs.dev:full_d4": "UNKNOWN"
+  }
+}

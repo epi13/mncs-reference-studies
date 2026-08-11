@@ -1,0 +1,90 @@
+{
+  "$id": "https://poor-louis-labs.github.io/mncs/cacheforge/protected-trace-bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scenarios": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capacity_blocks": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "requests": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "cancel_after_generated": {
+                  "minimum": 0,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "generated_blocks": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "priority": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "prompt_blocks": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "request_id": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "request_id",
+                "prompt_blocks",
+                "generated_blocks"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "scenario_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "capacity_blocks",
+          "requests"
+        ],
+        "type": "object"
+      },
+      "maxItems": 256,
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "0.1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "scenarios"
+  ],
+  "title": "CacheForge protected trace bundle",
+  "type": "object"
+}

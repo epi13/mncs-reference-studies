@@ -1,0 +1,18 @@
+{
+  "edge-cases.bin": {
+    "bytes": 256,
+    "sha256": "sha256:c6eecde28b4fd384dd5f30a32970bc0cdf764bea0dee1986ccef18dc9fd496c1"
+  },
+  "high-cardinality.bin": {
+    "bytes": 1638656,
+    "sha256": "sha256:87ee0896ecbe04e6ed6bd9a30ae3d2587172cc196932d704b7f9bb17566efd54"
+  },
+  "hostile.bin": {
+    "bytes": 83640,
+    "sha256": "sha256:13fcac486e875e2f77771665d38a0a8c1ff3b82db12cab2b549068d81e694db6"
+  },
+  "steady.bin": {
+    "bytes": 1228832,
+    "sha256": "sha256:621eff651d4da1dd3f7591b4edb07e98a44f946c6c81a68beec50094bef1856a"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "build_results": {
+    "binding_identity_after": "ac1a0c5b63ddecd8419f1fabc1a82949b35cdd6cf062d4cf1c926a5516eaeee6",
+    "binding_identity_before": "ac1a0c5b63ddecd8419f1fabc1a82949b35cdd6cf062d4cf1c926a5516eaeee6",
+    "binding_regeneration": "PASS",
+    "c11_build": "PASS",
+    "go_component_benchmark_output": "goos: linux\ngoarch: amd64\npkg: mncs.dev/composed-host-wave3\ncpu: AMD EPYC 9V74 80-Core Processor                \nBenchmarkNativeParse-5        \t23520502\t        46.52 ns/op\t       4 B/op\t       1 allocs/op\nBenchmarkNativeParse-5        \t25937481\t        46.02 ns/op\t       4 B/op\t       1 allocs/op\nBenchmarkNativeParse-5        \t26009932\t        46.37 ns/op\t       4 B/op\t       1 allocs/op\nBenchmarkNativeParse-5        \t24625425\t        46.71 ns/op\t       4 B/op\t       1 allocs/op\nBenchmarkNativeParse-5        \t26392286\t        47.69 ns/op\t       4 B/op\t       1 allocs/op\nBenchmarkCheckpointDigest-5   \t 1807857\t       663.1 ns/op\t     384 B/op\t      10 allocs/op\nBenchmarkCheckpointDigest-5   \t 1829176\t       666.7 ns/op\t     384 B/op\t      10 allocs/op\nBenchmarkCheckpointDigest-5   \t 1830428\t       655.4 ns/op\t     384 B/op\t      10 allocs/op\nBenchmarkCheckpointDigest-5   \t 1769571\t       675.9 ns/op\t     384 B/op\t      10 allocs/op\nBenchmarkCheckpointDigest-5   \t 1813034\t       682.0 ns/op\t     384 B/op\t      10 allocs/op\nPASS\nok  \tmncs.dev/composed-host-wave3\t15.574s\n",
+    "go_component_benchmarks": "PASS",
+    "go_fuzz_smoke": "PASS",
+    "go_race": "PASS",
+    "go_tests": "PASS",
+    "go_vet": "PASS",
+    "rust_toolchain": "UNKNOWN"
+  },
+  "cross_host_reproduction": "UNKNOWN",
+  "d4_regeneration_replacement_subclaim": "UNKNOWN",
+  "environment": {
+    "cargo": null,
+    "cc": "cc (Debian 14.2.0-19) 14.2.0",
+    "github_run_id": null,
+    "github_runner_os": null,
+    "github_sha": null,
+    "go": "go version go1.23.2 linux/amd64",
+    "machine": "x86_64",
+    "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "rustc": null
+  },
+  "epoch_id": "composed-gateway-wave3-epoch-2",
+  "formal_mncds_status": "UNKNOWN",
+  "formal_mncs_status": "UNKNOWN",
+  "identities": {
+    "c_header": "sha256:6fb0e2cf5e0bbeb73dbcd6c4fcff7cfc07cc1c66cf7f0d67d249231d12570e5d",
+    "go_binding": "sha256:ac1a0c5b63ddecd8419f1fabc1a82949b35cdd6cf062d4cf1c926a5516eaeee6",
+    "go_host_source": "sha256:19fd1ee03b7d3be1822c0865501e170bc6114e72d5f8bf7653f6cccfa44f3d94",
+    "preregistration": "sha256:20c9f4795a93e221dfb7dc7484f724a63e4a5699cabed620ccd51cae2bb766ee",
+    "rust_authority_source": "sha256:302456433dd11da09cb8d66cef05c7e3836c1463afb33ec0ab7ed0e8e70e6878"
+  },
+  "independent_evaluation": "UNKNOWN",
+  "known_limitations": [
+    "protected holdout is not available in the public repository",
+    "the evaluator is structurally separate but not organizationally independent",
+    "cross-host agreement is established only after hosted matrix artifacts are reviewed",
+    "ru_maxrss units are platform dependent",
+    "race, fuzz, and scheduler observations remain bounded"
+  ],
+  "measurements": {
+    "events": {
+      "configured_max_messages": 64,
+      "fallback_attempts": 0,
+      "fallback_successes": 0,
+      "rejected_generated_proposals": 0,
+      "valid_workload_protocol_rejections": 0
+    },
+    "ordering": "alternating readable/composed; checkpoint measured after each pair",
+    "outlier_policy": "none removed",
+    "raw": {
+      "readable": [
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0014380000000002724,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0014478970006166492
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0016460000000009245,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0026798920007422566
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0013839999999980535,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.001483459998780745
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0014460000000013906,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0025240159993700217
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.001449999999998397,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.002497510999091901
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0014959999999994977,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0018075729985866928
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0016970000000000596,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0026805690013134154
+        },
+        {
+          "child_system_seconds": 0.0017780000000002794,
+          "child_user_seconds": 0.0,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0027138340010424145
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0017620000000029279,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0016626579999865498
+        }
+      ],
+      "readable_checkpoint": [
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.002601999999999549,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0025077560003410326
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.002577999999999747,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0022594269994442584
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.002956000000001069,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.007387296000160859
+        },
+        {
+          "child_system_seconds": 0.00223099999999965,
+          "child_user_seconds": 0.0,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0022134979990369175
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0028089999999991733,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.002615837000121246
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0020520000000026073,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0019830549990729196
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.002703000000000344,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.00945927900102106
+        },
+        {
+          "child_system_seconds": 0.0,
+          "child_user_seconds": 0.0022439999999974702,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.00320130999898538
+        },
+        {
+          "child_system_seconds": 0.002333999999999836,
+          "child_user_seconds": 0.0,
+          "max_rss_observation": 113084,
+          "mode": "readable-rollback",
+          "output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+          "wall_seconds": 0.0032732069994381163
+        }
+      ]
+    },
+    "repetitions": 9,
+    "rss_note": "ru_maxrss units are platform dependent and retained as an environment observation",
+    "summaries": {
+      "derived_checkpoint": {
+        "checkpoint_wall_overhead_seconds": 0.00011832600102934521
+      },
+      "readable": {
+        "child_system_median_seconds": 0.0,
+        "child_user_median_seconds": 0.001449999999998397,
+        "count": 9,
+        "max_rss_observation_max": 113084,
+        "output_digests": [
+          "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39"
+        ],
+        "throughput_messages_per_second": 2402.3918221707972,
+        "wall_mad_seconds": 0.00021632300195051357,
+        "wall_max_seconds": 0.0027138340010424145,
+        "wall_median_seconds": 0.002497510999091901,
+        "wall_min_seconds": 0.0014478970006166492
+      },
+      "readable_checkpoint": {
+        "child_system_median_seconds": 0.0,
+        "child_user_median_seconds": 0.002577999999999747,
+        "count": 9,
+        "max_rss_observation_max": 113084,
+        "output_digests": [
+          "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39"
+        ],
+        "throughput_messages_per_second": 2293.720900699048,
+        "wall_mad_seconds": 0.0005854729988641338,
+        "wall_max_seconds": 0.00945927900102106,
+        "wall_median_seconds": 0.002615837000121246,
+        "wall_min_seconds": 0.0019830549990729196
+      }
+    },
+    "uncertainty": "median, range, and MAD; no global language comparison",
+    "warmups": 2
+  },
+  "mutation_campaign": {
+    "status": "UNKNOWN",
+    "summary": null
+  },
+  "partitions": {
+    "development": "PASS",
+    "protected_holdout": "UNKNOWN",
+    "public_reproduction": "UNKNOWN"
+  },
+  "promotion_authorized": false,
+  "propagated_result": "REVIEW_REQUIRED",
+  "recovery_drill": {
+    "identity_rejection": "PASS",
+    "readable_output_digest": "eeb8dfc16b5a621a3f1b517cfc7a43370faf9fadea1b27f97df3197fb99a2a39",
+    "readable_uninterrupted": "PASS",
+    "recovery": "UNKNOWN",
+    "replacement": "UNKNOWN"
+  },
+  "schema_version": "0.3-experimental",
+  "system_contract_id": "contract:composed-gateway-wave3-0.2"
+}

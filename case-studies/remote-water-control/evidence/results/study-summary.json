@@ -1,0 +1,457 @@
+{
+  "schema_version": "0.2",
+  "study_id": "mncs.remote-water-control.development-epoch-2",
+  "mode": "all",
+  "development_result": "PASS",
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "protected_evaluation_status": "UNKNOWN",
+  "disposition": "REVIEW_REQUIRED",
+  "claim_note": "This development run does not claim MNCS-L5 or MNCDS-D3. Independent protected holdout evaluation, release binding, and operational evidence remain outstanding.",
+  "hard_gates": {
+    "scenario_safety": "PASS",
+    "deterministic_replay": "PASS",
+    "checkpoint_corruption_rejection": "PASS",
+    "experimental_schema_validation": "PASS",
+    "per_scenario_regression_limits": "PASS"
+  },
+  "checkpoint_probe": {
+    "status": "PASS",
+    "cases": [
+      {
+        "corruption": "middle-bit",
+        "repetition": "0",
+        "status": "PASS",
+        "observation": "checkpoint digest mismatch"
+      },
+      {
+        "corruption": "header-bit",
+        "repetition": "0",
+        "status": "PASS",
+        "observation": "checkpoint envelope is malformed"
+      },
+      {
+        "corruption": "truncated",
+        "repetition": "0",
+        "status": "PASS",
+        "observation": "checkpoint envelope is malformed"
+      },
+      {
+        "corruption": "middle-bit",
+        "repetition": "1",
+        "status": "PASS",
+        "observation": "checkpoint digest mismatch"
+      },
+      {
+        "corruption": "header-bit",
+        "repetition": "1",
+        "status": "PASS",
+        "observation": "checkpoint envelope is malformed"
+      },
+      {
+        "corruption": "truncated",
+        "repetition": "1",
+        "status": "PASS",
+        "observation": "checkpoint envelope is malformed"
+      },
+      {
+        "corruption": "middle-bit",
+        "repetition": "2",
+        "status": "PASS",
+        "observation": "checkpoint digest mismatch"
+      },
+      {
+        "corruption": "header-bit",
+        "repetition": "2",
+        "status": "PASS",
+        "observation": "checkpoint envelope is malformed"
+      },
+      {
+        "corruption": "truncated",
+        "repetition": "2",
+        "status": "PASS",
+        "observation": "checkpoint envelope is malformed"
+      }
+    ]
+  },
+  "schema_validation": {
+    "status": "PASS",
+    "failures": []
+  },
+  "objective": {
+    "status": "PASS",
+    "candidate_to_baseline_pump_start_ratio": 0.54717,
+    "candidate_to_baseline_energy_ratio": 1.026066,
+    "required_pump_start_ratio_max": 0.75,
+    "required_energy_ratio_max": 1.1,
+    "terminal_normalization": "Both planners are charged equivalent duty-pump energy to the higher terminal storage level before each per-scenario comparison."
+  },
+  "scenario_comparisons": [
+    {
+      "scenario_id": "normal-day",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 41.28,
+      "baseline_normalized_energy_kwh": 70.125,
+      "candidate_normalized_energy_kwh": 70.125,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -2.64,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "peak-demand",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 35.68,
+      "baseline_normalized_energy_kwh": 59.583333,
+      "candidate_normalized_energy_kwh": 59.75,
+      "candidate_to_baseline_normalized_energy_ratio": 1.002797,
+      "terminal_reserve_deficit_pct": 8.88,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "power-outage",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 53.44,
+      "baseline_normalized_energy_kwh": 39.375,
+      "candidate_normalized_energy_kwh": 39.375,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -3.6,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "stale-telemetry",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 61.96,
+      "baseline_normalized_energy_kwh": 41.875,
+      "candidate_normalized_energy_kwh": 41.875,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -12.24,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "conflicting-sensor",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 55.0,
+      "baseline_normalized_energy_kwh": 34.875,
+      "candidate_normalized_energy_kwh": 34.875,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -6.48,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "checkpoint-restart",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 51.68,
+      "baseline_normalized_energy_kwh": 51.625,
+      "candidate_normalized_energy_kwh": 51.625,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -6.72,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "outage-plus-stale-telemetry",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 40.48,
+      "baseline_normalized_energy_kwh": 44.75,
+      "candidate_normalized_energy_kwh": 44.75,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -5.28,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "restart-during-degraded-telemetry",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 60.4,
+      "baseline_normalized_energy_kwh": 55.25,
+      "candidate_normalized_energy_kwh": 55.25,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -5.52,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "near-empty-initial-storage",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 19.38,
+      "baseline_normalized_energy_kwh": 45.0,
+      "candidate_normalized_energy_kwh": 45.0,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": 0.0,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "demand-model-underestimate",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 38.56,
+      "baseline_normalized_energy_kwh": 59.0,
+      "candidate_normalized_energy_kwh": 59.0,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -4.56,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "demand-model-overestimate",
+      "status": "PASS",
+      "randomized": false,
+      "seed": null,
+      "terminal_normalization_target_pct": 53.44,
+      "baseline_normalized_energy_kwh": 48.75,
+      "candidate_normalized_energy_kwh": 48.75,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": 0.0,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-00",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10000,
+      "terminal_normalization_target_pct": 31.387,
+      "baseline_normalized_energy_kwh": 51.416667,
+      "candidate_normalized_energy_kwh": 51.5625,
+      "candidate_to_baseline_normalized_energy_ratio": 1.002836,
+      "terminal_reserve_deficit_pct": 3.0,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-01",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10001,
+      "terminal_normalization_target_pct": 27.3676,
+      "baseline_normalized_energy_kwh": 57.816667,
+      "candidate_normalized_energy_kwh": 57.908333,
+      "candidate_to_baseline_normalized_energy_ratio": 1.001585,
+      "terminal_reserve_deficit_pct": 7.92,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-02",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10002,
+      "terminal_normalization_target_pct": 60.3722,
+      "baseline_normalized_energy_kwh": 46.875,
+      "candidate_normalized_energy_kwh": 46.875,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -14.16,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-03",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10003,
+      "terminal_normalization_target_pct": 55.4164,
+      "baseline_normalized_energy_kwh": 52.875,
+      "candidate_normalized_energy_kwh": 52.875,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -5.28,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-04",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10004,
+      "terminal_normalization_target_pct": 22.8228,
+      "baseline_normalized_energy_kwh": 42.0,
+      "candidate_normalized_energy_kwh": 42.125,
+      "candidate_to_baseline_normalized_energy_ratio": 1.002976,
+      "terminal_reserve_deficit_pct": 5.76,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-05",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10005,
+      "terminal_normalization_target_pct": 37.31,
+      "baseline_normalized_energy_kwh": 41.0,
+      "candidate_normalized_energy_kwh": 41.0625,
+      "candidate_to_baseline_normalized_energy_ratio": 1.001524,
+      "terminal_reserve_deficit_pct": 1.32,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-06",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10006,
+      "terminal_normalization_target_pct": 33.1404,
+      "baseline_normalized_energy_kwh": 60.0,
+      "candidate_normalized_energy_kwh": 60.0,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": 0.0,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    },
+    {
+      "scenario_id": "randomized-07",
+      "status": "PASS",
+      "randomized": true,
+      "seed": 10007,
+      "terminal_normalization_target_pct": 43.9836,
+      "baseline_normalized_energy_kwh": 39.875,
+      "candidate_normalized_energy_kwh": 39.875,
+      "candidate_to_baseline_normalized_energy_ratio": 1.0,
+      "terminal_reserve_deficit_pct": -4.56,
+      "limits": {
+        "normalized_energy_ratio_max": 1.2,
+        "terminal_reserve_deficit_pct_max": 10.0,
+        "unmet_demand_regression_l_max": 0.0,
+        "overflow_regression_l_max": 0.0
+      }
+    }
+  ],
+  "aggregates": {
+    "baseline": {
+      "energy_kwh": 905.066667,
+      "pump_starts": 53,
+      "unmet_demand_l": 0.0,
+      "overflow_l": 0.0,
+      "safety_violations": 0,
+      "safety_interventions": {
+        "accepted": 8701,
+        "modified": 0,
+        "held": 299,
+        "rejected": 0
+      }
+    },
+    "candidate": {
+      "energy_kwh": 928.658333,
+      "pump_starts": 29,
+      "unmet_demand_l": 0.0,
+      "overflow_l": 0.0,
+      "safety_violations": 0,
+      "safety_interventions": {
+        "accepted": 8940,
+        "modified": 0,
+        "held": 60,
+        "rejected": 0
+      }
+    }
+  },
+  "identities": {
+    "planner_spec": "sha256:01ce91e7535a9e55a8e8dd30ef089443c245a540b92bf63f32d5e9b5a2d46c3f",
+    "generated_planner": "sha256:b4c6d4728388bddd5a38edde6356b48a866b6fda0db6c6c786540f7fe5ad19b7",
+    "safety_kernel": "sha256:62ddc80409e3fbecb743c4efa9a0287c905f42b5c673a6dfbc8c0e638bdeb6ea",
+    "simulator": "sha256:257a81c6c3f4605ebf17a629aa544ba5f52fe87f4eccb8a7c6a730017253f0d6",
+    "evaluator": "sha256:5135f9c69fde4929a6be9c226c32e2fb57a0849f3df318ce26d6486609896cb5",
+    "preregistration": "sha256:45ec455fdb79c51070fa22efa560e91e7afab57e0fe115afd404d18da053dd7c"
+  },
+  "limitations": [
+    "Randomized scenarios are deterministic and repository-visible development scenarios.",
+    "The plant model is a bounded digital twin and is not a hydraulic design model.",
+    "No live PLC, SCADA, pump, valve, or field network is connected.",
+    "The generated planner is a development candidate, not an accepted release artifact.",
+    "Protected holdout, independent evaluation, and operational evidence remain open."
+  ]
+}

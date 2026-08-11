@@ -1,0 +1,115 @@
+name: RAVEL 0.4 evidence hardening
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  legacy-and-canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Reproduce historical RAVEL checks
+        run: |
+          make ravel-test
+          make ravel-training-check
+          make ravel-unified-check
+      - name: Reproduce canonical RAVEL 0.4 evidence
+        run: make ravel-0.4-check
+      - name: Run checkpoint mutation tests
+        run: make -C case-studies/ravel 0.4-checkpoint-test
+      - name: Run lineage and topology invariants
+        run: make -C case-studies/ravel 0.4-lineage-test
+      - name: Run negative tests
+        run: make -C case-studies/ravel 0.4-negative-test
+      - name: Prove source manifest mutations fail closed
+        run: make -C case-studies/ravel 0.4-manifest-negative-test
+      - name: Confirm RAVEL reproduction leaves no tracked or unignored changes
+        shell: bash
+        run: |
+          status="$(git status --porcelain --untracked-files=all -- case-studies/ravel)"
+          test -z "$status" || { printf '%s\n' "$status"; exit 1; }
+      - name: Upload RAVEL evidence and diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.4-failure-${{ runner.arch }}
+          path: |
+            case-studies/ravel/ravel-0.4-raw-observations.json
+            case-studies/ravel/ravel-0.4-trial-evidence.json
+            case-studies/ravel/ravel-0.4-negative-evidence.json
+            case-studies/ravel/ravel-0.4-source-manifest.json
+            case-studies/ravel/ravel-0.4-assurance-case.json
+            case-studies/ravel/diagnostics
+          if-no-files-found: warn
+          retention-days: 30
+
+  compiler-and-optimization:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+        optimization: ["-O0", "-O3"]
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Build and reproduce
+        env:
+          CC: ${{ matrix.compiler }}
+          RAVEL_OPT: ${{ matrix.optimization }}
+        run: |
+          make -C case-studies/ravel clean
+          make -C case-studies/ravel 0.4-check \
+            CC="$CC" \
+            CFLAGS="-std=c11 $RAVEL_OPT -Wall -Wextra -Werror -pedantic"
+      - name: Upload compiler diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.4-${{ matrix.compiler }}-${{ matrix.optimization }}
+          path: |
+            case-studies/ravel/ravel-0.4-raw-observations.json
+            case-studies/ravel/diagnostics
+          if-no-files-found: warn
+          retention-days: 30
+
+  sanitizers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Address and undefined behavior sanitizers
+        run: make ravel-0.4-sanitizers
+      - name: Upload sanitizer evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.4-sanitizer-failure
+          path: case-studies/ravel/ravel-0.4-raw-observations.json
+          retention-days: 30
+
+  architecture-reproduction:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Reproduce RAVEL 0.4 on native architecture
+        run: make ravel-0.4-check
+      - name: Record architecture
+        run: uname -a
+      - name: Upload architecture diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.4-architecture-${{ runner.arch }}
+          path: |
+            case-studies/ravel/ravel-0.4-raw-observations.json
+            case-studies/ravel/diagnostics
+          if-no-files-found: warn
+          retention-days: 30

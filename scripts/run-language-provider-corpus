@@ -1,0 +1,258 @@
+#!/usr/bin/env python3
+"""Run deterministic profile and Provider Protocol conformance fixtures."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+from typing import Any
+
+from jsonschema import Draft202012Validator
+
+ROOT = Path(__file__).resolve().parents[1]
+STANDARDS_ROOT = Path(os.environ.get("MNCS_STANDARDS_ROOT", ROOT))
+LANGUAGES = {
+    "c11": "c11.bounded-source-safety",
+    "rust": "rust.bounded-source-safety",
+    "python": "python.bounded-source-safety",
+}
+EXPECTED = {"pass": "PASS", "fail": "FAIL", "unknown": "UNKNOWN"}
+PROVIDERS = {
+    language: {
+        "id": f"mncs.experimental.{language}-source-provider",
+        "version": "0.1.0",
+        "configuration_id": f"cfg:{language}-source-provider-0.1.0",
+    }
+    for language in LANGUAGES
+}
+
+
+def load(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def run_provider(
+    language: str,
+    request: dict[str, Any],
+    timeout: float = 2.0,
+) -> subprocess.CompletedProcess[str]:
+    provider = (
+        ROOT
+        / "experimental/language-evidence/providers"
+        / f"{language}_provider.py"
+    )
+    command = [sys.executable, str(provider)]
+    return subprocess.run(
+        command,
+        input=json.dumps(request, sort_keys=True, separators=(",", ":")) + "\n",
+        text=True,
+        capture_output=True,
+        timeout=timeout,
+        env={
+            "PATH": os.environ.get("PATH", ""),
+            "LANG": "C.UTF-8",
+            "LC_ALL": "C.UTF-8",
+        },
+        check=False,
+    )
+
+
+def request(language: str, source: str, case: str) -> dict[str, Any]:
+    return {
+        "protocol_version": "0.1",
+        "type": "analysis_request",
+        "request_id": f"{language}-{case}",
+        "analysis": LANGUAGES[language],
+        "component": {
+            "language": language,
+            "source_text": source,
+            "subject_id": f"fixture:{language}:{case}",
+            "contract_id": "contract:provider-conformance-0.1",
+            "environment_id": "environment:provider-conformance-python",
+            "evidence_partition": "public-conformance",
+        },
+        "limits": {"wall_seconds": 2, "input_bytes": 65_536},
+        "extensions": {},
+    }
+
+
+def validate_profiles(
+    profile_validator: Draft202012Validator,
+) -> list[str]:
+    findings: list[str] = []
+    profile_dir = ROOT / "experimental/language-evidence/profiles"
+    for profile_path in sorted(profile_dir.glob("*.json")):
+        errors = sorted(
+            profile_validator.iter_errors(load(profile_path)),
+            key=lambda error: list(error.absolute_path),
+        )
+        if errors:
+            findings.append(
+                f"profile invalid: {profile_path}: {errors[0].message}"
+            )
+
+    invalid_path = (
+        ROOT
+        / "experimental/language-evidence/fixtures/profiles"
+        / "invalid-missing-unknown-conditions.json"
+    )
+    invalid_profile = load(invalid_path)
+    if not list(profile_validator.iter_errors(invalid_profile)):
+        findings.append("negative profile fixture unexpectedly validated")
+    return findings
+
+
+def validate_case(
+    language: str,
+    case: str,
+    expected: str,
+    analyzer_validator: Draft202012Validator,
+) -> tuple[list[str], str | None]:
+    fixture = (
+        ROOT
+        / "experimental/language-evidence/fixtures/providers"
+        / language
+        / f"{case}.txt"
+    )
+    source = fixture.read_text(encoding="utf-8")
+    analysis_request = request(language, source, case)
+    first = run_provider(language, analysis_request)
+    second = run_provider(language, analysis_request)
+    findings: list[str] = []
+
+    if first.returncode != 0:
+        findings.append(
+            f"{language}/{case}: operational return {first.returncode}: "
+            f"{first.stderr}"
+        )
+        return findings, None
+    if first.stdout != second.stdout:
+        findings.append(f"{language}/{case}: normalized output is nondeterministic")
+        return findings, None
+
+    try:
+        response = json.loads(first.stdout)
+    except json.JSONDecodeError as exc:
+        findings.append(f"{language}/{case}: invalid JSON: {exc}")
+        return findings, None
+
+    if response.get("status") != expected:
+        findings.append(
+            f"{language}/{case}: expected {expected}, "
+            f"got {response.get('status')}"
+        )
+    if response.get("provider") != PROVIDERS[language]:
+        findings.append(f"{language}/{case}: provider identity mismatch")
+
+    result = response.get("extensions", {}).get("mncs.dev:analyzer_result")
+    if not isinstance(result, dict):
+        findings.append(f"{language}/{case}: missing analyzer result")
+    else:
+        errors = sorted(
+            analyzer_validator.iter_errors(result),
+            key=lambda error: list(error.absolute_path),
+        )
+        if errors:
+            findings.append(
+                f"{language}/{case}: analyzer schema error: "
+                f"{errors[0].message}"
+            )
+        if result.get("analyzer_id") != PROVIDERS[language]["id"]:
+            findings.append(f"{language}/{case}: analyzer identity mismatch")
+        if result.get("analyzer_version") != PROVIDERS[language]["version"]:
+            findings.append(f"{language}/{case}: analyzer version mismatch")
+        if (
+            result.get("configuration_id")
+            != PROVIDERS[language]["configuration_id"]
+        ):
+            findings.append(f"{language}/{case}: configuration binding mismatch")
+        if result.get("subject_id") != f"fixture:{language}:{case}":
+            findings.append(f"{language}/{case}: subject binding mismatch")
+        if result.get("contract_id") != "contract:provider-conformance-0.1":
+            findings.append(f"{language}/{case}: contract binding mismatch")
+        if (
+            result.get("environment_id")
+            != "environment:provider-conformance-python"
+        ):
+            findings.append(f"{language}/{case}: environment binding mismatch")
+
+    digest = hashlib.sha256(first.stdout.encode("utf-8")).hexdigest()
+    return findings, digest
+
+
+def validate_operational_errors(language: str) -> list[str]:
+    findings: list[str] = []
+
+    crash_request = request(language, "valid", "crash")
+    crash_request["extensions"] = {"mncs.dev:simulate": "crash"}
+    crashed = run_provider(language, crash_request)
+    if crashed.returncode == 0:
+        findings.append(f"{language}/crash: operational error was not preserved")
+
+    timeout_request = request(language, "valid", "timeout")
+    timeout_request["extensions"] = {"mncs.dev:simulate": "timeout"}
+    timed_out = False
+    try:
+        run_provider(language, timeout_request, timeout=0.1)
+    except subprocess.TimeoutExpired:
+        timed_out = True
+    if not timed_out:
+        findings.append(f"{language}/timeout: timeout was not preserved")
+
+    return findings
+
+
+def main() -> int:
+    analyzer_schema = load(STANDARDS_ROOT / "schemas/mncs-analyzer-result.schema.json")
+    profile_schema = load(
+        ROOT / "schemas/mncs-language-evidence-profile.schema.json"
+    )
+    analyzer_validator = Draft202012Validator(analyzer_schema)
+    profile_validator = Draft202012Validator(profile_schema)
+
+    findings = validate_profiles(profile_validator)
+    normalized: dict[str, str] = {}
+    for language in LANGUAGES:
+        for case, expected in EXPECTED.items():
+            case_findings, digest = validate_case(
+                language,
+                case,
+                expected,
+                analyzer_validator,
+            )
+            findings.extend(case_findings)
+            if digest is not None:
+                normalized[f"{language}/{case}"] = digest
+        findings.extend(validate_operational_errors(language))
+
+    expected_path = (
+        ROOT
+        / "experimental/language-evidence/provider-conformance"
+        / "expected.json"
+    )
+    expected = load(expected_path)
+    if normalized != expected["normalized_output_sha256"]:
+        findings.append("deterministic normalized output digest regression")
+
+    report = {
+        "corpus": "mncs-language-provider-conformance-0.1",
+        "status": "PASS" if not findings else "FAIL",
+        "findings": findings,
+        "normalized_output_sha256": normalized,
+        "semantics": {
+            "PASS": "supported valid case",
+            "FAIL": "supported detected violation",
+            "UNKNOWN": "unsupported or incomplete coverage",
+            "operational_error": "nonzero exit or timeout",
+        },
+    }
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if not findings else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -37,13 +37,13 @@ Exact upstream implementations are intentionally not frozen yet. Each study must
 
 ### MNCS case studies (`case-studies/`)
 
-The existing MNCS repository already contains research case studies such as CacheForge, EdgeStream, Remote Water Control, Multilingual Stream, Go Gateway, Composed Gateway, RAVEL, and dSense Desk Pet. They will migrate here in separate PRs so the core standards repository is not burdened with experimental code and generated evidence.
+The historical case studies have migrated here from the core repository. They remain a separate lane from the numbered MRS series and retain their original protocols, evidence boundaries, and claim language. See the [complete case-study inventory](case-studies/README.md).
 
 The migration landing zone and current inventory are in [`case-studies/README.md`](case-studies/README.md).
 
 ### Existing MNCS research studies (`studies/`)
 
-The core MNCS repository also has a separate `studies/` tree containing Recursive Analyzer, Recursive Architecture Comparison, and Recursive Experience Substrate work. Those are not the new MRS series, so this repository preserves a distinct [`studies/`](studies/README.md) migration lane for them rather than renaming them during the move.
+The historical Recursive Analyzer, Recursive Architecture Comparison, and Recursive Experience Substrate studies have also migrated here. They are not the new MRS series, so this repository preserves a distinct [`studies/`](studies/README.md) lane rather than renaming them during the move.
 
 ## What this repository is trying to measure
 
@@ -91,10 +91,16 @@ tools/                 repository-level validation and later comparison tooling
 make check
 ```
 
-The initial repository validator uses only the Python standard library. It checks the structural invariants of the MRS manifests so the repository can establish a stable machine-readable surface before heavier study tooling arrives.
+The default `make` entrypoint is the destination-owned `GNUmakefile`. It validates migration provenance and MRS metadata, then runs non-evidence-writing checks across the migrated studies. The historical root `Makefile` is retained byte-identically because the frozen RAVEL 0.5 source manifest binds it; use the destination `GNUmakefile` through ordinary `make` commands.
+
+Some historical checks intentionally depend on normative MNCS/MNCDS validator tooling that remains in the standards repository. Those checks are exposed through explicit targets and require `MNCS_STANDARDS_ROOT`; the destination does not duplicate normative conformance code.
 
 ## Relationship to the MNCS family
 
 This repository is intended to become a repeatable workload and evidence source for the wider MNCS family. The local harness and Fabric can eventually distribute and reproduce study tasks; the Forge can contribute verifier/evidence machinery; and RAVEL/MNEL can consume carefully labeled successful and failed trajectories. Future MNCS-Language implementations can rerun the same frozen study contracts rather than inventing new demonstrations.
 
 The goal is not to prove MNCS by construction. The goal is to make MNCS easier to falsify, measure, improve, and reproduce.
+
+## Migration provenance
+
+The complete migration record is in [`MIGRATION.md`](MIGRATION.md). Every migrated study contains a study-local `MIGRATION.md` recording the frozen source commit, source and destination paths, adaptation decisions, evidence status, and validation.

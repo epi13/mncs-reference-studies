@@ -1,0 +1,125 @@
+{
+  "benefit": {
+    "low_reuse_recompute_ratio_vs_baseline": 1.0,
+    "planning_work_ratio_vs_baseline": 0.797905,
+    "recomputed_blocks_saved_vs_baseline": 84,
+    "recomputed_blocks_savings_ratio": 0.12844
+  },
+  "checks": {
+    "authority_mutations": "PASS",
+    "checkpoint_recovery": "PASS",
+    "policy_comparison": "PASS"
+  },
+  "claim_boundary": "A development PASS covers only the deterministic simulator, declared traces, generated policy identity, and readable authority kernel. It is not evidence of GPU correctness, production isolation, or integration with a live inference server.",
+  "development_target": "MNCS-L4 / MNCDS-D2 evidence pattern",
+  "formal_mncds_status": "UNKNOWN",
+  "formal_mncs_status": "UNKNOWN",
+  "gates": {
+    "all_authority_proposals_valid": "PASS",
+    "candidate_planning_work_ratio_at_most_1_50": "PASS",
+    "candidate_recompute_improvement_at_least_10pct": "PASS",
+    "capacity_invariants_hold": "PASS",
+    "low_reuse_regression_at_most_5pct": "PASS"
+  },
+  "mode": "all",
+  "mutations": {
+    "mutations": {
+      "cacheforge.mutation.duplicate-victim": {
+        "fallback_uses": 126,
+        "rejected_proposals": 126,
+        "state_valid": true,
+        "status": "PASS"
+      },
+      "cacheforge.mutation.unknown-victim": {
+        "fallback_uses": 126,
+        "rejected_proposals": 126,
+        "state_valid": true,
+        "status": "PASS"
+      }
+    },
+    "status": "PASS"
+  },
+  "policy_aggregates": {
+    "baseline": {
+      "cancelled_requests": 3,
+      "evictions": 554,
+      "fallback_uses": 0,
+      "hit_rate": 0.148438,
+      "hits": 114,
+      "misses": 654,
+      "peak_resident_blocks": 100,
+      "planner_calls": 554,
+      "planner_candidates_inspected": 10599,
+      "recomputed_blocks": 654,
+      "recomputed_blocks_per_request": 13.914894,
+      "rejected_proposals": 0,
+      "requests": 47
+    },
+    "candidate": {
+      "cancelled_requests": 3,
+      "evictions": 470,
+      "fallback_uses": 0,
+      "hit_rate": 0.257812,
+      "hits": 198,
+      "misses": 570,
+      "peak_resident_blocks": 100,
+      "planner_calls": 470,
+      "planner_candidates_inspected": 8457,
+      "recomputed_blocks": 570,
+      "recomputed_blocks_per_request": 12.12766,
+      "rejected_proposals": 0,
+      "requests": 47
+    },
+    "reference": {
+      "cancelled_requests": 3,
+      "evictions": 599,
+      "fallback_uses": 0,
+      "hit_rate": 0.089844,
+      "hits": 69,
+      "misses": 699,
+      "peak_resident_blocks": 100,
+      "planner_calls": 599,
+      "planner_candidates_inspected": 11544,
+      "recomputed_blocks": 699,
+      "recomputed_blocks_per_request": 14.87234,
+      "rejected_proposals": 0,
+      "requests": 47
+    }
+  },
+  "recovery": {
+    "checkpoint_digest": "a4759ecd3d78160d85bbd8200efc0be260bcdc72976f8ee4d719dbed66d000a8",
+    "policy_identity_bound": true,
+    "restored_final_digest": "464e53b6540899121f9b55b25be091bddb19f5a0b2a089a4993b3b601f3b817e",
+    "status": "PASS",
+    "uninterrupted_final_digest": "464e53b6540899121f9b55b25be091bddb19f5a0b2a089a4993b3b601f3b817e"
+  },
+  "scenario_observations": {
+    "alternating-tenants": {
+      "baseline_recomputed_blocks": 256,
+      "candidate_final_state_digest": "29b6b3d8b3a3a7792a7611e7d53c45243e5b4f18418bfb13f4360e5227e5479e",
+      "candidate_hit_rate": 0.328125,
+      "candidate_recomputed_blocks": 172
+    },
+    "cancellation-pressure": {
+      "baseline_recomputed_blocks": 108,
+      "candidate_final_state_digest": "f011857c633e6cb97da8622ad10b5790ebe665e8c146eeee958ee9ab6722ff04",
+      "candidate_hit_rate": 0.307692,
+      "candidate_recomputed_blocks": 108
+    },
+    "low-reuse-control": {
+      "baseline_recomputed_blocks": 140,
+      "candidate_final_state_digest": "3396821abb7c757dfcd47686825d23f6d8bbb58901393a79daae991bf0dfc365",
+      "candidate_hit_rate": 0.0,
+      "candidate_recomputed_blocks": 140
+    },
+    "shared-prefix-burst": {
+      "baseline_recomputed_blocks": 150,
+      "candidate_final_state_digest": "464e53b6540899121f9b55b25be091bddb19f5a0b2a089a4993b3b601f3b817e",
+      "candidate_hit_rate": 0.305556,
+      "candidate_recomputed_blocks": 150
+    }
+  },
+  "schema_version": "0.1",
+  "status": "PASS",
+  "study_id": "mncs.cacheforge.kv-cache.development.v1"
+}

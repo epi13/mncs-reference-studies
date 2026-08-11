@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from jsonschema import Draft202012Validator, FormatChecker
+
+ROOT = Path(__file__).resolve().parents[1]
+PAIRS = [
+    (
+        "case-studies/composed-gateway/wave-four/fixtures/custody/valid-template.json",
+        "schemas/mncs-evidence-custody.schema.json",
+    ),
+    (
+        "case-studies/composed-gateway/wave-four/cross-host-agreement-pending.json",
+        "schemas/mncs-cross-host-agreement.schema.json",
+    ),
+    (
+        "case-studies/composed-gateway/wave-four/evidence/local-readiness.json",
+        "schemas/mncs-claim-readiness.schema.json",
+    ),
+    (
+        "case-studies/composed-gateway/wave-four/service-boundary.json",
+        "schemas/mncs-boundary-contract.schema.json",
+    ),
+]
+
+
+def load(path: str) -> object:
+    return json.loads((ROOT / path).read_text(encoding="utf-8"))
+
+
+def main() -> int:
+    findings: list[str] = []
+    for instance, schema in PAIRS:
+        validator = Draft202012Validator(load(schema), format_checker=FormatChecker())
+        findings.extend(
+            f"{instance}: {error.message}"
+            for error in validator.iter_errors(load(instance))
+        )
+    report = {
+        "wave": "four",
+        "status": "PASS" if not findings else "FAIL",
+        "findings": findings,
+    }
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return int(bool(findings))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

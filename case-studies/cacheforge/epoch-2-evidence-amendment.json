@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1",
+  "amendment_id": "mncs.cacheforge.kv-cache.epoch-2.evidence-amendment.v1",
+  "study_id": "mncs.cacheforge.kv-cache.epoch-2-development.v1",
+  "reason": "Post-run review identified evidence inspectability, artifact identity, and protected-input validation gaps.",
+  "candidate_changed": false,
+  "workload_changed": false,
+  "performance_gates_changed": false,
+  "formal_status_changed": false,
+  "additions": [
+    "validate protected trace bundles against the published JSON Schema before parsing",
+    "publish all scenario-level observations in a deterministic evidence record",
+    "bind the candidate, simulator, authority, baselines, evaluator, protocol, and generator by SHA-256",
+    "report seed-clustered and hot-prefix-regime diagnostics",
+    "separate schema validity from protocol eligibility, custody verification, and claim promotion"
+  ],
+  "claim_impact": "No performance claim is expanded. The development result remains REVIEW_REQUIRED and formal MNCS and MNCDS status remain UNKNOWN."
+}

@@ -1,0 +1,36 @@
+{
+  "classification": "development pre-registration",
+  "contract_id": "contract:multilingual-bounded-stream-0.1",
+  "epoch_id": "multilingual-stream-wave1-epoch-1",
+  "hard_gates": [
+    "profile-validation",
+    "strict-build",
+    "format-and-lint",
+    "unit-tests",
+    "valid-corpus-equivalence",
+    "malformed-input-rejection",
+    "deterministic-replay",
+    "defective-fixture-rejection",
+    "provider-conformance",
+    "regeneration-identity"
+  ],
+  "holdout_policy": "No protected holdout is used and no MNCDS-D3, MNCS-L5, or production claim is permitted.",
+  "measurement_policy": {
+    "order": "fixed implementation order; all raw samples retained",
+    "outliers": "none removed",
+    "repetitions": 7,
+    "uncertainty": "median and median absolute deviation",
+    "warmups": 2,
+    "workload": "25000 deterministic values under the shared contract"
+  },
+  "minimum_useful_benefit": {
+    "maximum_ratio": 0.95,
+    "rule": "At least one candidate must reduce median wall time by 5% or more versus its same-language readable reference while all hard gates pass."
+  },
+  "primary_metric": "candidate median wall-time divided by same-language reference median wall-time",
+  "protected_evidence_policy": "Candidate generation and tuning may not access any future independently held corpus.",
+  "recovery_criteria": "A fresh process replay of the same complete input must produce the identical canonical output; this stateless study does not claim checkpoint recovery.",
+  "schema_version": "0.1-experimental",
+  "target_claim": "experimental development evidence only; formal MNCS and MNCDS remain UNKNOWN",
+  "unknown_policy": "Required UNKNOWN blocks promotion; optional language-specific UNKNOWN remains visible."
+}

@@ -1,0 +1,168 @@
+{
+  "capabilities": {
+    "conditional": [
+      {
+        "coverage": "conditional",
+        "evidence": "optional provider epoch",
+        "id": "c11.joern",
+        "limitations": [
+          "Tool availability and language frontend coverage"
+        ],
+        "tools": [
+          "Joern"
+        ]
+      }
+    ],
+    "supported": [
+      {
+        "coverage": "complete-for-declared-scope",
+        "evidence": "strict GCC/Clang compilation",
+        "id": "c11.strict-build",
+        "limitations": [],
+        "tools": [
+          "gcc",
+          "clang"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "ASan and UBSan execution",
+        "id": "c11.runtime-safety",
+        "limitations": [
+          "Executed paths only"
+        ],
+        "tools": [
+          "AddressSanitizer",
+          "UndefinedBehaviorSanitizer"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "declared malformed corpus",
+        "id": "c11.malformed-input",
+        "limitations": [],
+        "tools": [
+          "case-study harness"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "Clang AST JSON invariants",
+        "id": "c11.structural-ast",
+        "limitations": [
+          "Preprocessor and linker semantics are partial"
+        ],
+        "tools": [
+          "clang -Xclang -ast-dump=json"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "repeated deterministic workloads",
+        "id": "c11.performance",
+        "limitations": [
+          "Host-specific"
+        ],
+        "tools": [
+          "monotonic clock harness"
+        ]
+      }
+    ],
+    "unsupported": [
+      {
+        "coverage": "unsupported",
+        "evidence": "none",
+        "id": "c11.universal-proof",
+        "limitations": [
+          "No exhaustive semantic proof"
+        ],
+        "tools": []
+      }
+    ]
+  },
+  "coverage_limitations": [
+    "Does not exhaust all C11 undefined behavior",
+    "Optional Joern disagreement remains evidence rather than forced consensus"
+  ],
+  "environment_observations": [
+    "compiler version and target triple",
+    "optimization and sanitizer flags",
+    "libc and kernel identity",
+    "CPU model and governor for performance",
+    "timeout, memory, and input byte limits"
+  ],
+  "extensions": {
+    "mncs.dev:claim_language": "profile-valid and evidence-supported only; no language compliance claim"
+  },
+  "identities": {
+    "build_system": [
+      "Makefile and exact compiler command identity"
+    ],
+    "dependency_lock": [
+      "system compiler and libc identities; no package lock when no third-party dependencies"
+    ],
+    "generated_artifacts": [
+      "SHA-256 of generated C and executable when retained"
+    ],
+    "providers": [
+      {
+        "command": [
+          "python3",
+          "experimental/language-evidence/providers/c11_provider.py"
+        ],
+        "configuration_identity": "cfg:c11-source-provider-0.1.0",
+        "id": "mncs.experimental.c11-source-provider",
+        "version": "0.1.0"
+      }
+    ],
+    "source": [
+      "SHA-256 of every translation unit and header"
+    ]
+  },
+  "language": {
+    "edition_or_runtime": "ISO C11",
+    "implementation_requirements": [
+      "GCC 14.x or Clang 17+ identity recorded",
+      "-std=c11",
+      "strict diagnostics use -Wall -Wextra -Werror -pedantic"
+    ],
+    "name": "C"
+  },
+  "mechanisms": {
+    "advanced_testing": [
+      "mutation fixtures",
+      "optional fuzzing"
+    ],
+    "malformed_input": [
+      "invalid token, overflow, truncation, oversized input"
+    ],
+    "nondeterminism": [
+      "fixed inputs and seeds",
+      "repeat counts and summary statistics recorded"
+    ],
+    "resource_performance": [
+      "wall time, peak RSS when available, deterministic workload identity"
+    ],
+    "runtime_safety": [
+      "ASan",
+      "UBSan",
+      "strict integer and bounds checks"
+    ],
+    "structural_semantic": [
+      "Clang AST JSON",
+      "bounded provider source scan"
+    ]
+  },
+  "profile_id": "c11-reference-v0.1",
+  "profile_name": "C11 controlled reference evidence profile",
+  "profile_version": "0.1.0",
+  "schema_version": "0.1-experimental",
+  "status": "experimental",
+  "unknown_conditions": [
+    "compiler or sanitizer unavailable",
+    "provider timeout or crash",
+    "unsupported extension or inline assembly",
+    "environment identity mismatch",
+    "required source or generated artifact unavailable"
+  ]
+}

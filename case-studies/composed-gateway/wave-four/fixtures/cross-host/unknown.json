@@ -1,0 +1,42 @@
+{
+  "build_results": {
+    "binding_regeneration": "PASS",
+    "c11_build": "PASS",
+    "go_fuzz_smoke": "PASS",
+    "go_race": "PASS",
+    "go_tests": "PASS",
+    "go_vet": "PASS",
+    "rust_toolchain": "UNKNOWN"
+  },
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15"
+  },
+  "epoch_id": "composed-gateway-wave3-epoch-2",
+  "identities": {
+    "c_header": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "go_binding": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+    "go_host_source": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "preregistration": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+    "rust_authority_source": "sha256:5555555555555555555555555555555555555555555555555555555555555555"
+  },
+  "mutation_campaign": {
+    "status": "PASS",
+    "summary": {
+      "count": 18
+    }
+  },
+  "recovery_drill": {
+    "composed_output_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "composed_uninterrupted": "PASS",
+    "identity_rejection": "PASS",
+    "readable_output_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "readable_uninterrupted": "PASS",
+    "recovery": "UNKNOWN",
+    "recovery_output_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "replacement": "PASS",
+    "replacement_output_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "schema_version": "0.3-experimental",
+  "system_contract_id": "contract:composed-gateway-wave3-0.2"
+}

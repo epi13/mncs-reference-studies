@@ -1,0 +1,43 @@
+{
+  "assurance_case_id": "mncs.cacheforge.kv-cache.epoch-2.assurance.v1",
+  "claim": "The frozen generated eviction table passed a broader repository-visible seeded capacity-sweep protocol against LRU and segmented LRU while remaining bounded by the readable allocation authority.",
+  "component_id": "mncs.cacheforge.kv-cache-planner.v1",
+  "development_result": "PASS",
+  "disposition": "REVIEW_REQUIRED",
+  "formal_mncds_status": "UNKNOWN",
+  "formal_mncs_status": "UNKNOWN",
+  "promotion_authorized": false,
+  "evidence_integrity": {
+    "artifact_identity_algorithm": "sha256",
+    "scenario_observations_published": true,
+    "protected_bundle_schema_enforced": true,
+    "performance_gates_changed_after_run": false,
+    "candidate_changed_after_run": false,
+    "workload_changed_after_run": false
+  },
+  "known_result_limitations": [
+    "the 64 evaluations contain 16 independent traces repeated at four capacities",
+    "the 48-block aggregate is only slightly favorable and 9 of 16 scenarios regress",
+    "the high-capacity regressions cluster in one- and two-hot-prefix-family regimes",
+    "the simulator processes requests sequentially rather than with continuous batching"
+  ],
+  "promotion_blockers": [
+    "independently held protected traces",
+    "independent evaluator custody",
+    "cross-host reproduction",
+    "real inference-server adapter",
+    "accelerator memory integration",
+    "production security and lifecycle review"
+  ],
+  "schema_version": "0.3",
+  "supporting_records": [
+    "epoch-2-preregistration.json",
+    "epoch-2-evidence-amendment.json",
+    "protected-trace-bundle.schema.json",
+    "src/cacheforge/epoch2.py",
+    "src/cacheforge/identities.py",
+    "src/cacheforge/trace_bundle.py",
+    "evidence/results/epoch-2-development.json",
+    "evidence/results/epoch-2-scenario-results.json"
+  ]
+}

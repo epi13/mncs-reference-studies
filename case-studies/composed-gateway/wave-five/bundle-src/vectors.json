@@ -1,0 +1,13 @@
+{
+  "contract": "contract:composed-gateway-wave5-portable-v1",
+  "valid_frames": [
+    {"input": "12", "value": 12},
+    {"input": "30", "value": 30},
+    {"input": "7", "value": 7},
+    {"input": "9", "value": 9},
+    {"input": "100000", "value": 100000}
+  ],
+  "invalid_frames": ["", "-1", "100001", "1x", " 42", "42 "],
+  "checkpoint_after": 3,
+  "expected_sum": 100058
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1",
+  "generator_id": "mncs.remote-water.table-generator.v1",
+  "planner_id": "mncs.remote-water.generated-table.v1",
+  "level_bands_pct": [15.0, 35.0, 50.0, 65.0, 75.0, 90.0],
+  "level_names": [
+    "critical_low",
+    "low",
+    "mid_low",
+    "target",
+    "mid_high",
+    "high",
+    "critical_high"
+  ],
+  "demand_bands_lps": [2.5, 4.5],
+  "demand_names": ["low", "normal", "high"],
+  "quality_order": ["GOOD", "STALE", "CONFLICT"],
+  "policy": {
+    "critical_low": "run_both",
+    "low": "run_duty_and_preserve_existing_standby_for_high_demand",
+    "mid_low": "run_duty_and_preserve_existing_standby_for_high_demand",
+    "target": "preserve_running_pumps_but_stop_standby_outside_high_demand",
+    "mid_high": "preserve_running_pumps_only_for_high_demand",
+    "high": "stop_all",
+    "critical_high": "stop_all",
+    "bad_telemetry": "hold_current_state",
+    "power_unavailable": "stop_all"
+  }
+}

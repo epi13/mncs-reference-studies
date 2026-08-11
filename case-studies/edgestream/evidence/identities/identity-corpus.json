@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "generated": true,
+    "manifest_sha256": "sha256:c142fc54ef41115e4fea856f4fa882de94967bee62870d0cea5f32f7f437c71a"
+  },
+  "description": "Steady, hostile, high-cardinality, and sequence/time edge-case workloads.",
+  "extensions": {},
+  "identity_id": "identity-corpus",
+  "identity_kind": "corpus",
+  "mncs_version": "0.2",
+  "name": "EdgeStream deterministic workload corpus",
+  "schema_version": "0.2",
+  "version": "1.0"
+}

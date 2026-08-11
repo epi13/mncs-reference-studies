@@ -1,0 +1,16 @@
+{
+  "attributes": {
+    "maximum_latency_ratio": 1.1,
+    "protocol_json": "{\"cpu_affinity\": {\"cpu\": 0, \"governor\": \"powersave\", \"pinned\": true, \"supported\": true}, \"maximum_batch_iterations\": 64, \"minimum_observed_sample_elapsed_ns\": 111664775, \"order_policy\": \"deterministically counterbalanced by paired repetition\", \"outlier_policy\": \"retain every measured sample in execution order\", \"repetitions_per_workload\": 15, \"target_minimum_sample_elapsed_ns\": 100000000, \"timer\": \"CLOCK_MONOTONIC inside each process; batch values sum raw runs\", \"warmup_runs_per_implementation\": 3}",
+    "source_sha256": "sha256:c1e1fb2a6d461bfbbcc896f7750b79b239854edbe6bd7ac3b9cb9e0414c9bfb4",
+    "threshold": 1.15
+  },
+  "description": "Counterbalanced, warmed, CPU-affinity-aware aggregate measurements with raw latency observations, no outlier deletion, and deterministic bootstrap uncertainty.",
+  "extensions": {},
+  "identity_id": "identity-benchmark",
+  "identity_kind": "benchmark_harness",
+  "mncs_version": "0.2",
+  "name": "EdgeStream paired benchmark harness",
+  "schema_version": "0.2",
+  "version": "2.0"
+}

@@ -1,0 +1,129 @@
+{
+  "schema_version": "0.3-rc.1",
+  "mncs_version": "0.3-rc.1",
+  "assurance_case_id": "assurance.analyzer-epoch-two-v1",
+  "subject_kind": "component",
+  "subject_id": "analyzer.epoch-two",
+  "root_claim_id": "claim.analyzer-epoch-two",
+  "release_id": "study.selection-v1",
+  "contract_profile_id": "contract-profile.example-v1",
+  "contract_profile_status": "PASS",
+  "criticality": "moderate",
+  "applicability_policy_id": "policy.study-applicability-v1",
+  "trust_policy_id": "policy.developer-controlled-v1",
+  "claims": [
+    {
+      "claim_id": "claim.analyzer-epoch-two",
+      "subject_id": "analyzer.epoch-two",
+      "contract_id": "contract.example-v1",
+      "environment_id": "environment.study-v1",
+      "mncs_version": "0.3-rc.1",
+      "level": "MNCS-L2",
+      "base_status": "UNKNOWN",
+      "status": "UNKNOWN",
+      "result_id": "result.analyzer-epoch-two",
+      "scope_id": "scope.recursive-study-v1",
+      "evidence_ids": [
+        "evidence.study-result-v1",
+        "evidence.final-withheld-v1"
+      ],
+      "mncds": {
+        "version": "0.1-rc.1",
+        "profile": "MNCDS-D4",
+        "status": "UNKNOWN",
+        "result_id": "development.recursive-study-v1",
+        "scope_id": "scope.recursive-study-v1",
+        "issues": ["Protected custody and external independence are UNKNOWN."],
+        "limitations": ["Final evidence was developer-withheld, not externally protected."]
+      },
+      "freshness": {
+        "evaluated_at": "2026-07-28T00:00:00Z",
+        "valid_until": "2027-01-28T00:00:00Z",
+        "policy_id": "policy.study-freshness-v1",
+        "status": "PASS",
+        "revalidation_triggers": ["Analyzer, corpus, evaluator, contract, or environment change."]
+      },
+      "retired": false,
+      "issues": ["External implementation evaluation is unavailable."],
+      "limitations": ["Internal selection PASS is not an MNCS PASS."]
+    }
+  ],
+  "dependencies": [],
+  "correlated_failure_groups": [],
+  "mncs": {
+    "version": "0.3-rc.1",
+    "level": "MNCS-L2",
+    "status": "UNKNOWN",
+    "result_id": "result.analyzer-epoch-two",
+    "scope_id": "scope.recursive-study-v1",
+    "issues": ["External implementation evaluation is unavailable."],
+    "limitations": ["Internal selection PASS is not an MNCS PASS."]
+  },
+  "mncds": {
+    "version": "0.1-rc.1",
+    "profile": "MNCDS-D4",
+    "status": "UNKNOWN",
+    "result_id": "development.recursive-study-v1",
+    "scope_id": "scope.recursive-study-v1",
+    "issues": ["Protected custody and external independence are UNKNOWN."],
+    "limitations": ["Final evidence was developer-withheld, not externally protected."]
+  },
+  "display_label": "MNCDS-D4 / MNCS-L2",
+  "freshness": {
+    "evaluated_at": "2026-07-28T00:00:00Z",
+    "valid_until": "2027-01-28T00:00:00Z",
+    "policy_id": "policy.study-freshness-v1",
+    "status": "PASS",
+    "revalidation_triggers": ["Analyzer, corpus, evaluator, contract, or environment change."]
+  },
+  "material_changes": [],
+  "evidence_impact": {
+    "assessment_id": "impact.study-v1",
+    "affected_claim_ids": [],
+    "retained_evidence_ids": ["evidence.study-result-v1", "evidence.final-withheld-v1"],
+    "invalidated_evidence_ids": [],
+    "required_new_evidence_ids": [],
+    "status": "PASS"
+  },
+  "revalidation": {
+    "revalidation_id": "revalidation.study-v1",
+    "mode": "none",
+    "scope_claim_ids": [],
+    "covered_change_ids": [],
+    "retained_evidence_ids": ["evidence.study-result-v1", "evidence.final-withheld-v1"],
+    "new_evidence_ids": [],
+    "status": "PASS",
+    "performed_at": null
+  },
+  "lifecycle": {
+    "supersession": null,
+    "replacement": null,
+    "rollback": null,
+    "retirement": null
+  },
+  "threat_record_ids": ["threat.result-collapse-v1"],
+  "measurement_profile_ids": ["measurement.diagnostic-v1"],
+  "operational_disposition": {
+    "decision": "review_required",
+    "policy_id": "policy.study-operations-v1",
+    "authority_id": "OPEN",
+    "decided_at": "2026-07-28T00:00:00Z",
+    "rationale": "Independent review and governance authorization are outstanding."
+  },
+  "migration": {
+    "source_family": "none",
+    "source_version": null,
+    "source_identity": null,
+    "mode": "native",
+    "downgrade_detected": false,
+    "historical_facts_status": "PASS"
+  },
+  "unresolved_unknowns": [
+    "Independent operator",
+    "Organizational independence",
+    "External protected custody",
+    "Governance authorization"
+  ],
+  "limitations": ["This bundle records an internal study and cannot promote a formal claim."],
+  "extensions": {}
+}

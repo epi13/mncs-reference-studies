@@ -1,0 +1,11 @@
+{
+  "policy_id": "composed-gateway-wave4-service-manager-v1",
+  "schema_version": "0.4-experimental",
+  "listener": "127.0.0.1 ephemeral port in evidence runs",
+  "startup": ["verify service source identity", "verify protocol identity", "bind loopback only", "publish health only after self-test"],
+  "health": {"path": "/v1/evaluate", "probe": {"version": "V1", "id": "health", "value": 0}, "expected_decision": "ACCEPT"},
+  "shutdown": {"method": "bounded context shutdown", "deadline_seconds": 1, "inflight_policy": "cancel and reject incomplete requests"},
+  "restart": {"maximum_attempts": 1, "identity_reverification": true, "state_source": "no service-local persistent state"},
+  "failure": {"panic_or_exit": "caller records operational error; no automatic semantic PASS", "timeout": "cancel request and retain timeout", "identity_mismatch": "do not start"},
+  "production_status": "UNKNOWN"
+}

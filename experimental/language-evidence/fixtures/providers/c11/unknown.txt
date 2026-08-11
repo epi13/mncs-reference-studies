@@ -1,0 +1,1 @@
+int f(int x){ __asm__("nop"); return x; }

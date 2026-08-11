@@ -1,0 +1,156 @@
+{
+  "schema_version": "0.1-experimental",
+  "assurance_case_id": "mncs.remote-water.assurance-case.development-1",
+  "candidate_id": "mncs.remote-water.generated-table.v1",
+  "release_id": "mncs.remote-water.no-production-release",
+  "contract_id": "mncs.remote-water.supervisory-control.v1",
+  "environment_id": "mncs.remote-water.digital-twin.development.v1",
+  "criticality": "high",
+  "applicability_policy_id": "mncs.remote-water.development-only.v1",
+  "trust_policy_id": "mncs.remote-water.local-development-trust.v1",
+  "contract_profile_id": "mncs.remote-water.contract-profile.v1",
+  "mncs": {
+    "version": "0.2",
+    "level": "MNCS-L5",
+    "status": "UNKNOWN",
+    "result_id": "mncs.remote-water.future-l5-result",
+    "scope_id": "mncs.remote-water.supervisory-control.v1",
+    "issues": [
+      "No independent protected holdout evaluation has been executed.",
+      "Cross-host and cross-architecture evidence is incomplete.",
+      "This is a development digital twin, not a released operational controller."
+    ],
+    "limitations": [
+      "Development scenario PASS does not constitute MNCS-L5 PASS.",
+      "No physical-system or industrial-protocol evidence is in scope."
+    ]
+  },
+  "mncds": {
+    "version": "0.1-draft",
+    "profile": "MNCDS-D3",
+    "status": "UNKNOWN",
+    "result_id": "mncs.remote-water.future-d3-result",
+    "scope_id": "mncs.remote-water-control.development-epoch-1",
+    "issues": [
+      "The protected holdout and independent final evaluator are not yet instantiated.",
+      "Release authority and final candidate selection are not established."
+    ],
+    "limitations": [
+      "The checked-in preregistration governs a development epoch only.",
+      "No D3 process claim is made by this record."
+    ]
+  },
+  "dependencies": [
+    {
+      "dependency_id": "mncs.remote-water.digital-twin.v1",
+      "relation": "runtime",
+      "required": true,
+      "status": "PASS",
+      "claim_id": null,
+      "environment_compatible": "PASS",
+      "correlation_group": "development-oracle",
+      "invalidation_triggers": [
+        "Plant dynamics, pump characteristics, timestep, or metric accounting changes."
+      ]
+    },
+    {
+      "dependency_id": "mncs.remote-water.safety-kernel.v1",
+      "relation": "interface",
+      "required": true,
+      "status": "PASS",
+      "claim_id": null,
+      "environment_compatible": "PASS",
+      "correlation_group": "controller-authority-boundary",
+      "invalidation_triggers": [
+        "Any safety threshold, dwell rule, telemetry rule, or authority boundary changes."
+      ]
+    },
+    {
+      "dependency_id": "mncs.edgestream.telemetry.v1",
+      "relation": "data",
+      "required": false,
+      "status": "UNKNOWN",
+      "claim_id": null,
+      "environment_compatible": "UNKNOWN",
+      "correlation_group": "future-telemetry-ingestion",
+      "invalidation_triggers": [
+        "A concrete EdgeStream adapter or telemetry envelope is selected for integration."
+      ]
+    },
+    {
+      "dependency_id": "mncs.remote-water.independent-holdout.v1",
+      "relation": "evaluator",
+      "required": true,
+      "status": "UNKNOWN",
+      "claim_id": null,
+      "environment_compatible": "UNKNOWN",
+      "correlation_group": null,
+      "invalidation_triggers": [
+        "Holdout disclosure, evaluator change, threshold change, or candidate regeneration."
+      ]
+    }
+  ],
+  "authorities": [
+    {
+      "role": "development repository owner",
+      "authority_id": "github:epi13"
+    },
+    {
+      "role": "future independent evaluator",
+      "authority_id": "mncs.remote-water.independent-evaluator.unassigned"
+    }
+  ],
+  "unresolved_unknowns": [
+    "Independent water-utility and controls-engineering contract review.",
+    "Protected holdout outcome and evaluator independence.",
+    "Cross-host, ARM64, and real-time behavior.",
+    "Any future mapping to a real installation, PLC, SCADA system, or safety policy."
+  ],
+  "deviations": [
+    {
+      "requirement": "Independent final evaluation",
+      "rationale": "This commit establishes the executable development system and preregistered protocol before creating a protected evaluator.",
+      "risk": "Repository-visible development results may overestimate generalization."
+    }
+  ],
+  "limitations": [
+    "This assurance case intentionally records UNKNOWN rather than promoting development evidence to a formal claim.",
+    "The code cannot emit live industrial control traffic and must remain development-only."
+  ],
+  "freshness": {
+    "evaluated_at": "2026-07-26T00:00:00Z",
+    "expires_at": null,
+    "revalidation_triggers": [
+      "Any source, generated planner, contract, scenario, threshold, simulator, or checkpoint change.",
+      "Assignment of an independent evaluator or creation of a protected holdout.",
+      "Any proposal to connect the system to live equipment or industrial protocols."
+    ]
+  },
+  "rollback": {
+    "artifact_id": "mncs.remote-water.readable-baseline.v1",
+    "procedure_id": "mncs.remote-water.rollback-procedure.v1",
+    "test_status": "UNKNOWN"
+  },
+  "replacement": {
+    "regeneration_spec_id": "mncs.remote-water.table-generator.v1",
+    "owner_id": "github:epi13",
+    "retirement_triggers": [
+      "Safety invariant failure.",
+      "Protected-holdout failure.",
+      "Contract or environment incompatibility.",
+      "A materially simpler implementation satisfies the same accepted requirements."
+    ]
+  },
+  "supersedes": [],
+  "disposition": {
+    "decision": "review_required",
+    "policy_id": "mncs.remote-water.development-only.v1",
+    "rationale": "The development harness is executable and bounded, but formal implementation and process claims remain UNKNOWN."
+  },
+  "extensions": {
+    "mncs.dev:case-study": {
+      "name": "Remote Water Resilience Controller",
+      "development_epoch": 1
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "study_id": "recursive-analyzer-two-epoch-v1",
+  "recorded_before_final_evaluation": true,
+  "objective": {
+    "metric": "incorrect_pass",
+    "direction": "minimize",
+    "minimum_useful_benefit": 1,
+    "rationale": "Unsupported or forbidden call forms must not be reported as PASS."
+  },
+  "hard_gates": {
+    "false_negative_regression": 0,
+    "false_positive_regression": 0,
+    "crashes": 0,
+    "timeouts": 0,
+    "threshold_changes": 0,
+    "contract_changes": 0
+  },
+  "repetitions": 3,
+  "timeout_seconds": 2,
+  "epoch_one": {
+    "tool_id": "analyzer.epoch-one",
+    "tool_sha256": "sha256:c6330f312a7dba3f45961a4352073d9b57422399561e6bdba11c20791699887c",
+    "corpus_id": "corpus.epoch-one-v1",
+    "corpus_sha256": "sha256:89c260f7672c85cfe08cb92d5222cd01b43a4f918b3309df4c045d69aa303097"
+  },
+  "epoch_two": {
+    "tool_id": "analyzer.epoch-two",
+    "tool_sha256": "sha256:74889add6d6f3d1db37d4905fc7044dfdd9a56971935c976433470cafc2beac4",
+    "development_corpus_sha256": "sha256:89c260f7672c85cfe08cb92d5222cd01b43a4f918b3309df4c045d69aa303097",
+    "final_corpus_id": "corpus.epoch-two-final-v1",
+    "final_corpus_sha256": "sha256:be86344c907a3c75131cf231b0c3cce892583517309bb2d17eb4280119b960bf",
+    "change_evidence": [
+      "Epoch one incorrectly passed an eval alias.",
+      "Epoch one incorrectly passed a dynamic target instead of reporting UNKNOWN."
+    ],
+    "regression_fixture_ids": ["dev.alias", "dev.dynamic"]
+  },
+  "selection": {
+    "policy_id": "selection.policy-v1",
+    "evaluator_id": "evaluator.study-v1",
+    "generator_may_modify_evaluator": false,
+    "generator_may_modify_thresholds": false,
+    "generator_may_access_final_partition_before_freeze": false
+  },
+  "independence": {
+    "implementation": "developer-controlled separate analyzer versions",
+    "operator": "UNKNOWN",
+    "organizational": "UNKNOWN",
+    "final_custody": "developer_withheld_until_final_evaluation"
+  },
+  "non_promotion_boundary": "The study supports internal reproducibility only; it does not establish external independence, protected custody, acceptance, or an MNCS PASS claim."
+}

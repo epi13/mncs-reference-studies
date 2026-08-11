@@ -6,6 +6,14 @@ venv/
 
 # Rust
 **/target/
+case-studies/composed-gateway/go-host/composed-host
+case-studies/ravel/ravel
+case-studies/ravel/ravel_train
+case-studies/ravel/ravel_unified_bin
+case-studies/ravel/ravel_0_4_bin
+case-studies/ravel/ravel_0_5_bin
+case-studies/ravel/diagnostics/
+case-studies/ravel/diagnostics-0.5/
 
 # Build and benchmark scratch
 build/

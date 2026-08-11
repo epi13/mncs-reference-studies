@@ -1,0 +1,173 @@
+{
+  "capabilities": {
+    "conditional": [
+      {
+        "coverage": "conditional",
+        "evidence": "property or fuzz campaign when toolchain is pinned",
+        "id": "rust.property-fuzz",
+        "limitations": [
+          "Not required for every bounded study"
+        ],
+        "tools": [
+          "proptest or cargo-fuzz"
+        ]
+      }
+    ],
+    "supported": [
+      {
+        "coverage": "complete-for-declared-scope",
+        "evidence": "cargo build --locked",
+        "id": "rust.build",
+        "limitations": [],
+        "tools": [
+          "rustc",
+          "cargo"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "cargo fmt and clippy",
+        "id": "rust.lint-format",
+        "limitations": [
+          "Lint absence is not semantic proof"
+        ],
+        "tools": [
+          "rustfmt",
+          "clippy"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "unit, integration, malformed, recovery tests",
+        "id": "rust.tests",
+        "limitations": [
+          "Executed paths only"
+        ],
+        "tools": [
+          "cargo test"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "unsafe token boundary and source review",
+        "id": "rust.safe-boundary",
+        "limitations": [
+          "FFI and generated macro output require separate evidence"
+        ],
+        "tools": [
+          "bounded provider",
+          "clippy"
+        ]
+      },
+      {
+        "coverage": "bounded",
+        "evidence": "repeated release-build workload measurements",
+        "id": "rust.performance",
+        "limitations": [
+          "Host-specific"
+        ],
+        "tools": [
+          "case-study harness"
+        ]
+      }
+    ],
+    "unsupported": [
+      {
+        "coverage": "unsupported",
+        "evidence": "none in wave one",
+        "id": "rust.expanded-macro-proof",
+        "limitations": [
+          "Procedural and declarative macro expansion is not exhaustively analyzed"
+        ],
+        "tools": []
+      }
+    ]
+  },
+  "coverage_limitations": [
+    "Safe Rust does not cover external native code",
+    "Macro expansion and conditional compilation are bounded",
+    "Panic freedom is not inferred from successful tests"
+  ],
+  "environment_observations": [
+    "rustc -Vv and cargo -V",
+    "target triple",
+    "Cargo.lock digest",
+    "features and cfg values",
+    "panic strategy",
+    "overflow-check setting",
+    "thread count and resource limits"
+  ],
+  "extensions": {
+    "mncs.dev:claim_language": "profile-valid and evidence-supported only; no language compliance claim"
+  },
+  "identities": {
+    "build_system": [
+      "Cargo.toml and rust-toolchain.toml identities"
+    ],
+    "dependency_lock": [
+      "Cargo.lock must be present and hashed"
+    ],
+    "generated_artifacts": [
+      "SHA-256 of retained generated Rust and release binaries when claimed"
+    ],
+    "providers": [
+      {
+        "command": [
+          "python3",
+          "experimental/language-evidence/providers/rust_provider.py"
+        ],
+        "configuration_identity": "cfg:rust-source-provider-0.1.0",
+        "id": "mncs.experimental.rust-source-provider",
+        "version": "0.1.0"
+      }
+    ],
+    "source": [
+      "SHA-256 of Cargo manifests and Rust sources"
+    ]
+  },
+  "language": {
+    "edition_or_runtime": "Rust 1.97.1, edition 2024",
+    "implementation_requirements": [
+      "rustc 1.97.1",
+      "Cargo 1.97.1",
+      "Clippy and rustfmt components",
+      "target triple recorded"
+    ],
+    "name": "Rust"
+  },
+  "mechanisms": {
+    "advanced_testing": [
+      "unit and integration tests",
+      "deliberate defect fixtures",
+      "property/fuzz support when pinned"
+    ],
+    "malformed_input": [
+      "invalid UTF-8, invalid number, range overflow, oversized input"
+    ],
+    "nondeterminism": [
+      "fixed features and cfg",
+      "fixed seeds",
+      "threading disabled or declared"
+    ],
+    "resource_performance": [
+      "release build",
+      "repeated workload timing",
+      "input and memory envelope"
+    ],
+    "runtime_safety": [
+      "safe Rust type system",
+      "panic exit behavior",
+      "debug overflow tests and explicit checked arithmetic where required"
+    ],
+    "structural_semantic": [
+      "Clippy",
+      "bounded provider source scan",
+      "explicit unsafe boundary record"
+    ]
+  },
+  "profile_id": "rust-1.97.1-edition-2024-v0.1",
+  "profile_name": "Rust stable bounded evidence profile",
+  "profile_version": "0.1.0",
+  "schema_version": "0.1-experimental",
+  "status": "experimental"
+}
