@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -13,6 +14,7 @@ from mncs_validator.readiness import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+STANDARDS_ROOT = Path(os.environ.get("MNCS_STANDARDS_ROOT", ROOT))
 WAVE = ROOT / "case-studies/composed-gateway/wave-four"
 
 
@@ -32,7 +34,7 @@ def test_precedence() -> None:
 def test_custody_fixtures() -> None:
     valid = load(WAVE / "fixtures/custody/valid-template.json")
     invalid = load(WAVE / "fixtures/custody/invalid-self-custody.json")
-    schema = load(ROOT / "schemas/mncs-evidence-custody.schema.json")
+    schema = load(STANDARDS_ROOT / "schemas/mncs-evidence-custody.schema.json")
     assert not list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(valid))
     assert custody_findings(valid) == []
     assert custody_findings(invalid)
@@ -64,6 +66,6 @@ def test_new_schemas_and_checked_records() -> None:
         ("mncs-claim-readiness.schema.json", WAVE / "evidence/local-readiness.json"),
     ]
     for schema_name, record_path in pairs:
-        schema = load(ROOT / "schemas" / schema_name)
+        schema = load(STANDARDS_ROOT / "schemas" / schema_name)
         record = load(record_path)
         assert not list(Draft202012Validator(schema).iter_errors(record))

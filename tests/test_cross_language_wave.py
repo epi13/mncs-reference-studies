@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
+STANDARDS_ROOT = Path(os.environ.get("MNCS_STANDARDS_ROOT", ROOT))
 
 
 def load(path: Path) -> object:
@@ -13,7 +15,7 @@ def load(path: Path) -> object:
 
 
 def test_preflight_cross_language_report_validates() -> None:
-    schema = load(ROOT / "schemas/mncs-cross-language-comparison.schema.json")
+    schema = load(STANDARDS_ROOT / "schemas/mncs-cross-language-comparison.schema.json")
     report = load(
         ROOT
         / "case-studies/multilingual-stream/evidence/results"

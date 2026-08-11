@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -12,6 +13,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from mncs_validator.portable import classify_reproduction_cohort
 
 ROOT = Path(__file__).resolve().parents[1]
+STANDARDS_ROOT = Path(os.environ.get("MNCS_STANDARDS_ROOT", ROOT))
 WAVE = ROOT / "case-studies/composed-gateway/wave-five"
 MANIFEST_IDENTITY = "sha256:ca4053025b6cdc0b17ee910c0a09011eba18fd5774df891d87a7465277126402"
 ARCHIVE_IDENTITY = "sha256:98a6d338b7a60067781cd7cb41d9a9458917dbe0b3c9b2348b926e122439f7e8"
@@ -26,7 +28,7 @@ def load(path: Path) -> dict[str, object]:
 
 
 def validate(instance: dict[str, object], schema_name: str) -> None:
-    schema = load(ROOT / "schemas" / schema_name)
+    schema = load(STANDARDS_ROOT / "schemas" / schema_name)
     errors = list(
         Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(instance)
     )
