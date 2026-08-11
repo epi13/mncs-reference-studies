@@ -1,0 +1,12 @@
+{
+  "corpus_id": "corpus.epoch-two-final-v1",
+  "partition": "developer_withheld_until_final_evaluation",
+  "custody": "developer-controlled; not organizationally independent",
+  "cases": [
+    {"case_id": "final.direct-spacing", "language": "python", "source": "result = eval (payload)", "expected": "FAIL"},
+    {"case_id": "final.alias-new-name", "language": "python", "source": "execute = eval\nresult = execute(payload)", "expected": "FAIL"},
+    {"case_id": "final.dynamic-builtins", "language": "python", "source": "runner = __builtins__[name]\nresult = runner(payload)", "expected": "UNKNOWN"},
+    {"case_id": "final.clean", "language": "python", "source": "result = decode(payload)", "expected": "PASS"},
+    {"case_id": "final.unsupported-language", "language": "other", "source": "eval(payload)", "expected": "UNKNOWN"}
+  ]
+}

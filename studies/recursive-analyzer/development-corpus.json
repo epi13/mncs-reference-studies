@@ -1,0 +1,11 @@
+{
+  "corpus_id": "corpus.epoch-one-v1",
+  "partition": "development",
+  "cases": [
+    {"case_id": "dev.direct", "language": "python", "source": "result = eval(payload)", "expected": "FAIL"},
+    {"case_id": "dev.clean", "language": "python", "source": "result = parse(payload)", "expected": "PASS"},
+    {"case_id": "dev.alias", "language": "python", "source": "runner = eval\nresult = runner(payload)", "expected": "FAIL"},
+    {"case_id": "dev.dynamic", "language": "python", "source": "runner = getattr(__builtins__, \"eval\")\nresult = runner(payload)", "expected": "UNKNOWN"},
+    {"case_id": "dev.unsupported-language", "language": "other", "source": "evaluate(payload)", "expected": "UNKNOWN"}
+  ]
+}

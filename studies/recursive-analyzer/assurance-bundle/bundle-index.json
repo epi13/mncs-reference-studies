@@ -1,0 +1,22 @@
+{
+  "bundle_version": "0.3-rc.1",
+  "resolution_mode": "offline",
+  "subject_id": "analyzer.epoch-two",
+  "files": {
+    "assurance_case": "assurance-case.json",
+    "contract_profile": "../../../examples/release-candidate-0.3/contract-profile.json",
+    "threat_record": "../../../examples/release-candidate-0.3/threat-record.json",
+    "measurement_profile": "../../../examples/release-candidate-0.3/measurement-profile.json",
+    "mncds_record": "../../../examples/mncds-0.1-rc/development-record.json",
+    "study_plan": "../study-plan.json",
+    "study_result_summary": "../study-result-summary.json"
+  },
+  "ordinary_validation_executes_referenced_files": false,
+  "mncs_status": "UNKNOWN",
+  "mncds_status": "UNKNOWN",
+  "operational_disposition": "review_required",
+  "limitations": [
+    "This is an offline release-candidate resolution set, not a published or signed final package.",
+    "No independent operator, organizational independence, or external protected custody is claimed."
+  ]
+}
