@@ -1,0 +1,475 @@
+{
+  "case_count": 18,
+  "cases": [
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 8621,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:b9371bf1d8fd3e2507bc79201532a0fd3d9f71b73a0e0d953cc190a6111571b4",
+      "chunk": 1,
+      "expected_rejection_reason": "checksum",
+      "mutation": "payload-bit-with-stale-checksum",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 14506,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:b9371bf1d8fd3e2507bc79201532a0fd3d9f71b73a0e0d953cc190a6111571b4",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 12315,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:b9371bf1d8fd3e2507bc79201532a0fd3d9f71b73a0e0d953cc190a6111571b4",
+      "chunk": 5,
+      "expected_rejection_reason": "checksum",
+      "mutation": "payload-bit-with-stale-checksum",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 8252,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:b9371bf1d8fd3e2507bc79201532a0fd3d9f71b73a0e0d953cc190a6111571b4",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 9979,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:b9371bf1d8fd3e2507bc79201532a0fd3d9f71b73a0e0d953cc190a6111571b4",
+      "chunk": 31,
+      "expected_rejection_reason": "checksum",
+      "mutation": "payload-bit-with-stale-checksum",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 9044,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:b9371bf1d8fd3e2507bc79201532a0fd3d9f71b73a0e0d953cc190a6111571b4",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 9395,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:ef58ef10f805786c5f624c4f111a84bec184ce466d7d9c65160825d259c8ac57",
+      "chunk": 1,
+      "expected_rejection_reason": "version",
+      "mutation": "unsupported-version-with-valid-checksum",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 10511,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:ef58ef10f805786c5f624c4f111a84bec184ce466d7d9c65160825d259c8ac57",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 8093,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:ef58ef10f805786c5f624c4f111a84bec184ce466d7d9c65160825d259c8ac57",
+      "chunk": 5,
+      "expected_rejection_reason": "version",
+      "mutation": "unsupported-version-with-valid-checksum",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 10823,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:ef58ef10f805786c5f624c4f111a84bec184ce466d7d9c65160825d259c8ac57",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 7709,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:ef58ef10f805786c5f624c4f111a84bec184ce466d7d9c65160825d259c8ac57",
+      "chunk": 31,
+      "expected_rejection_reason": "version",
+      "mutation": "unsupported-version-with-valid-checksum",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 8828,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:ef58ef10f805786c5f624c4f111a84bec184ce466d7d9c65160825d259c8ac57",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 1,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 11013,
+        "implementation": "machine-generated",
+        "rejected": 32
+      },
+      "candidate_output_sha256": "sha256:dc4ea6adcbb3df21831bd8c1d544c098d1a722469fe3532d3c5c916917a0727c",
+      "chunk": 1,
+      "expected_rejection_reason": "length",
+      "mutation": "invalid-frame-length",
+      "outputs_equal": true,
+      "reference_exit": 1,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 14291,
+        "implementation": "reference",
+        "rejected": 32
+      },
+      "reference_output_sha256": "sha256:dc4ea6adcbb3df21831bd8c1d544c098d1a722469fe3532d3c5c916917a0727c",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 1,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 11528,
+        "implementation": "machine-generated",
+        "rejected": 32
+      },
+      "candidate_output_sha256": "sha256:dc4ea6adcbb3df21831bd8c1d544c098d1a722469fe3532d3c5c916917a0727c",
+      "chunk": 5,
+      "expected_rejection_reason": "length",
+      "mutation": "invalid-frame-length",
+      "outputs_equal": true,
+      "reference_exit": 1,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 13149,
+        "implementation": "reference",
+        "rejected": 32
+      },
+      "reference_output_sha256": "sha256:dc4ea6adcbb3df21831bd8c1d544c098d1a722469fe3532d3c5c916917a0727c",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 1,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 10544,
+        "implementation": "machine-generated",
+        "rejected": 32
+      },
+      "candidate_output_sha256": "sha256:dc4ea6adcbb3df21831bd8c1d544c098d1a722469fe3532d3c5c916917a0727c",
+      "chunk": 31,
+      "expected_rejection_reason": "length",
+      "mutation": "invalid-frame-length",
+      "outputs_equal": true,
+      "reference_exit": 1,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 13048,
+        "implementation": "reference",
+        "rejected": 32
+      },
+      "reference_output_sha256": "sha256:dc4ea6adcbb3df21831bd8c1d544c098d1a722469fe3532d3c5c916917a0727c",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 1,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 17,
+        "elapsed_ns": 10422,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:b4086de551e6d8d70424cc7b8bc3cc27ea39150842d3b97e423214eb55570f98",
+      "chunk": 1,
+      "expected_rejection_reason": "truncated",
+      "mutation": "truncated-frame",
+      "outputs_equal": true,
+      "reference_exit": 1,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 17,
+        "elapsed_ns": 11281,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:b4086de551e6d8d70424cc7b8bc3cc27ea39150842d3b97e423214eb55570f98",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 1,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 17,
+        "elapsed_ns": 8234,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:b4086de551e6d8d70424cc7b8bc3cc27ea39150842d3b97e423214eb55570f98",
+      "chunk": 5,
+      "expected_rejection_reason": "truncated",
+      "mutation": "truncated-frame",
+      "outputs_equal": true,
+      "reference_exit": 1,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 17,
+        "elapsed_ns": 8864,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:b4086de551e6d8d70424cc7b8bc3cc27ea39150842d3b97e423214eb55570f98",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 1,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 17,
+        "elapsed_ns": 7493,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:b4086de551e6d8d70424cc7b8bc3cc27ea39150842d3b97e423214eb55570f98",
+      "chunk": 31,
+      "expected_rejection_reason": "truncated",
+      "mutation": "truncated-frame",
+      "outputs_equal": true,
+      "reference_exit": 1,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 17,
+        "elapsed_ns": 8664,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:b4086de551e6d8d70424cc7b8bc3cc27ea39150842d3b97e423214eb55570f98",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 1,
+        "bytes": 36,
+        "elapsed_ns": 11124,
+        "implementation": "machine-generated",
+        "rejected": 4
+      },
+      "candidate_output_sha256": "sha256:c8ecf165701bb6bc7c76b1ea483e555c5fdff76d793994e493b99cde1776f407",
+      "chunk": 1,
+      "expected_rejection_reason": "junk",
+      "mutation": "junk-prefix-resynchronization",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 1,
+        "bytes": 36,
+        "elapsed_ns": 15586,
+        "implementation": "reference",
+        "rejected": 4
+      },
+      "reference_output_sha256": "sha256:c8ecf165701bb6bc7c76b1ea483e555c5fdff76d793994e493b99cde1776f407",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 1,
+        "bytes": 36,
+        "elapsed_ns": 10548,
+        "implementation": "machine-generated",
+        "rejected": 4
+      },
+      "candidate_output_sha256": "sha256:c8ecf165701bb6bc7c76b1ea483e555c5fdff76d793994e493b99cde1776f407",
+      "chunk": 5,
+      "expected_rejection_reason": "junk",
+      "mutation": "junk-prefix-resynchronization",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 1,
+        "bytes": 36,
+        "elapsed_ns": 10481,
+        "implementation": "reference",
+        "rejected": 4
+      },
+      "reference_output_sha256": "sha256:c8ecf165701bb6bc7c76b1ea483e555c5fdff76d793994e493b99cde1776f407",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 1,
+        "bytes": 36,
+        "elapsed_ns": 10353,
+        "implementation": "machine-generated",
+        "rejected": 4
+      },
+      "candidate_output_sha256": "sha256:c8ecf165701bb6bc7c76b1ea483e555c5fdff76d793994e493b99cde1776f407",
+      "chunk": 31,
+      "expected_rejection_reason": "junk",
+      "mutation": "junk-prefix-resynchronization",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 1,
+        "bytes": 36,
+        "elapsed_ns": 11396,
+        "implementation": "reference",
+        "rejected": 4
+      },
+      "reference_output_sha256": "sha256:c8ecf165701bb6bc7c76b1ea483e555c5fdff76d793994e493b99cde1776f407",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 9881,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:75e3c0f81cc464cc87ec2716e8ecb15c806ea065e440a594293fb07441c8503d",
+      "chunk": 1,
+      "expected_rejection_reason": "metric",
+      "mutation": "out-of-range-metric",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 11012,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:75e3c0f81cc464cc87ec2716e8ecb15c806ea065e440a594293fb07441c8503d",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 11504,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:75e3c0f81cc464cc87ec2716e8ecb15c806ea065e440a594293fb07441c8503d",
+      "chunk": 5,
+      "expected_rejection_reason": "metric",
+      "mutation": "out-of-range-metric",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 9134,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:75e3c0f81cc464cc87ec2716e8ecb15c806ea065e440a594293fb07441c8503d",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    },
+    {
+      "candidate_exit": 0,
+      "candidate_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 10077,
+        "implementation": "machine-generated",
+        "rejected": 1
+      },
+      "candidate_output_sha256": "sha256:75e3c0f81cc464cc87ec2716e8ecb15c806ea065e440a594293fb07441c8503d",
+      "chunk": 31,
+      "expected_rejection_reason": "metric",
+      "mutation": "out-of-range-metric",
+      "outputs_equal": true,
+      "reference_exit": 0,
+      "reference_metric": {
+        "accepted": 0,
+        "bytes": 32,
+        "elapsed_ns": 9102,
+        "implementation": "reference",
+        "rejected": 1
+      },
+      "reference_output_sha256": "sha256:75e3c0f81cc464cc87ec2716e8ecb15c806ea065e440a594293fb07441c8503d",
+      "rejection_reason_observed": true,
+      "status": "PASS"
+    }
+  ],
+  "mutation_count": 6,
+  "status": "PASS"
+}

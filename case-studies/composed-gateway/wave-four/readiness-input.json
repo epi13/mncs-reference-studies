@@ -1,0 +1,33 @@
+{
+  "candidate_freeze_identity": "sha256:20e6975d59746e02d086b8f7c4f5b3ce7e59050fd7d649d8869f1f55987d710c",
+  "extensions": {
+    "mncs.dev:promotion": "prohibited",
+    "mncs.dev:wave": "four"
+  },
+  "limitations": [
+    "the public repository cannot self-supply protected evidence custody",
+    "the reference evaluator is not organizationally independent",
+    "Wave Three hosted artifacts have not been reconciled into a frozen cross-host agreement",
+    "monitoring and retirement policies are specified but not demonstrated in a release environment",
+    "loopback evidence does not establish general network-service correctness"
+  ],
+  "mncds_inputs": {
+    "independent_witness": "UNKNOWN",
+    "monitoring": "UNKNOWN",
+    "regeneration": "PASS",
+    "release_controls": "UNKNOWN",
+    "replacement_drill": "UNKNOWN",
+    "retirement": "UNKNOWN"
+  },
+  "mncs_inputs": {
+    "cross_host_agreement": "UNKNOWN",
+    "development_epoch": "PASS",
+    "independent_evaluation": "UNKNOWN",
+    "protected_holdout": "UNKNOWN",
+    "service_boundary": "PASS"
+  },
+  "record_id": "composed-gateway-wave4-local-readiness-v1",
+  "release_authorization": "UNKNOWN",
+  "schema_version": "0.4-experimental",
+  "system_contract_id": "contract:composed-gateway-wave3-0.2+service-v1"
+}

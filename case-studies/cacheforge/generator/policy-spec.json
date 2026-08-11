@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1",
+  "generator_id": "cacheforge.eviction-table.generator.v1",
+  "candidate_id": "cacheforge.machine.eviction-table.v1",
+  "features": [
+    "prompt",
+    "shared_prefix",
+    "hot_reuse",
+    "sliding_group",
+    "recent",
+    "generated"
+  ],
+  "base_rank": 100,
+  "weights": {
+    "prompt": -30,
+    "shared_prefix": -90,
+    "hot_reuse": -50,
+    "sliding_group": 20,
+    "recent": -10,
+    "generated": 70
+  },
+  "tie_break": ["oldest_last_used", "lowest_block_id"],
+  "recent_age_threshold": 3
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.3-experimental",
+  "commitment_id": "composed-gateway-wave3-holdout-commitment-v1",
+  "preregistration_sha256": "20c9f4795a93e221dfb7dc7484f724a63e4a5699cabed620ccd51cae2bb766ee",
+  "protected_corpus_in_repository": false,
+  "input_channel": "MNCS_PROTECTED_HOLDOUT",
+  "default_status": "UNKNOWN",
+  "required_external_records": [
+    "corpus sha256",
+    "custodian identity",
+    "disclosure timestamp after preregistration and candidate freeze",
+    "evaluator identity",
+    "raw execution artifact",
+    "normalized result artifact"
+  ],
+  "prohibition": "Development or public reproduction data cannot be relabeled as protected holdout evidence."
+}

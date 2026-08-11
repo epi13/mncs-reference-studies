@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.2-experimental",
+  "campaign_id": "composed-gateway-wave3-mutations-v2",
+  "runner_id": "run-mutations-0.2.0",
+  "artifact_policy": "one normalized JSON artifact per fixture plus a summary; raw stderr is bounded and retained in the fixture detail",
+  "fixtures": [
+    {"id": "c-invalid-frame-accepted", "expected_outcome": "FAIL"},
+    {"id": "rust-invalid-proposal", "expected_outcome": "FAIL"},
+    {"id": "go-goroutine-leak", "expected_outcome": "FAIL"},
+    {"id": "missing-cancellation", "expected_outcome": "FAIL"},
+    {"id": "binding-integer-width", "expected_outcome": "FAIL"},
+    {"id": "abi-version-mismatch", "expected_outcome": "FAIL"},
+    {"id": "schema-drift", "expected_outcome": "FAIL"},
+    {"id": "malformed-process-message", "expected_outcome": "FAIL"},
+    {"id": "child-process-crash", "expected_outcome": "operational_error"},
+    {"id": "cancellation-boundary", "expected_outcome": "FAIL"},
+    {"id": "partial-process-write", "expected_outcome": "FAIL"},
+    {"id": "process-version-mismatch", "expected_outcome": "FAIL"},
+    {"id": "stale-checkpoint", "expected_outcome": "FAIL"},
+    {"id": "partial-state-recovery", "expected_outcome": "FAIL"},
+    {"id": "checkpoint-binding-identity", "expected_outcome": "FAIL"},
+    {"id": "resource-limit", "expected_outcome": "FAIL"},
+    {"id": "provider-timeout", "expected_outcome": "operational_error"},
+    {"id": "unsupported-build-tag", "expected_outcome": "UNKNOWN"}
+  ],
+  "pass_rule": "Every observed outcome must equal its preregistered expected outcome. Operational errors and UNKNOWN remain distinct from assertion FAIL."
+}

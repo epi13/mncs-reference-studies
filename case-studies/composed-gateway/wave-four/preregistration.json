@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.4-experimental",
+  "preregistration_id": "composed-gateway-wave4-preregistration-v1",
+  "parent_epoch_id": "composed-gateway-wave3-epoch-2",
+  "purpose": "Establish external evidence custody, cross-host reconciliation, independent evaluation, release readiness, and a bounded loopback service boundary without self-asserting independence or promotion.",
+  "candidate_freeze_rule": "The Wave Three system and Wave Four service boundary identities are frozen before any protected corpus disclosure.",
+  "required_mncs_gates": ["wave-three-development-epoch", "cross-host-agreement", "protected-holdout", "independent-evaluation", "loopback-service-boundary"],
+  "required_mncds_d4_gates": ["deterministic-regeneration", "witnessed-replacement-drill", "release-approval", "monitoring-controls", "retirement-controls", "independent-witness"],
+  "precedence": "FAIL > UNKNOWN > PASS",
+  "promotion_rule": "Promotion is prohibited unless every required MNCS and MNCDS gate is PASS and release authorization is PASS.",
+  "protected_evidence_rule": "Development participants cannot act as protected corpus custodian or independent evaluator.",
+  "cross_host_rule": "At least two distinct host environments must agree on system, epoch, component, tool, and semantic output identities.",
+  "selection_rule": "Wave Four makes no performance-based candidate selection.",
+  "recorded_before_external_evidence": true
+}

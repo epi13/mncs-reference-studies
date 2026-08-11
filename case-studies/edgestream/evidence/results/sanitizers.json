@@ -1,0 +1,453 @@
+{
+  "compile_flags": [
+    "-std=c11",
+    "-D_POSIX_C_SOURCE=200809L",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wconversion",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wstrict-prototypes",
+    "-Wcast-align",
+    "-Wnull-dereference",
+    "-Werror",
+    "-fno-common",
+    "-Iinclude",
+    "-O1",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer"
+  ],
+  "compiler": "clang",
+  "compiler_version": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)",
+  "implementations": {
+    "candidate": {
+      "binary_sha256": "sha256:389a25379bda165e2e941e8c34975a61d49598287830d511fef72c47e273db21",
+      "cases": [
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 6,
+            "bytes": 256,
+            "elapsed_ns": 193430,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:87bf1b749db8a65c983d4a22eb4a54ee5633a9c25e8a6a260749a6c915bc9eac",
+          "workload": "edge-cases.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 6,
+            "bytes": 256,
+            "elapsed_ns": 60842,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:7a477bf34d688fe1f2d176e19f41b48d92f29d212504964e81634154f3e737b8",
+          "workload": "edge-cases.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 6,
+            "bytes": 256,
+            "elapsed_ns": 20387,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:431994a6d0a8d39bfad1a961dc2112a1df62f6fd84d1136596be1f29d78caef6",
+          "workload": "edge-cases.bin"
+        },
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 51200,
+            "bytes": 1638656,
+            "elapsed_ns": 184520280,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:8b5d8d0923f2e07fe31139ad66ddd85bcc2e9673cf28e40d8e35b78779320d24",
+          "workload": "high-cardinality.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 51200,
+            "bytes": 1638656,
+            "elapsed_ns": 58743823,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:1a58156483231ce3d6d8f71abba49ab2aaaefb89c5e5e3ccebab0613edb9d99c",
+          "workload": "high-cardinality.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 51200,
+            "bytes": 1638656,
+            "elapsed_ns": 48943915,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:7e8ebd2b8773ad9fcc9b8840e788544f751a72280851e163ca2c5dd30dfe8999",
+          "workload": "high-cardinality.bin"
+        },
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 2247,
+            "bytes": 83640,
+            "elapsed_ns": 9465880,
+            "implementation": "machine-generated",
+            "rejected": 1310
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:5fa17529eedb8a7217a3b2154a9f3a4fce4e495834eda5dd2e8b89150f86ca69",
+          "workload": "hostile.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 2247,
+            "bytes": 83640,
+            "elapsed_ns": 3673228,
+            "implementation": "machine-generated",
+            "rejected": 1310
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:b0c958f8e37dc4fa05d531358711f6adfd1908292c6b7b688f77a940b253174d",
+          "workload": "hostile.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 2247,
+            "bytes": 83640,
+            "elapsed_ns": 2811721,
+            "implementation": "machine-generated",
+            "rejected": 1310
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:b9e25d53f81929008dcf87c216ec26e1c9f579d40498a75e96257e8cbd369d1f",
+          "workload": "hostile.bin"
+        },
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 38400,
+            "bytes": 1228832,
+            "elapsed_ns": 133227293,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:be4f99c8df00d7e2c1ed1a43c0cf78b55bd6cda3a7922c7b7b0e2125eca8f26c",
+          "workload": "steady.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 38400,
+            "bytes": 1228832,
+            "elapsed_ns": 40920473,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:34020ab1e594de9ba7462a7e0f26cb7f62c0a5f7f26f47053c76171ca88f6c3d",
+          "workload": "steady.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 38400,
+            "bytes": 1228832,
+            "elapsed_ns": 33789573,
+            "implementation": "machine-generated",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:c75d1858c76f01720f8900ba06a8b859e9d16ad16af211f6b324cabe1b421f02",
+          "workload": "steady.bin"
+        }
+      ],
+      "compile_command": [
+        "clang",
+        "-std=c11",
+        "-D_POSIX_C_SOURCE=200809L",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-Wshadow",
+        "-Wformat=2",
+        "-Wstrict-prototypes",
+        "-Wcast-align",
+        "-Wnull-dereference",
+        "-Werror",
+        "-fno-common",
+        "-Iinclude",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "runner/edgestream_cli.c",
+        "machine/edgestream_generated.c",
+        "-o",
+        "build/candidate-sanitized"
+      ],
+      "status": "PASS"
+    },
+    "reference": {
+      "binary_sha256": "sha256:77ac69838c73586c70cecee5aae1f3001edfffdfb6dead52d75f45948d06e92b",
+      "cases": [
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 6,
+            "bytes": 256,
+            "elapsed_ns": 184562,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:39ad385b39c678ccb58060d84c3978bdf9095f83ce2eb9fca45a310226ddd786",
+          "workload": "edge-cases.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 6,
+            "bytes": 256,
+            "elapsed_ns": 59301,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:bd3656664b64dd0f658db22c68791f7eb74e8fd9c4032061b22e382c6dfdb48e",
+          "workload": "edge-cases.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 6,
+            "bytes": 256,
+            "elapsed_ns": 21184,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:bd8a161ca4c8e2ee364c7b31f31e159bee83c8ec996b01abce602d66c4810b3f",
+          "workload": "edge-cases.bin"
+        },
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 51200,
+            "bytes": 1638656,
+            "elapsed_ns": 195025234,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:0ebed7de60cf2a4163017f9111b58279a779c2fe34c5a7645829baaa607edacc",
+          "workload": "high-cardinality.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 51200,
+            "bytes": 1638656,
+            "elapsed_ns": 66395537,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:d0d3aa18d931dcd43ef9a252de4545a60fd331363661cc9f383ec7902c81e10d",
+          "workload": "high-cardinality.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 51200,
+            "bytes": 1638656,
+            "elapsed_ns": 57252367,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:854e733bcba5469a93e7e0152fa744c820a6967e8d8fc76832aeb92e4ce24dd0",
+          "workload": "high-cardinality.bin"
+        },
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 2247,
+            "bytes": 83640,
+            "elapsed_ns": 9999461,
+            "implementation": "reference",
+            "rejected": 1310
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:63fd5684dec3d922d5cbdae489dfcb3c7e1bb227dc0914befc28d8ea70282a49",
+          "workload": "hostile.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 2247,
+            "bytes": 83640,
+            "elapsed_ns": 3552680,
+            "implementation": "reference",
+            "rejected": 1310
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:9b8d33e642b30080a00d27cb4ab7d47be7ecc8eaae523c1e4ed5e19bc89a2a34",
+          "workload": "hostile.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 2247,
+            "bytes": 83640,
+            "elapsed_ns": 2904690,
+            "implementation": "reference",
+            "rejected": 1310
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:ef18e5b96eed71bfb33094876a86ca66b6cf108e8606a63fcf113a49b32fcaca",
+          "workload": "hostile.bin"
+        },
+        {
+          "chunk": 1,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 38400,
+            "bytes": 1228832,
+            "elapsed_ns": 139652534,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:aa81e68ad6f82ed345a6bc6077a2c8a816802c2c54c8b204d305b668cfbaa57a",
+          "workload": "steady.bin"
+        },
+        {
+          "chunk": 17,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 38400,
+            "bytes": 1228832,
+            "elapsed_ns": 45735577,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:c4e76e044dc565ae09514a0b860e23290c19658595592f26a2a74bf6c70871ff",
+          "workload": "steady.bin"
+        },
+        {
+          "chunk": 4096,
+          "diagnostics": [],
+          "exit": 0,
+          "metric": {
+            "accepted": 38400,
+            "bytes": 1228832,
+            "elapsed_ns": 41538981,
+            "implementation": "reference",
+            "rejected": 0
+          },
+          "status": "PASS",
+          "stderr_sha256": "sha256:caa97488748cfea43a3a6f4f556949f80f1084fb6ba77489e6d939a5ab2a4597",
+          "workload": "steady.bin"
+        }
+      ],
+      "compile_command": [
+        "clang",
+        "-std=c11",
+        "-D_POSIX_C_SOURCE=200809L",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-Wshadow",
+        "-Wformat=2",
+        "-Wstrict-prototypes",
+        "-Wcast-align",
+        "-Wnull-dereference",
+        "-Werror",
+        "-fno-common",
+        "-Iinclude",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "runner/edgestream_cli.c",
+        "reference/edgestream_reference.c",
+        "-o",
+        "build/reference-sanitized"
+      ],
+      "status": "PASS"
+    }
+  },
+  "runtime_options": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "status": "PASS"
+}

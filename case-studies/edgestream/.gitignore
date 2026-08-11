@@ -1,0 +1,4 @@
+build/
+workloads/*.bin
+*.checkpoint
+*.tmp

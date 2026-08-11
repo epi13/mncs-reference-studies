@@ -1,0 +1,16 @@
+{
+  "policy_id": "composed-gateway-wave4-release-policy-v1",
+  "schema_version": "0.4-experimental",
+  "release_authority": "external human approval required",
+  "preconditions": ["formal MNCS result PASS", "formal MNCDS result PASS", "artifact and source identities match", "protected holdout PASS", "cross-host agreement PASS", "independent evaluator PASS", "witnessed replacement and rollback PASS"],
+  "monitoring": {
+    "identity_mismatch": {"threshold": 0, "action": "immediate stop and readable rollback"},
+    "protocol_rejection_rate": {"threshold": "greater than 1% over 5 minutes", "action": "stop generated authority and investigate"},
+    "timeout_rate": {"threshold": "greater than 0.5% over 5 minutes", "action": "readable rollback"},
+    "fallback_failure": {"threshold": 0, "action": "stop service"},
+    "memory_growth": {"threshold": "greater than 25% above released envelope", "action": "readable rollback"}
+  },
+  "rollback": {"target": "go-readable-authority-v2", "maximum_decision_seconds": 60, "identity_verification_required": true},
+  "retirement": ["boundary protocol incompatibility", "unsupported toolchain", "unresolved identity mismatch", "repeated rollback threshold breach", "expired evidence policy", "replacement implementation accepted under a new record"],
+  "status": "policy-defined-not-operationally-demonstrated"
+}

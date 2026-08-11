@@ -1,0 +1,52 @@
+{
+  "c11": {
+    "language_mode": "C11",
+    "profile": "c11-reference-v0.1",
+    "required_compilers": [
+      "GCC with -std=c11",
+      "Clang with -std=c11 when available"
+    ],
+    "runtime_safety": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer"
+    ],
+    "strict_flags": [
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic"
+    ]
+  },
+  "common_envelope": {
+    "benchmark_repetitions": 7,
+    "benchmark_warmups": 2,
+    "malformed_exit_code": 2,
+    "malformed_stderr": "invalid input\n",
+    "max_input_bytes": 1048576,
+    "max_value": 100000,
+    "network_access": false,
+    "stdout": "one canonical compact JSON object and newline on success"
+  },
+  "comparison_limits": [
+    "compiler startup and runtime startup are included in wall-time samples",
+    "memory use is not directly compared in Wave One",
+    "cross-host results require a new environment identity",
+    "sanitizer and safe-Rust evidence are language-specific rather than equivalent"
+  ],
+  "contract_id": "contract:multilingual-bounded-stream-0.1",
+  "environment_id": "environment:multilingual-stream-wave1-linux-x86_64",
+  "extensions": {
+    "mncs.dev:ci_host": "GitHub-hosted Ubuntu runner identity recorded in generated report"
+  },
+  "rust": {
+    "edition": "2024",
+    "features": [],
+    "lockfile": "Cargo.lock",
+    "overflow_policy": "checked arithmetic for semantic values; wrapping checksum by contract",
+    "panic_strategy": "release abort; test profile unwind",
+    "profile": "rust-1.97.1-edition-2024-v0.1",
+    "toolchain": "1.97.1"
+  },
+  "schema_version": "0.1-experimental"
+}

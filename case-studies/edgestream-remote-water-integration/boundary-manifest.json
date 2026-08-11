@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1",
+  "integration_id": "mncs.edgestream-remote-water.integration.development.v2",
+  "status": "DEVELOPMENT_ONLY",
+  "component_boundaries": [
+    {
+      "component_id": "mncs.edgestream.telemetry.v1",
+      "evidence_path": "case-studies/edgestream/manifest.json",
+      "component_status": "MNCS-L4 PASS in its captured development environment",
+      "copied_or_rewritten_by_integration": false,
+      "invalidation_trigger": "Any EdgeStream frame, canonical event, candidate identity, or manifest change."
+    },
+    {
+      "component_id": "mncs.remote-water.supervisory-control.v1",
+      "evidence_path": "case-studies/remote-water-control/assurance-case.json",
+      "component_status": "Formal MNCS-L5 and MNCDS-D3 status UNKNOWN",
+      "copied_or_rewritten_by_integration": false,
+      "invalidation_trigger": "Any Remote Water telemetry, planner, safety-kernel, or assurance identity change."
+    }
+  ],
+  "adapter_contract": {
+    "device_scope": "one declared EdgeStream device identifier per controller instance",
+    "sequence_rule": "Canonical event sequence numbers must be positive and strictly increasing; duplicate and replayed records are rejected.",
+    "metric_mapping": {
+      "0": "tank_level_pct encoded as milli-percent",
+      "1": "demand_lps encoded as milli-liters-per-second",
+      "2": "power_available encoded as integer 0 or 1",
+      "3": "telemetry_quality encoded as 0 GOOD, 1 STALE, or 2 CONFLICT"
+    },
+    "completion_rule": "Emit one Remote Water telemetry sample only after all four metrics for one timestamp have been accepted by EdgeStream.",
+    "rejection_rule": "Reject incomplete timestamps, duplicate or non-monotonic sequences, unsupported metric values, mixed-device records, and invalid power or quality encodings."
+  },
+  "claim_boundary": {
+    "integration_pass_promotes_component_claims": false,
+    "integration_pass_authorizes_live_control": false,
+    "integration_evidence_is_separate": true,
+    "formal_status": "UNKNOWN"
+  }
+}

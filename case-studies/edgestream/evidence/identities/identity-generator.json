@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "deterministic": true,
+    "network_access": false,
+    "source": "generator/generate_candidate.py"
+  },
+  "description": "Transforms the readable C11 reference into the table-specialized candidate.",
+  "extensions": {},
+  "identity_id": "identity-generator",
+  "identity_kind": "generator",
+  "mncs_version": "0.2",
+  "name": "EdgeStream deterministic specialization generator",
+  "schema_version": "0.2",
+  "version": "1.0"
+}

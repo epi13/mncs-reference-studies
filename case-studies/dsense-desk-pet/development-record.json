@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "record_id": "dsense.desk-pet.development.v1",
+  "artifact": "dSense Desk Pet",
+  "steward": "Alexander Collamore",
+  "development_mode": "iterative human-directed AI generation with physical-device feedback",
+  "generator": "GPT-5.6 Thinking",
+  "epochs": [
+    {
+      "id": "epoch-1-acoustic-observation",
+      "input": "working expressive desk-pet firmware plus dedicated A1 piezo sensor",
+      "evidence": "artifacts/epoch-1-canonical.json.zlib.b85",
+      "result": "FAIL",
+      "finding": "event detector saturated near its refractory limit and novelty lost discriminating value"
+    },
+    {
+      "id": "epoch-2-reactivity-repair",
+      "input": "epoch-1 telemetry findings",
+      "changes": [
+        "adaptive acoustic baseline and spread",
+        "onset and sustained-presence separation",
+        "hysteretic rearming",
+        "self-sound masking",
+        "ADC multiplexer settling",
+        "rate-limited diagnostic rendering",
+        "rebalanced novelty and timing attribution"
+      ],
+      "result": "PARTIAL",
+      "finding": "mechanism and host syntax checks completed; protected hardware evaluation not captured"
+    },
+    {
+      "id": "epoch-3-interface-and-resource-pressure",
+      "input": "three-button introspection and persistent settings interface",
+      "evidence": "evidence/results/compile-observations.json",
+      "result": "FAIL",
+      "finding": "human-readable V4 interface exceeded Uno flash by 2420 bytes"
+    },
+    {
+      "id": "epoch-4-machine-native-representation",
+      "input": "V4 resource failure",
+      "changes": [
+        "remove firmware text strings",
+        "replace labels with icon and numeric semantics",
+        "replace CSV formatting with compact framed binary telemetry",
+        "move decoding and human-readable field names to the host"
+      ],
+      "candidate": "dsense-unomax-binary-v5",
+      "result": "UNKNOWN",
+      "finding": "candidate is frozen in this case study pending repository-bound AVR compile and hardware protocol"
+    }
+  ],
+  "process_controls": {
+    "raw_failure_evidence_retained": true,
+    "baseline_retained": true,
+    "candidate_identity_hashed": true,
+    "evaluation_thresholds_externalized": true,
+    "candidate_may_change_evaluator": false,
+    "candidate_may_authorize_promotion": false,
+    "rollback_required": true
+  },
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false
+}

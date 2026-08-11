@@ -1,0 +1,12 @@
+{
+  "protocol": "MNCS composed authority",
+  "version": "V2",
+  "handshake": "READY V2 rust-authority-v2",
+  "request": "V2 <request-id> <uint32>",
+  "response": "OK <request-id> <uint32>",
+  "errors": ["ERR protocol", "ERR value", "ERR range"],
+  "max_line_bytes": 128,
+  "max_messages": 64,
+  "ordering": "strict request-response, one outstanding request",
+  "unknown_fields": "not permitted"
+}

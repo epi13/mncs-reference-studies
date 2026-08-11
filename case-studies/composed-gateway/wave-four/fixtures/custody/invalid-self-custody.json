@@ -1,0 +1,37 @@
+{
+  "attestation_identity": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+  "candidate_freeze_identity": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "commitment_id": "fixture:commitment:v1",
+  "corpus_embedded_in_repository": false,
+  "corpus_identity": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+  "custodian": {
+    "attestation_method": "content-addressed signed statement",
+    "id": "actor:developer",
+    "organization": "Independent Custody Example",
+    "role": "protected corpus custodian"
+  },
+  "developer_id": "actor:developer",
+  "development_access_before_disclosure": false,
+  "evaluator": {
+    "attestation_method": "content-addressed signed statement",
+    "id": "actor:evaluator",
+    "organization": "Independent Evaluation Example",
+    "role": "independent evaluator"
+  },
+  "extensions": {
+    "fixture": true
+  },
+  "limitations": [],
+  "normalized_result_identity": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+  "preregistration_identity": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "raw_artifact_identity": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+  "record_id": "fixture:custody:self",
+  "result": "PASS",
+  "schema_version": "0.4-experimental",
+  "timestamps": {
+    "candidate_frozen_at": "2026-07-02T00:00:00Z",
+    "corpus_disclosed_at": "2026-06-30T00:00:00Z",
+    "evaluated_at": "2026-07-04T00:00:00Z",
+    "preregistered_at": "2026-07-01T00:00:00Z"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "checkpoint_integrity": "crc32",
+  "deduplication_history": "last accepted sequence per device",
+  "maximum_active_devices": 64,
+  "maximum_frame_bytes": 32,
+  "maximum_metrics_per_device": 4,
+  "maximum_parser_buffer_bytes": 4096,
+  "maximum_window_samples_per_metric": 8,
+  "silence_threshold_ms": 60000
+}

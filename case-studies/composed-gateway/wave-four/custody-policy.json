@@ -1,0 +1,14 @@
+{
+  "policy_id": "composed-gateway-wave4-custody-policy-v1",
+  "schema_version": "0.4-experimental",
+  "roles": {
+    "developer": "may freeze candidates and provide executables but may not see the protected corpus before disclosure",
+    "custodian": "controls corpus creation, storage, disclosure timing, and corpus identity",
+    "evaluator": "executes the frozen candidate against the disclosed corpus and produces raw and normalized artifacts",
+    "release_authority": "reviews evidence but cannot retroactively alter corpus, evaluator, or candidate identities"
+  },
+  "separation": ["custodian != developer", "custodian != evaluator", "evaluator != developer"],
+  "required_identities": ["preregistration", "candidate freeze", "corpus", "raw artifact", "normalized result", "attestation"],
+  "required_order": ["preregistration", "candidate freeze", "corpus disclosure", "evaluation"],
+  "prohibitions": ["public development inputs cannot be relabeled as holdout", "missing custody records cannot become PASS", "organizational independence cannot be inferred from separate software processes"]
+}

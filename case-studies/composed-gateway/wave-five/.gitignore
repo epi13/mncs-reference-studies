@@ -1,0 +1,5 @@
+/dist/
+/evidence/actual/
+/evidence/hosts/
+/evidence/operator-cohort.json
+/evidence/ci-cohort.json

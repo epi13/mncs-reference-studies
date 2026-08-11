@@ -1,0 +1,75 @@
+{
+  "candidate_reference_ratio": 0.3941151486052267,
+  "claim_boundary": {
+    "formal_mncds_status": "UNKNOWN",
+    "formal_mncs_status": "UNKNOWN",
+    "promotion_authorized": false,
+    "rust_status": "UNKNOWN",
+    "scope": "local C11 development observation only"
+  },
+  "contract_id": "contract:multilingual-bounded-stream-0.1",
+  "environment": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "machine": "x86_64",
+    "platform": "Linux-6.12.13-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "evidence_id": "multilingual-stream-c11-local-development-benchmark-v1",
+  "measurements": {
+    "c11-candidate": {
+      "binary_sha256": "b00baa1886a7f3ef35b4122ccd62dd75afe33660a39d7efc7c723d80e9a6e060",
+      "mad_seconds": 0.000038317,
+      "median_seconds": 0.000896355,
+      "output_sha256": "d037f6642c082ea07a2d31751307e7cdd52fb0a6ef1e1b92863cde949c7cb07f",
+      "samples_seconds": [
+        0.000867092,
+        0.000821474,
+        0.000858038,
+        0.002806647,
+        0.000898879,
+        0.001546524,
+        0.000896355
+      ],
+      "source_sha256": "30d67146e6b957f33def8813dfb050bd2e543d7c09e4221695ac1be2f437fb76"
+    },
+    "c11-reference": {
+      "binary_sha256": "9bab7085f3197581541dc3184f2fb9b45b6c3c81528f07823bf9aa0d0c5d15d7",
+      "mad_seconds": 0.000150695,
+      "median_seconds": 0.002274348,
+      "output_sha256": "d037f6642c082ea07a2d31751307e7cdd52fb0a6ef1e1b92863cde949c7cb07f",
+      "samples_seconds": [
+        0.002274348,
+        0.001465454,
+        0.002425043,
+        0.002668325,
+        0.002207319,
+        0.002252556,
+        0.005808444
+      ],
+      "source_sha256": "8cfaae58578f49358e5dd598126434ac3a6bb0633c7084515dd04755c2fb3028"
+    }
+  },
+  "protocol": {
+    "compile_flags": [
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic"
+    ],
+    "fixed_order": [
+      "c11-reference",
+      "c11-candidate"
+    ],
+    "input_bytes": 147221,
+    "outliers_removed": 0,
+    "repetitions": 7,
+    "uncertainty": "median and median absolute deviation",
+    "warmups": 2,
+    "workload_sha256": "4353ca62d745fa08ece217c5b2711142d3421c4a91f4dada929bf7d6346283da"
+  },
+  "schema_version": "0.1-experimental",
+  "useful_benefit_status": "PASS",
+  "useful_benefit_threshold": 0.95
+}

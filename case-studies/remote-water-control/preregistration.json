@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1",
+  "record_id": "mncs.remote-water.preregistration.v1",
+  "study_id": "mncs.remote-water-control.development-epoch-1",
+  "title": "Remote Water Resilience Controller development study",
+  "status": "FROZEN_FOR_DEVELOPMENT_EPOCH",
+  "target": {
+    "future_combined_label": "MNCDS-D3 / MNCS-L5",
+    "currently_claimed": false,
+    "reason": "Protected holdout, independent final evaluation, release binding, cross-host evidence, and operational lifecycle evidence are not yet complete."
+  },
+  "candidate": {
+    "kind": "deterministically generated table planner",
+    "generator": "tools/generate_planner.py",
+    "generator_spec": "generator/planner-spec.json",
+    "generated_artifact": "machine/generated_planner.py"
+  },
+  "authority_boundary": {
+    "planner_may": ["propose duty and standby states", "supply a proposal reason"],
+    "planner_may_not": [
+      "write actuator outputs",
+      "bypass the safety kernel",
+      "append directly to the intent journal",
+      "modify checkpoints, thresholds, scenarios, or evidence"
+    ]
+  },
+  "hard_gates": [
+    "No declared safety invariant violation in any development scenario.",
+    "Exact deterministic replay from identical identified inputs.",
+    "Exact monotonically increasing intent sequence across checkpoint restart.",
+    "Corrupted checkpoint rejection.",
+    "Experimental contract-profile and assurance-case schema validation."
+  ],
+  "selection_objective": {
+    "primary": "Reduce total pump starts across the declared scenario suite.",
+    "candidate_to_baseline_pump_start_ratio_max": 0.75,
+    "candidate_to_baseline_energy_ratio_max": 1.1,
+    "unmet_demand_regression_l_max": 0.0,
+    "overflow_regression_l_max": 0.0,
+    "selection_rule": "Hard gates dominate. The objective is evaluated only after every hard gate passes."
+  },
+  "development_scenarios": [
+    "normal-day",
+    "peak-demand",
+    "power-outage",
+    "stale-telemetry",
+    "conflicting-sensor",
+    "checkpoint-restart"
+  ],
+  "protected_holdout_policy": {
+    "status": "NOT_YET_EXECUTED",
+    "required_for_future_claim": true,
+    "requirements": [
+      "Scenario identities and expected outcomes remain inaccessible to generator and candidate agents until selection is frozen.",
+      "The final evaluator is independently identified and cannot alter thresholds after observing candidates.",
+      "The holdout includes novel demand, outage, telemetry, restart, corruption, and boundary combinations.",
+      "Final evidence is run on at least two physical hosts and one independent architecture when available."
+    ]
+  },
+  "reporting": {
+    "report_all_scenarios": true,
+    "report_fail_and_unknown": true,
+    "best_run_selection_forbidden": true,
+    "repository_visible_results_are_development_evidence_only": true
+  }
+}

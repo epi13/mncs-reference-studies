@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "assurance_case_id": "dsense.desk-pet.epoch-2.assurance.v1",
+  "claim": "The repository preserves a real failed acoustic epoch, a failed Uno resource observation, and a frozen V5 machine-native candidate with reproducible offline framing, checksum, identity, and evidence checks.",
+  "development_result": "PARTIAL",
+  "disposition": "REVIEW_REQUIRED",
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_authorized": false,
+  "implementation": {
+    "baseline": "artifacts/baseline-v4.ino.zlib.b85",
+    "telemetry_candidate": "materialized from artifacts/baseline-v4.ino.zlib.b85.part* plus artifacts/firmware-v5-from-v4.delta.zlib.b85",
+    "production_candidate": "deterministically materialized by toggling DEBUG_SERIAL",
+    "telemetry_candidate_sha256": "8c413fb12cc5ff3333175ff20ff5093b7cf98d297983b1472aa71ece53411808",
+    "production_candidate_sha256": "bcaa5bb03a3d7b86001d45f7890003f6d82a8e982ebdc38163a84baa460fa74e",
+    "target": "Arduino Uno / ATmega328P",
+    "language": "Arduino C++"
+  },
+  "evidence": {
+    "raw_epoch_1": "artifacts/epoch-1-canonical.json.zlib.b85",
+    "raw_epoch_1_sha256": "01c76dca4582673df89d8834d109a1cad6c984d0a5c493063ed8ff526ff74eb3",
+    "analysis": "evidence/results/epoch-1-analysis.json",
+    "analysis_sha256": "0bbcfa50ef5afcc15c314bf1d8a893f4828aa3e2f4be38e4f0356f9a913b2d2b",
+    "compile_observations": "evidence/results/compile-observations.json",
+    "compile_observations_sha256": "3d22df4b7aa4fffb74f4416cbcdf642aaedc42c6792eb4b74b85e21fd0b83e06",
+    "artifact_index": "evidence/results/artifact-hashes.json",
+    "artifact_index_sha256": "c360c9493975c90bf288685d91f8df98bf2835eb2af81a5bf340f42af6f927d2",
+    "offline_reproduction": true,
+    "avr_compile_observed": false,
+    "v5_physical_protocol_observed": false,
+    "protected_holdout": false,
+    "independent_evaluator": false
+  },
+  "observed_results": {
+    "epoch_1_duration_seconds": 211.825,
+    "epoch_1_acoustic_events": 552,
+    "epoch_1_event_rate_hz": 2.605925,
+    "epoch_1_quiet_event_rate_hz": 2.616789,
+    "epoch_1_novelty_fraction_at_or_above_1000": 0.993141289,
+    "v4_program_bytes": 34676,
+    "v4_program_limit_bytes": 32256,
+    "v4_program_headroom_bytes": -2420,
+    "v5_binary_packet_sizes": [
+      49,
+      37,
+      20
+    ],
+    "v5_firmware_string_literals": 0
+  },
+  "supported_conclusions": [
+    "The first acoustic event model failed to discriminate quiet from intentional stimuli.",
+    "The raw piezo signal retained useful amplitude variation despite classifier failure.",
+    "The human-readable V4 interface did not fit the declared Uno program envelope.",
+    "V5 relocates human labels and telemetry formatting to the host while retaining readable external contracts.",
+    "The checked-in V5 framing and checksum decoder passes offline corruption and resynchronization tests."
+  ],
+  "unsupported_conclusions": [
+    "V5 fits in Uno flash or SRAM.",
+    "V5 passes the preregistered physical reaction protocol.",
+    "The adaptive model is stable over long unattended operation.",
+    "The results generalize to other Uno boards, piezos, enclosures, or environments.",
+    "The study has earned formal MNCS or MNCDS conformance."
+  ],
+  "promotion_blockers": [
+    "repository-bound arduino:avr:uno compile report for both V5 builds",
+    "complete preregistered V5 hardware stimulus run",
+    "power-cycle EEPROM persistence evidence",
+    "tested rollback evidence",
+    "independent physical replication",
+    "protected stimulus custody and independent evaluator",
+    "long-duration stability and adversarial acoustic evaluation",
+    "electrical characterization of piezo input protection"
+  ]
+}

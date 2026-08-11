@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.3-experimental",
+  "environment_policy_id": "composed-gateway-wave3-environment-v1",
+  "required": {
+    "go": "1.23.x",
+    "rust": "1.97.1",
+    "rust_edition": "2024",
+    "python": "3.11 or later for harness execution",
+    "c": "C11 compiler with -Wall -Wextra -Werror -pedantic",
+    "cgo": true
+  },
+  "observations": [
+    "operating system and architecture",
+    "runner identity",
+    "compiler and runtime versions",
+    "commit SHA and workflow run ID",
+    "resource measurement unit note",
+    "source, binding, generator, contract, and preregistration identities"
+  ],
+  "cross_host_matrix": ["ubuntu-latest", "macos-latest"],
+  "unsupported": [
+    "Windows reproduction in this epoch",
+    "production ABI portability beyond recorded compilers",
+    "exhaustive scheduler or deadlock proof"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "0.3-experimental",
+  "preregistration_id": "composed-gateway-wave3-preregistration-v1",
+  "recorded_before_epoch_execution": true,
+  "system_contract_id": "contract:composed-gateway-wave3-0.2",
+  "parent_epoch": "composed-gateway-wave2-v1",
+  "purpose": "Evaluate checkpoint recovery, readable replacement, retained fault outcomes, repeated resource measurements, and cross-host reproducibility without broadening Wave Two claims.",
+  "required_gates": [
+    "strict-c11-build",
+    "deterministic-binding-regeneration",
+    "go-unit-tests",
+    "go-race-tests",
+    "go-fuzz-smoke",
+    "pinned-rust-format-clippy-test-build",
+    "uninterrupted-composed-equivalence",
+    "checkpoint-restart-equivalence",
+    "identity-mismatch-rejection",
+    "readable-replacement-equivalence",
+    "mutation-campaign"
+  ],
+  "measurement_plan": {
+    "warmups": 2,
+    "repetitions": 9,
+    "order": "alternate readable/composed order; measure checkpoint mode after each pair",
+    "outlier_policy": "retain every valid observation",
+    "statistics": ["median", "minimum", "maximum", "median absolute deviation"],
+    "metrics": [
+      "wall-clock latency",
+      "child user CPU",
+      "child system CPU",
+      "maximum resident-set observation",
+      "process-boundary wall overhead",
+      "checkpoint wall overhead",
+      "recovery time",
+      "fallback frequency",
+      "rejected proposals"
+    ],
+    "claim_boundary": "Measurements compare only the declared implementations in the recorded environment and never establish global language superiority."
+  },
+  "partitions": {
+    "development": "checked-in deterministic workload and mutation fixtures",
+    "public_reproduction": "hosted CI execution on declared runner images",
+    "protected_holdout": "requires an independently controlled seed or corpus not present in the public repository"
+  },
+  "selection_policy": {
+    "candidate_promotion_allowed": false,
+    "performance_threshold": null,
+    "rationale": "Wave Three characterizes composition overhead and recovery behavior; it does not select a candidate from performance noise."
+  },
+  "unknown_policy": "FAIL dominates UNKNOWN; UNKNOWN dominates PASS; required unavailable evidence yields REVIEW_REQUIRED and cannot produce formal PASS.",
+  "d4_policy": "A successful binding regeneration and readable replacement drill may support only the regeneration/replacement subclaim. Full MNCDS-D4 remains UNKNOWN without release controls, monitoring, retirement, and independent witnessing."
+}

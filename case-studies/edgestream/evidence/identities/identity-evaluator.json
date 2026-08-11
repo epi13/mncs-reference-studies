@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "harness_regression_sha256": "sha256:6caa54fd4b7d6a611f65466692399f234328bc30a823f7129fb2a2cb940a1bca",
+    "repetitions_per_workload": 15,
+    "run_study_sha256": "sha256:52ef45ddb7f4c7bbfc67af83085a69a63bb9d67cfbf15704e85d805a013ecc00",
+    "study_evaluation_sha256": "sha256:c1e1fb2a6d461bfbbcc896f7750b79b239854edbe6bd7ac3b9cb9e0414c9bfb4",
+    "warmup_runs_per_implementation": 3
+  },
+  "description": "Runs expanded differential, multi-mutation, atomic recovery, sanitizer, Clang-AST structural, harness-regression, and controlled paired-performance evaluation.",
+  "extensions": {},
+  "identity_id": "identity-evaluator",
+  "identity_kind": "evaluator",
+  "mncs_version": "0.2",
+  "name": "EdgeStream study evaluator",
+  "schema_version": "0.2",
+  "version": "2.0"
+}

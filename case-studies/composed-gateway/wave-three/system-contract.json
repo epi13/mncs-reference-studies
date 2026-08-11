@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.3-experimental",
+  "contract_id": "contract:composed-gateway-wave3-0.2",
+  "input": "one ASCII decimal uint32 value per line, at most 64 messages and 128 bytes per line",
+  "output": "a canonical JSON final record containing identity-bound checkpoint state and a stable output digest",
+  "hard_authority": {
+    "owner": "go-host-wave3-v2",
+    "rules": [
+      "C11 parsing must reject empty, nondecimal, oversized, and out-of-range frames",
+      "the Rust authority cannot bypass input, timeout, checkpoint, or replacement limits",
+      "restore requires exact system, binding, generator, input, and state identities",
+      "authority replacement is allowed only from rust-authority-v2 to go-readable-authority-v2 under the explicit replacement flag",
+      "partial, duplicate, misordered, mismatched, or version-incompatible process responses reject"
+    ]
+  },
+  "determinism": "For an identical canonical workload and accepted authority behavior, uninterrupted, recovered, and readable-replacement executions must emit the same output digest.",
+  "resource_limits": {
+    "max_messages": 64,
+    "max_line_bytes": 128,
+    "default_timeout_ms": 2000,
+    "max_timeout_ms": 10000,
+    "checkpoint_write": "atomic temporary-file rename"
+  },
+  "formal_claim": "experimental development evidence only"
+}

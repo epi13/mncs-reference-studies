@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.1-experimental",
+  "profile_id": "mncs.remote-water.contract-profile.v1",
+  "contract_id": "mncs.remote-water.supervisory-control.v1",
+  "status": "UNKNOWN",
+  "intended_use": {
+    "statement": "Evaluate supervisory pump-scheduling candidates against a deterministic digital twin for commissioning support, operator training, sequence review, and machine-native assurance research.",
+    "exclusions": [
+      "Direct connection to live pumps, valves, PLC outputs, or SCADA write interfaces.",
+      "Use as a hydraulic design model, treatment-process model, regulatory compliance system, or autonomous production controller.",
+      "Use where a failed simulation result could itself create a physical consequence."
+    ]
+  },
+  "interfaces": {
+    "inputs": [
+      "Timestamped tank-level percentage, demand estimate, power availability, and telemetry quality.",
+      "Bounded plant configuration and pump characteristics.",
+      "Controller checkpoint containing command state, sequence, dwell timers, and journal tail identity."
+    ],
+    "outputs": [
+      "Expiring, monotonically sequenced duty and standby pump intent records.",
+      "Safety adjudication mode and reasons.",
+      "Hash-chained audit journal entries and deterministic scenario evidence."
+    ],
+    "state": [
+      "Last authorized pump states and transition times.",
+      "Last intent sequence and journal tail hash.",
+      "Digital-twin tank volume, pump starts, energy proxy, unmet demand, and overflow."
+    ],
+    "state_transitions": [
+      "Planner proposal is always adjudicated by the readable safety kernel before journaling.",
+      "Journal sequence advances exactly once for each decision step.",
+      "Checkpoint restoration must preserve controller sequence and journal continuity.",
+      "Digital-twin state advances only from an authorized, non-expired intent and scenario inputs."
+    ]
+  },
+  "behavior": {
+    "observable": [
+      "Authorized pump intents, modes, reasons, sequence numbers, expiration times, and journal hashes.",
+      "Scenario-level tank state, energy proxy, starts, unmet demand, overflow, and invariant violations.",
+      "Deterministic reproduction of the same results from the same identified inputs."
+    ],
+    "errors": [
+      "Malformed or digest-invalid checkpoints are rejected.",
+      "Non-monotonic or skipped journal sequences are rejected.",
+      "Planner identity mismatch during restoration is rejected."
+    ],
+    "malformed_inputs": [
+      "Non-finite, negative-demand, or out-of-range level telemetry produces HOLD without a command change.",
+      "Unknown checkpoint structure or missing required fields is rejected.",
+      "A scenario with no demand value for a step is rejected."
+    ],
+    "adversarial_inputs": [
+      "Stale, conflicting, replayed, reordered, or corrupted state and telemetry inputs.",
+      "Planner proposals that enable standby without duty or request operation at high-high level.",
+      "Artifact substitution through a checkpoint carrying a different planner identity."
+    ],
+    "external_effects": [
+      "Development code writes only local JSON evidence and optional local checkpoint files.",
+      "The case study emits no industrial protocol traffic and has no actuator interface."
+    ]
+  },
+  "limits": {
+    "resource": [
+      "One tank, one duty pump, one standby pump, and bounded in-memory state.",
+      "The generated planner table has a fixed 7 x 3 x 2 x 2 x 2 x 3 state space.",
+      "No dynamic plugin loading, network access, or unbounded event retention is required."
+    ],
+    "timing": [
+      "Telemetry older than 180 simulated seconds cannot change a command.",
+      "Authorized intents expire 120 simulated seconds after issuance.",
+      "Normal transitions honor 600-second minimum on-time and 300-second minimum off-time."
+    ]
+  },
+  "invariants": {
+    "safety": [
+      "No pump may be authorized at or above the declared high-high level.",
+      "Both pumps are authorized during a valid low-low emergency while power is available.",
+      "Standby cannot be authorized without duty.",
+      "Bad or stale telemetry cannot change the previously authorized command.",
+      "Loss of power produces an all-off intent.",
+      "Normal planner requests cannot bypass minimum dwell times."
+    ],
+    "security": [
+      "Intent sequences advance exactly once and replay is rejected.",
+      "Every journal entry binds the previous hash and complete authorized intent.",
+      "Checkpoint payloads are digest protected and bind the planner identity.",
+      "The planner has no direct actuator, journal, or checkpoint write authority."
+    ]
+  },
+  "environment": [
+    "Python 3.11 or newer with deterministic integer and IEEE-754 floating-point behavior used by the test environment.",
+    "Repository-local source, generated table, contract, scenarios, and preregistration are treated as identified inputs.",
+    "The digital twin uses fixed-step simulation and does not model water quality, pressure zones, pipe transients, or equipment curves."
+  ],
+  "compatibility": [
+    "Development scenarios and evidence format version 0.1.",
+    "Experimental MNCS contract-profile schema 0.1.",
+    "Planner replacements must preserve the Planner protocol and receive a new identity."
+  ],
+  "undefined_behavior": {
+    "undefined": [],
+    "implementation_defined": [
+      "Floating-point formatting beyond the six decimal places retained in scenario evidence.",
+      "Filesystem durability guarantees below the atomic rename boundary."
+    ],
+    "excluded": [
+      "Behavior under live field I/O, real PLC scan timing, real sensor calibration failure, and hydraulic transients.",
+      "Simultaneous multi-process writers to one checkpoint path.",
+      "Operator authentication, industrial network security, and regulatory control requirements."
+    ]
+  },
+  "reference_oracle": {
+    "identity": "mncs.remote-water.digital-twin.v1",
+    "limitations": [
+      "The reference is a deterministic software model, not an independently calibrated physical system.",
+      "Repository-visible scenarios cannot serve as a protected final holdout."
+    ],
+    "tolerances": [
+      "Scenario evidence rounds continuous quantities to six decimal places.",
+      "Safety invariants, sequence values, starts, and journal identities require exact agreement."
+    ]
+  },
+  "ambiguities": [
+    "A domain reviewer has not yet determined whether the low-low response should always start both pumps for every real installation.",
+    "Energy values are development proxies and do not include pump curves, motor efficiency, demand charges, or generator loading.",
+    "The operational criticality mapping for a future real deployment remains unresolved."
+  ],
+  "versioning": {
+    "contract_version": "1.0-development",
+    "material_change_rule": "Any change to authority boundaries, safety thresholds, telemetry semantics, plant topology, intent lifetime, checkpoint meaning, or objective thresholds creates a new contract identity.",
+    "supersedes_contract_id": null
+  },
+  "findings": [
+    {
+      "field": "independent_domain_review",
+      "status": "UNKNOWN",
+      "summary": "The contract has not received independent water-utility, controls, or safety review."
+    },
+    {
+      "field": "protected_holdout",
+      "status": "UNKNOWN",
+      "summary": "The checked-in development scenarios are repository visible and cannot support a final D3 or L5 claim."
+    }
+  ],
+  "evidence_ids": [
+    "mncs.remote-water.preregistration.v1",
+    "mncs.remote-water.development-results.v1",
+    "mncs.remote-water.safety-tests.v1"
+  ],
+  "limitations": [
+    "Contract status remains UNKNOWN until independent adequacy and domain review are completed.",
+    "Passing development tests does not authorize production use or establish a safety integrity level."
+  ],
+  "extensions": {
+    "mncs.dev:case-study": {
+      "name": "Remote Water Resilience Controller",
+      "epoch": 1
+    }
+  }
+}

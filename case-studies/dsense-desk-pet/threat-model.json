@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "threat_model_id": "dsense.desk-pet.threats.v1",
+  "assets": [
+    "bounded Uno resource envelope",
+    "sensor attribution",
+    "predictive-state integrity",
+    "operator-selected serial device",
+    "EEPROM settings",
+    "telemetry evidence",
+    "human-readable acceptance boundary",
+    "rollback image"
+  ],
+  "threats": [
+    {
+      "id": "D1",
+      "threat": "Acoustic background is repeatedly classified as novel external events.",
+      "mitigation": "Adaptive baseline and spread, onset gating, hysteretic rearming, sustained-presence separation, and a quiet-rate acceptance gate.",
+      "evidence": "epoch-1 failure analysis and V5 source invariants"
+    },
+    {
+      "id": "D2",
+      "threat": "The pet attributes its own buzzer or probe to the environment.",
+      "mitigation": "Self-sound mask window, learned sound coupling, and a zero-external-event probe gate.",
+      "evidence": "V5 acoustic model; epoch-2 hardware evidence remains UNKNOWN"
+    },
+    {
+      "id": "D3",
+      "threat": "ADC multiplexer carryover makes the light sensor appear as microphone activity.",
+      "mitigation": "Discard the first A1 conversion after cross-channel access and test A0 covering without mechanical contact.",
+      "evidence": "V5 sampler and preregistered LDR-only gate"
+    },
+    {
+      "id": "D4",
+      "threat": "Human-readable UI and telemetry exceed the ATmega328P flash envelope.",
+      "mitigation": "Relocate labels to documentation and the host decoder; use icon/numeric OLED semantics and framed binary telemetry.",
+      "evidence": "V4 compile failure, committed baseline, and zero firmware string literals in V5"
+    },
+    {
+      "id": "D5",
+      "threat": "Observing the system through OLED or serial materially changes the timing signal being interpreted as external jitter.",
+      "mitigation": "Rate-limit rendering, cache outputs, compensate serial transmission time, and preserve production firmware with telemetry disabled.",
+      "evidence": "V5 display and telemetry paths; independent timing validation remains UNKNOWN"
+    },
+    {
+      "id": "D6",
+      "threat": "The capture tool opens or resets an unrelated USB serial device.",
+      "mitigation": "Require one explicit existing path, perform no scanning, and send no bytes.",
+      "evidence": "capture_dsense_binary_v5.py and hardware guidance"
+    },
+    {
+      "id": "D7",
+      "threat": "EEPROM corruption or a version mismatch produces unsafe settings.",
+      "mitigation": "Magic/version validation and default reset before settings are applied.",
+      "evidence": "V5 settings loader"
+    },
+    {
+      "id": "D8",
+      "threat": "A favorable source-size reduction is misrepresented as a successful AVR flash result.",
+      "mitigation": "Candidate compile status remains UNKNOWN until a repository-bound linker report is captured.",
+      "evidence": "compile-observations.json and assurance-case.json"
+    },
+    {
+      "id": "D9",
+      "threat": "A piezo voltage spike damages the analog input.",
+      "mitigation": "Declared 100 kOhm series and 1 MOhm bleed network plus gentle-stimulus limitation.",
+      "evidence": "HARDWARE.md; calibrated electrical characterization remains UNKNOWN"
+    },
+    {
+      "id": "D10",
+      "threat": "The adaptive execution plane rewrites evaluation or promotion authority.",
+      "mitigation": "Contracts, thresholds, evidence, firmware identity, and promotion fields remain outside the firmware.",
+      "evidence": "CONTRACT.md and preregistration.json"
+    }
+  ],
+  "residual_unknowns": [
+    "repository-bound AVR flash and SRAM measurements for V5",
+    "independent replication on another physical Uno and sensor assembly",
+    "electrical characterization of piezo transients",
+    "cross-board and clone behavior",
+    "long-duration EEPROM endurance and settings corruption",
+    "temperature and supply-voltage sensitivity",
+    "adversarial acoustic and vibration inputs",
+    "long-duration cognitive-state stability",
+    "protected holdout stimuli and independent evaluator custody",
+    "release signing, deployment monitoring, and operational rollback evidence"
+  ]
+}

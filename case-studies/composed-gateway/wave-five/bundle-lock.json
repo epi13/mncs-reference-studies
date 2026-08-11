@@ -1,0 +1,8 @@
+{
+  "archive_identity": "sha256:98a6d338b7a60067781cd7cb41d9a9458917dbe0b3c9b2348b926e122439f7e8",
+  "archive_size": 16323,
+  "bundle_id": "composed-gateway-wave5-portable-evaluator-v1",
+  "candidate_freeze_identity": "sha256:d858508276593494f9e8a255e07a2265954ac37424212f71f4bfa94aacbc4de9",
+  "manifest_identity": "sha256:ca4053025b6cdc0b17ee910c0a09011eba18fd5774df891d87a7465277126402",
+  "schema_version": "0.5-experimental"
+}

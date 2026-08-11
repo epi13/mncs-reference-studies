@@ -1,0 +1,35 @@
+{
+  "maximum_latency_ratio": 1.1,
+  "mean_throughput_ratio": 1.5331633457601608,
+  "mean_throughput_ratio_method": "arithmetic mean candidate throughput divided by arithmetic mean reference throughput",
+  "median_paired_throughput_ratio": 1.5304949787401463,
+  "paired_mean_ratio_bootstrap_ci95": {
+    "lower": 1.5227622002598766,
+    "upper": 1.5437309868999933
+  },
+  "protocol": {
+    "cpu_affinity": {
+      "cpu": 0,
+      "governor": "powersave",
+      "pinned": true,
+      "supported": true
+    },
+    "maximum_batch_iterations": 64,
+    "minimum_observed_sample_elapsed_ns": 111664775,
+    "order_policy": "deterministically counterbalanced by paired repetition",
+    "outlier_policy": "retain every measured sample in execution order",
+    "repetitions_per_workload": 15,
+    "target_minimum_sample_elapsed_ns": 100000000,
+    "timer": "CLOCK_MONOTONIC inside each process; batch values sum raw runs",
+    "warmup_runs_per_implementation": 3
+  },
+  "raw_benchmark_sha256": "sha256:ed7bd45ac3e840f8ffe7ec90d5a9e0d80d401c4046d8d4cbda11307bae1cb0d4",
+  "sample_count_per_implementation": 30,
+  "status": "PASS",
+  "threshold": 1.15,
+  "workload_p99_latency_ratios": {
+    "high-cardinality.bin": 0.6590699868997155,
+    "steady.bin": 0.6438682956968551
+  },
+  "worst_workload_p99_batch_latency_ratio": 0.6590699868997155
+}

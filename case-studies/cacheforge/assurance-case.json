@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1",
+  "assurance_case_id": "mncs.cacheforge.kv-cache.assurance.v1",
+  "component_id": "mncs.cacheforge.kv-cache-planner.v1",
+  "claim": "The selected generated eviction table is bounded by a readable allocation authority and provides a declared recomputation benefit in the captured deterministic development study.",
+  "supporting_records": [
+    "contract/contract-profile.json",
+    "preregistration.json",
+    "threat-model.json",
+    "generator/policy-spec.json",
+    "machine/generated_policy.py",
+    "evidence/results/study-summary.json"
+  ],
+  "development_result": "PASS",
+  "formal_mncs_status": "UNKNOWN",
+  "formal_mncds_status": "UNKNOWN",
+  "promotion_blockers": [
+    "independent protected holdout traces",
+    "independent final evaluator",
+    "cross-host reproduction",
+    "real inference-server adapter",
+    "accelerator memory integration",
+    "production security and lifecycle review"
+  ]
+}

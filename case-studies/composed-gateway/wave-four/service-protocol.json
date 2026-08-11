@@ -1,0 +1,9 @@
+{
+  "protocol_id": "composed-gateway-loopback-service-v1",
+  "transport": "HTTP/1.1 over 127.0.0.1 ephemeral port",
+  "request": {"method": "POST", "path": "/v1/evaluate", "content_type": "application/json", "max_body_bytes": 1024, "fields": {"version": "V1", "id": "non-empty string", "value": "uint32 <= 100000"}},
+  "response": {"content_type": "application/json", "fields": {"version": "V1", "id": "request id", "decision": "ACCEPT", "value": "request value"}},
+  "authority": "service cannot change resource limits, identities, checkpoint state, or rollback policy",
+  "timeouts": {"read_header_seconds": 1, "read_seconds": 1, "write_seconds": 1, "idle_seconds": 1},
+  "compatibility": "exact V1 only"
+}

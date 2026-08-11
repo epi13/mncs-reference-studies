@@ -1,0 +1,9 @@
+{
+  "contract_id": "composed-gateway-wave4-independent-evaluator-v1",
+  "schema_version": "0.4-experimental",
+  "inputs": ["frozen candidate identity", "system contract identity", "custodian-disclosed corpus", "declared environment", "evaluation command"],
+  "outputs": ["raw immutable artifact", "normalized result", "tool and environment identities", "signed or content-addressed attestation"],
+  "requirements": ["evaluator identity differs from developer and custodian", "no candidate modification", "no outlier removal", "operational errors retained", "FAIL and UNKNOWN preserved", "all artifacts content addressed"],
+  "network_policy": "core evaluation requires no external network access",
+  "independence_claim": "structural contract only; organizational independence requires an external actor record"
+}

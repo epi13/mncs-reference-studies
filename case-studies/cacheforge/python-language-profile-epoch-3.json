@@ -1,0 +1,52 @@
+{
+  "amendment_id": "cacheforge-python-language-profile-epoch-3",
+  "amends": [
+    "cacheforge-initial-development",
+    "cacheforge-evaluation-epoch-2"
+  ],
+  "claim_boundary": {
+    "development_evidence": "UNCHANGED",
+    "formal_mncds_status": "UNKNOWN",
+    "formal_mncs_status": "UNKNOWN",
+    "note": "Profile validation does not convert development evidence into a formal claim.",
+    "promotion_authorized": false
+  },
+  "determinism_requirements": [
+    "fixed trace identities",
+    "fixed seeds",
+    "declared thread counts",
+    "no uncontrolled accelerator kernels",
+    "repeatable checkpoint digest"
+  ],
+  "extensions": {
+    "mncs.dev:case_study": "cacheforge",
+    "mncs.dev:evidence_partition": "public-development-amendment"
+  },
+  "historical_evidence_modified": false,
+  "identity_requirements": [
+    "CPython exact version",
+    "PYTHONHASHSEED",
+    "dependency lock or complete pinned environment",
+    "native library identities",
+    "CacheForge source and generated policy hashes",
+    "evaluator and trace-bundle identities"
+  ],
+  "profile_binding_status": "PASS",
+  "provider": {
+    "configuration_id": "cfg:python-source-provider-0.1.0",
+    "id": "mncs.experimental.python-source-provider",
+    "reason": "Wave One source provider cannot establish behavior implemented by native libraries, dynamic imports, reflection, or unavailable extension source.",
+    "result": "UNKNOWN",
+    "version": "0.1.0"
+  },
+  "schema_version": "0.1-experimental",
+  "selected_profile": "python-cpython-3.11-v0.1",
+  "unknown_conditions": [
+    "native extension source or identity unavailable",
+    "dynamic import environment mismatch",
+    "reflection or monkey-patching changes behavior",
+    "uncontrolled stochastic kernel",
+    "protected trace custody not established",
+    "independent cross-host reproduction absent"
+  ]
+}

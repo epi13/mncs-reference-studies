@@ -1,0 +1,87 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "candidate_sha256": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+      "expected_status": "PASS",
+      "fixture": "current-candidate",
+      "observed_status": "PASS",
+      "status": "PASS"
+    },
+    {
+      "expected_failed_check": "generated_marker",
+      "expected_status": "FAIL",
+      "fixture": "missing-generated-marker",
+      "fixture_sha256": "sha256:da30a684cbdd7cea0515b170638de920d70a1a67c6354000e76a663a8e1106d9",
+      "observed_check_status": "FAIL",
+      "observed_status": "FAIL",
+      "status": "PASS"
+    },
+    {
+      "expected_failed_check": "no_dynamic_allocation_in_processor_ast",
+      "expected_status": "FAIL",
+      "fixture": "dynamic-allocation",
+      "fixture_sha256": "sha256:09a85979a76b00de221c70a9e9e5c504e0bdd3b467a4b113fc31b89131e41914",
+      "observed_check_status": "FAIL",
+      "observed_status": "FAIL",
+      "status": "PASS"
+    },
+    {
+      "expected_failed_check": "frame_length_checked",
+      "expected_status": "FAIL",
+      "fixture": "missing-frame-length-check",
+      "fixture_sha256": "sha256:f5701461277d2c3fcf227873549c5c62ea9852418b00a2fd7841fc2d1f0e2f93",
+      "observed_check_status": "FAIL",
+      "observed_status": "FAIL",
+      "status": "PASS"
+    },
+    {
+      "expected_failed_check": "checksum_precedes_accept",
+      "expected_status": "FAIL",
+      "fixture": "checksum-after-accept",
+      "fixture_sha256": "sha256:c61a170a5d6f7f5dfd7c6e34bfb4325f0f6d7053b3b596e6ec431fd97671359f",
+      "observed_check_status": "FAIL",
+      "observed_status": "FAIL",
+      "status": "PASS"
+    },
+    {
+      "expected_failed_check": "no_benchmark_workload_branch",
+      "expected_status": "FAIL",
+      "fixture": "benchmark-aware-branch",
+      "fixture_sha256": "sha256:a90db212909fb4b2a9519816bd33208becbd998c3b4cfd09ae47aae49c23b247",
+      "observed_check_status": "FAIL",
+      "observed_status": "FAIL",
+      "status": "PASS"
+    },
+    {
+      "expected_failed_check": "checkpoint_integrity",
+      "expected_status": "FAIL",
+      "fixture": "checkpoint-crc-bypass",
+      "fixture_sha256": "sha256:4c2e57b8e27c1e005287c17e03529aad61dfb4236faf2299cccc98ef782b7276",
+      "observed_check_status": "FAIL",
+      "observed_status": "FAIL",
+      "status": "PASS"
+    },
+    {
+      "expected": 2.0,
+      "fixture": "percentile-p50",
+      "observed": 2.0,
+      "status": "PASS"
+    },
+    {
+      "expected": 4.0,
+      "fixture": "percentile-p95",
+      "observed": 4.0,
+      "status": "PASS"
+    },
+    {
+      "expected": 4.0,
+      "fixture": "percentile-p99",
+      "observed": 4.0,
+      "status": "PASS"
+    }
+  ],
+  "provider_version": "edgestream-clang-structural-checker/2.0",
+  "purpose": "Ensure the evaluator rejects representative missing-marker, dynamic-allocation, validation-order, benchmark-awareness, and checkpoint-integrity defects.",
+  "status": "PASS"
+}

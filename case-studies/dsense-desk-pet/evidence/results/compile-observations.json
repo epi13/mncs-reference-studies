@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "study_id": "dsense.desk-pet.resource-envelope.epoch-2",
+  "target": {
+    "board": "Arduino Uno",
+    "mcu": "ATmega328P",
+    "maximum_program_bytes": 32256,
+    "maximum_sram_bytes": 2048
+  },
+  "observations": [
+    {
+      "artifact": "DeskPet_dSense_Interface_Telemetry_MNCS.ino",
+      "role": "human-readable-interface baseline",
+      "program_bytes": 34676,
+      "program_percent_reported": 107,
+      "global_sram_bytes": 1100,
+      "global_sram_percent_reported": 53,
+      "program_headroom_bytes": -2420,
+      "result": "FAIL",
+      "source": "Arduino IDE compiler report supplied by the hardware operator"
+    },
+    {
+      "artifact": "materialized DeskPet_dSense_UnoMax_Binary_MNCS.ino",
+      "role": "machine-native binary-telemetry candidate",
+      "program_bytes": null,
+      "global_sram_bytes": null,
+      "result": "UNKNOWN",
+      "source": "No repository-bound AVR linker report has yet been captured"
+    },
+    {
+      "artifact": "materialized DeskPet_dSense_UnoMax_MNCS.ino",
+      "role": "production candidate with telemetry disabled",
+      "program_bytes": null,
+      "global_sram_bytes": null,
+      "result": "UNKNOWN",
+      "source": "No repository-bound AVR linker report has yet been captured"
+    }
+  ],
+  "candidate_static_reduction": {
+    "baseline_source_bytes": 155022,
+    "binary_candidate_source_bytes": 128628,
+    "source_byte_reduction": 26394,
+    "source_byte_reduction_ratio": 0.170261,
+    "baseline_cxx_string_literal_count": 182,
+    "candidate_cxx_string_literal_count": 0,
+    "baseline_cxx_string_literal_payload_bytes": 2801,
+    "candidate_cxx_string_literal_payload_bytes": 0,
+    "interpretation": "Source and literal reduction are mechanism observations, not substitutes for an AVR-linked flash measurement."
+  },
+  "result": {
+    "development_status": "UNKNOWN",
+    "formal_mncs_status": "UNKNOWN",
+    "formal_mncds_status": "UNKNOWN",
+    "promotion_authorized": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "analysis_method": "Clang AST observations plus candidate-bound source-order checks over the declared fixed-storage, allocation, validation, checkpoint, and benchmark-independence invariants.",
+  "assumptions": [
+    "The C compiler preserves the declared fixed object bounds."
+  ],
+  "boundedness": {
+    "bounded": true,
+    "description": "Nine explicit checks over one candidate translation unit and included state declarations."
+  },
+  "candidate_source_hash": "sha256:a45a149fdeab08bf1288351713958eff0d8447818139dddf64191ecd6c9e0e62",
+  "completed_at": "2026-07-29T02:59:42Z",
+  "contract_id": "mncs.edgestream.telemetry.v1",
+  "environment_fingerprint": "sha256:088a38bf30f1cdf0c9a34128b7dfa516eca2373d30ff4b57c4dc52d89bc1db46",
+  "evaluator_identity_hash": "sha256:23e54df8cf14244348575172e226ba1cd2f0e0e2d5973a5aa4a3c2644d68a8c1",
+  "evaluator_identity_id": "identity-evaluator",
+  "extensions": {},
+  "invariant_id": "bounded-storage",
+  "limitations": [
+    "The provider does not establish arbitrary C semantics outside the declared invariant set."
+  ],
+  "locations": [
+    {
+      "line": 1,
+      "message": "Generated candidate and fixed-capacity state.",
+      "path": "machine/edgestream_generated.c"
+    }
+  ],
+  "mncs_version": "0.2",
+  "provider": "edgestream-clang-structural-checker",
+  "provider_version": "2.0",
+  "requirement": "The processor uses fixed-capacity device, metric, window, and parser storage and contains no processor-path dynamic allocation.",
+  "result_id": "invariant-bounded-storage",
+  "schema_version": "0.2",
+  "started_at": "2026-07-29T02:59:42Z",
+  "status": "PASS"
+}

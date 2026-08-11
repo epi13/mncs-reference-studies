@@ -1,0 +1,13 @@
+{
+  "record_id": "composed-gateway-wave4-release-drill-pending-v1",
+  "schema_version": "0.4-experimental",
+  "candidate_freeze_identity": "sha256:20e6975d59746e02d086b8f7c4f5b3ce7e59050fd7d649d8869f1f55987d710c",
+  "regeneration": "PASS",
+  "replacement_execution": "UNKNOWN",
+  "rollback_execution": "UNKNOWN",
+  "monitoring_threshold_exercise": "UNKNOWN",
+  "retirement_trigger_exercise": "UNKNOWN",
+  "independent_witness": "UNKNOWN",
+  "d4_status": "UNKNOWN",
+  "reason": "Wave Four defines the drill and release controls but does not manufacture an external witness or production environment."
+}

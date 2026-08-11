@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "threat_model_id": "mncs.cacheforge.kv-cache.threats.v1",
+  "assets": [
+    "cache capacity",
+    "prefix identity correctness",
+    "live request ownership",
+    "checkpoint continuity",
+    "planner and generator identities",
+    "study evidence"
+  ],
+  "threats": [
+    {
+      "id": "T1",
+      "threat": "machine policy proposes a live block",
+      "mitigation": "readable authority rejects any block with owners",
+      "evidence": "invariant tests and mutation boundary"
+    },
+    {
+      "id": "T2",
+      "threat": "duplicate or unknown victim identifiers corrupt allocation state",
+      "mitigation": "proposal uniqueness and membership validation with deterministic fallback",
+      "evidence": "duplicate-victim and unknown-victim mutation policies"
+    },
+    {
+      "id": "T3",
+      "threat": "stale prefix identity produces an invalid cache hit",
+      "mitigation": "reuse requires an exact group and cache-key identity",
+      "evidence": "state index invariant and deterministic scenario digests"
+    },
+    {
+      "id": "T4",
+      "threat": "cancelled requests leak live ownership",
+      "mitigation": "completion and cancellation converge on one readable release path",
+      "evidence": "cancellation-pressure scenario"
+    },
+    {
+      "id": "T5",
+      "threat": "checkpoint is restored under a different planner identity",
+      "mitigation": "checkpoint policy identity is mandatory and verified before restore",
+      "evidence": "identity mismatch and round-trip tests"
+    },
+    {
+      "id": "T6",
+      "threat": "development traces overfit the generated table",
+      "mitigation": "formal status remains UNKNOWN pending independent protected holdout traces",
+      "evidence": "explicit claim boundary"
+    }
+  ],
+  "residual_unknowns": [
+    "real accelerator memory behavior",
+    "production inference-server integration",
+    "cross-process concurrency",
+    "tenant isolation under adversarial input",
+    "independent protected holdout evaluation",
+    "cross-host and cross-architecture reproduction"
+  ]
+}

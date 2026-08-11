@@ -1,0 +1,176 @@
+{
+  "candidates": [
+    {
+      "build_status": "UNKNOWN",
+      "candidate_id": "multilingual-stream-generated-pair-v1",
+      "disposition": "selected",
+      "evaluator_results": [
+        {
+          "evaluator_id": "multilingual-stream-evaluator-0.1.0",
+          "evidence_id": "multilingual-stream-wave1-development",
+          "gate_id": "wave1-required-evidence",
+          "required": true,
+          "status": "UNKNOWN"
+        },
+        {
+          "evaluator_id": "multilingual-stream-evaluator-0.1.0",
+          "evidence_id": "multilingual-stream-c11-local-development-benchmark-v1",
+          "gate_id": "useful-benefit-development",
+          "required": false,
+          "status": "PASS"
+        }
+      ],
+      "generator_id": "multilingual-stream-template-generator-0.1.0",
+      "objective_value": 0.3941151486052267,
+      "parent_ids": [
+        "multilingual-stream-readable-pair-v1"
+      ]
+    },
+    {
+      "build_status": "UNKNOWN",
+      "candidate_id": "multilingual-stream-readable-pair-v1",
+      "disposition": "retained",
+      "evaluator_results": [
+        {
+          "evaluator_id": "multilingual-stream-evaluator-0.1.0",
+          "evidence_id": "multilingual-stream-candidate-identities",
+          "gate_id": "baseline-identity",
+          "required": true,
+          "status": "PASS"
+        }
+      ],
+      "generator_id": "multilingual-stream-template-generator-0.1.0",
+      "objective_value": null,
+      "parent_ids": []
+    }
+  ],
+  "charter": {
+    "baseline_id": "multilingual-stream-readable-references-v1",
+    "contract_id": "contract:multilingual-bounded-stream-0.1",
+    "environment_id": "environment:multilingual-stream-wave1-linux-x86_64",
+    "hard_rejection_gates": [
+      "correctness",
+      "malformed-input",
+      "determinism",
+      "strict-build",
+      "provider-conformance",
+      "regeneration"
+    ],
+    "intended_use": "Repository-visible multilingual development experiment only.",
+    "objective": {
+      "direction": "minimize",
+      "metric": "same-language median wall-time ratio",
+      "minimum_useful_benefit": 0.95,
+      "objective_id": "multilingual-stream-latency-benefit-v1",
+      "unit": "candidate/reference ratio"
+    },
+    "planned_mncs_level": null,
+    "problem_statement": "Evaluate a machine-optimized bounded stream parser in C11 and Rust under one behavioral contract without collapsing language-specific evidence.",
+    "selection_policy_id": "multilingual-stream-selection-policy-v1",
+    "threat_model_id": "multilingual-stream-threat-model-v1"
+  },
+  "created_at": "2026-07-28T20:00:00Z",
+  "epoch_id": "multilingual-stream-wave1-epoch-1",
+  "evaluators": [
+    {
+      "authority_id": "authority-wave1-evaluator",
+      "configuration_id": "multilingual-stream-preregistration-v1",
+      "evaluator_id": "multilingual-stream-evaluator-0.1.0",
+      "executable_id": "multilingual-stream-evaluator-0.1.0",
+      "independent": false,
+      "purpose": "development",
+      "regression_corpus_id": "mncs-language-provider-conformance-0.1"
+    }
+  ],
+  "extensions": {
+    "mncs.dev:formal-status": "UNKNOWN",
+    "mncs.dev:language-profiles": [
+      "c11-reference-v0.1",
+      "rust-1.97.1-edition-2024-v0.1"
+    ],
+    "mncs.dev:promotion-authorized": false
+  },
+  "generator": {
+    "authority_id": "authority-wave1-generator",
+    "configuration_id": "multilingual-stream-generator-spec-v1",
+    "executable_id": "multilingual-stream-template-generator-0.1.0",
+    "generator_id": "multilingual-stream-template-generator-0.1.0",
+    "permissions": {
+      "access_protected_holdout": false,
+      "modify_baseline": false,
+      "modify_contract": false,
+      "modify_evaluators": false,
+      "modify_selection_policy": false,
+      "modify_thresholds": false,
+      "network_access": false
+    },
+    "resource_limits": {
+      "max_candidates": 2,
+      "max_wall_seconds": 60
+    }
+  },
+  "mncds_version": "0.1-draft",
+  "mncs_binding": null,
+  "partitions": {
+    "development_id": "multilingual-stream-public-development-v1",
+    "holdout_contaminated": false,
+    "holdout_id": null,
+    "selection_id": "multilingual-stream-public-selection-v1"
+  },
+  "profile": "MNCDS-D2",
+  "record_id": "multilingual-stream-wave1-d2-v1",
+  "release_controls": null,
+  "reproducibility": {
+    "class": "EXACT",
+    "measurement_repetitions": 7,
+    "protocol": "Materialize retained templates, use pinned toolchains, run the deterministic corpora and seven repeated benchmark measurements, and compare the canonical report schema.",
+    "seeds_preserved": true
+  },
+  "roles": [
+    {
+      "authority_id": "authority-mncs-maintainer",
+      "executable_id": null,
+      "role": "contract_authority"
+    },
+    {
+      "authority_id": "authority-wave1-generator",
+      "executable_id": "multilingual-stream-template-generator-0.1.0",
+      "role": "generator_authority"
+    },
+    {
+      "authority_id": "authority-wave1-evaluator",
+      "executable_id": "multilingual-stream-evaluator-0.1.0",
+      "role": "evaluator_authority"
+    },
+    {
+      "authority_id": "authority-wave1-selection",
+      "executable_id": "multilingual-stream-selection-policy-v1",
+      "role": "selection_authority"
+    },
+    {
+      "authority_id": "authority-mncs-maintainer",
+      "executable_id": null,
+      "role": "release_authority"
+    },
+    {
+      "authority_id": "authority-unassigned-independent-review",
+      "executable_id": null,
+      "role": "independent_reviewer"
+    }
+  ],
+  "schema_version": "0.1",
+  "selection": {
+    "human_review": {
+      "decision": "accept_with_unknown",
+      "rationale": "Accept the bounded development record while retaining required UNKNOWN and prohibiting formal promotion.",
+      "reviewer_id": "authority-mncs-maintainer"
+    },
+    "minimum_useful_benefit_met": true,
+    "policy_id": "multilingual-stream-selection-policy-v1",
+    "rationale": "The local C11 candidate passed the predeclared useful-benefit threshold. The full C11/Rust execution remains required UNKNOWN, so the record is retained for evaluation and promotion remains prohibited.",
+    "rule_recorded_before_holdout": true,
+    "selected_candidate_id": "multilingual-stream-generated-pair-v1",
+    "unknown_policy": "human_review"
+  },
+  "supersedes_record_id": null
+}

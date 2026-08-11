@@ -1,0 +1,1 @@
+{"abi_version":1,"function":"mncs_parse_u32","input":"non-null byte pointer plus size_t length","output":"non-null uint32_t pointer","ownership":"caller retains all buffers","error_mapping":{"0":"ok","1":"null or length bound","2":"non-decimal","3":"range"}}

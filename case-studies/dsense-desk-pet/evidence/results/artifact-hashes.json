@@ -1,0 +1,130 @@
+{
+  "algorithm": "sha256",
+  "artifacts": [
+    {
+      "bytes": 8382,
+      "path": "artifacts/baseline-v4.ino.zlib.b85.part00",
+      "sha256": "a4d45af5e78f8de0a90fcb3b61f169b8aa8fbbf039b8c206bef521074fdea989"
+    },
+    {
+      "bytes": 7829,
+      "path": "artifacts/baseline-v4.ino.zlib.b85.part01",
+      "sha256": "fe398c600da4dd7d4861dbbbf95a67ec5a22b9a94ae4a48c0e1bb0ba7b7874df"
+    },
+    {
+      "bytes": 8187,
+      "path": "artifacts/baseline-v4.ino.zlib.b85.part02",
+      "sha256": "1b34cdfa14e50f8759d9e5d9ab77cf9731cd0f4d19c171ac0d6789196e216e3f"
+    },
+    {
+      "bytes": 8109,
+      "path": "artifacts/baseline-v4.ino.zlib.b85.part03",
+      "sha256": "7788634e637bef1cd73015395ea0829425ea3b9e6d3a078d94b56ad704d86f20"
+    },
+    {
+      "bytes": 8445,
+      "path": "artifacts/baseline-v4.ino.zlib.b85.part04",
+      "sha256": "9291c65733dcfc567897b6970cf3689c238964dbbfc68a382e14dc4883e9cfa5"
+    },
+    {
+      "bytes": 3741,
+      "path": "artifacts/baseline-v4.ino.zlib.b85.part05",
+      "sha256": "51a09a768b96545a6630577e33b61274eecd4abbd3a81b6e3bb56c7162cfaf16"
+    },
+    {
+      "bytes": 11564,
+      "path": "artifacts/epoch-1-canonical.json.zlib.b85",
+      "sha256": "08b5187b25b3d63f4b84f6b3d6eb5b9c98564a7aaa8758125292ac4a9fa71ff3"
+    },
+    {
+      "bytes": 7838,
+      "path": "artifacts/firmware-v5-from-v4.delta.zlib.b85",
+      "sha256": "36175d233c9890201b03b0a074270ded3b904a75a25de4b93a4836caf272a1fb"
+    },
+    {
+      "bytes": 4561,
+      "path": "tools/analyze_epoch1.py",
+      "sha256": "70a763b8dde4f0adade72f29cbbb0acdea3164548ab31ab5f432f85207ed00be"
+    },
+    {
+      "bytes": 8447,
+      "path": "tools/capture_dsense_binary_v5.py",
+      "sha256": "837aa827f65a5a64f9e691888b3f32caf586a38809d1795f4ff14fe1ef178fd0"
+    },
+    {
+      "bytes": 3205,
+      "path": "tools/materialize.py",
+      "sha256": "4bf95c8a255f50fa38af683b692032bef2f00965460d27445bf590ecce0297ec"
+    },
+    {
+      "bytes": 7624,
+      "path": "tools/verify_case_study.py",
+      "sha256": "4d9cabab326a7297e8c4e911b523a59f03f730db9b437a67abf79c5a2c3e20c7"
+    },
+    {
+      "bytes": 414,
+      "path": "evidence/raw/README.md",
+      "sha256": "f98e47a4bd2df0d557a7adec7039608ee4b979153043b3d9a31ad0ed7efc1725"
+    },
+    {
+      "bytes": 4895,
+      "path": "evidence/results/epoch-1-analysis.json",
+      "sha256": "0bbcfa50ef5afcc15c314bf1d8a893f4828aa3e2f4be38e4f0356f9a913b2d2b"
+    },
+    {
+      "bytes": 1986,
+      "path": "evidence/results/compile-observations.json",
+      "sha256": "3d22df4b7aa4fffb74f4416cbcdf642aaedc42c6792eb4b74b85e21fd0b83e06"
+    },
+    {
+      "bytes": 5400,
+      "path": "CONTRACT.md",
+      "sha256": "983aaf47a9f9aa8ddc8e8be391557d1631951a3708e497d4250b810d4bd9e4a5"
+    },
+    {
+      "bytes": 1726,
+      "path": "HARDWARE.md",
+      "sha256": "232ddc5890fa5cc2e47e108f23ab6043228f9f229eed015fdd53bebde99d5f41"
+    },
+    {
+      "bytes": 2589,
+      "path": "preregistration.json",
+      "sha256": "6d3b8dec1ade9df607099a8ea80e90f2443183a3f015b37a09bfc3697a4ece52"
+    },
+    {
+      "bytes": 4189,
+      "path": "threat-model.json",
+      "sha256": "ed7abe10f26ac072013818bac73213128aec388e8d3d1fc8813d64a6168f6939"
+    },
+    {
+      "bytes": 2477,
+      "path": "development-record.json",
+      "sha256": "2a2019b76fdd1c56d779bf9b3d275bac46f1b42c18b728333e657aaabd8680d8"
+    }
+  ],
+  "decoded_artifacts": [
+    {
+      "bytes": 155022,
+      "name": "DeskPet_dSense_Interface_Telemetry_MNCS.ino",
+      "sha256": "3b55e368310f957d55588bd82afcbc905043e302634ef44ce478f2ced57abaca"
+    },
+    {
+      "bytes": 128628,
+      "name": "DeskPet_dSense_UnoMax_Binary_MNCS.ino",
+      "sha256": "8c413fb12cc5ff3333175ff20ff5093b7cf98d297983b1472aa71ece53411808"
+    },
+    {
+      "bytes": 128629,
+      "name": "DeskPet_dSense_UnoMax_MNCS.ino",
+      "sha256": "bcaa5bb03a3d7b86001d45f7890003f6d82a8e982ebdc38163a84baa460fa74e"
+    },
+    {
+      "bytes": 185171,
+      "name": "original epoch-1 mixed-record capture",
+      "repository_storage": "canonical extract only",
+      "sha256": "01c76dca4582673df89d8834d109a1cad6c984d0a5c493063ed8ff526ff74eb3"
+    }
+  ],
+  "schema_version": "1.0",
+  "study_id": "dsense.desk-pet.artifacts.v2"
+}

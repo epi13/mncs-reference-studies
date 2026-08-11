@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1",
+  "study_id": "mncs.cacheforge.kv-cache.development.v1",
+  "frozen_candidate_id": "cacheforge.machine.eviction-table.v1",
+  "frozen_generator_id": "cacheforge.eviction-table.generator.v1",
+  "reference_policy": "cacheforge.reference.fifo.v1",
+  "baseline_policy": "cacheforge.baseline.lru.v1",
+  "development_scenarios": [
+    "shared-prefix-burst",
+    "alternating-tenants",
+    "cancellation-pressure",
+    "low-reuse-control"
+  ],
+  "primary_benefit": {
+    "metric": "recomputed_blocks",
+    "comparison": "candidate versus LRU baseline",
+    "threshold": "at least 10 percent fewer recomputed blocks"
+  },
+  "hard_gates": [
+    "all authority proposals accepted without fallback for the selected candidate",
+    "all cache invariants hold after every request",
+    "planner candidate inspections are no more than 1.50 times the LRU baseline",
+    "low-reuse recomputation is no more than 1.05 times the LRU baseline",
+    "malformed duplicate and unknown-victim policies are rejected and safely fall back",
+    "checkpointed execution reaches the same final state digest as uninterrupted execution"
+  ],
+  "selection_rule": "select the candidate only if every hard gate passes",
+  "protected_holdout": {
+    "present": false,
+    "required_for_future_formal_claim": true
+  },
+  "formal_status_if_development_passes": "UNKNOWN"
+}

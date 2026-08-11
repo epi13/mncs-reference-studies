@@ -1,0 +1,45 @@
+{
+  "contract_id": "contract:multilingual-bounded-stream-0.1",
+  "generator": {
+    "executable": "generator/generate.py",
+    "id": "multilingual-stream-template-generator-0.1.0",
+    "identity_sha256": "653813818435f8a132eefc70036f56830948b9d661123c2bbde629417d7c87b1",
+    "network_access": false,
+    "protected_holdout_access": false,
+    "spec": "generator/spec.json"
+  },
+  "note": "The Rust reference and candidate share one crate and source identity but execute distinct declared modes; observations bind the mode-specific subject IDs.",
+  "schema_version": "0.1-experimental",
+  "subjects": [
+    {
+      "id": "c11-readable-reference-v1",
+      "language": "C11",
+      "path": "c11/reference.c",
+      "role": "reference",
+      "sha256": "8cfaae58578f49358e5dd598126434ac3a6bb0633c7084515dd04755c2fb3028"
+    },
+    {
+      "id": "c11-generated-candidate-v1",
+      "language": "C11",
+      "path": "c11/candidate.c",
+      "role": "candidate",
+      "sha256": "30d67146e6b957f33def8813dfb050bd2e543d7c09e4221695ac1be2f437fb76"
+    },
+    {
+      "id": "rust-readable-reference-v1",
+      "language": "Rust",
+      "mode": "reference",
+      "path": "src/main.rs",
+      "role": "reference",
+      "sha256": "673c265b3009bbf0c2eb57d46a982ae98fc1aae9678f41a020f7fa4507ea1ded"
+    },
+    {
+      "id": "rust-generated-candidate-v1",
+      "language": "Rust",
+      "mode": "candidate",
+      "path": "src/main.rs",
+      "role": "candidate",
+      "sha256": "673c265b3009bbf0c2eb57d46a982ae98fc1aae9678f41a020f7fa4507ea1ded"
+    }
+  ]
+}

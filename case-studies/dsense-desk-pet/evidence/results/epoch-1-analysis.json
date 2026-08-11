@@ -1,0 +1,150 @@
+{
+  "capture": {
+    "device_ms_end": 212755,
+    "device_ms_start": 930,
+    "duration_seconds": 211.825,
+    "record_counts": {
+      "data": 729,
+      "events": 582,
+      "markers": 9,
+      "model": 204
+    }
+  },
+  "derived_findings": [
+    "The acoustic detector retriggered at approximately its refractory limit across quiet, voice, desk-tap, and direct-contact segments.",
+    "The learned microphone noise floor remained fixed at four ADC-deviation units while the observed envelope stayed between 187 and 592.",
+    "Novelty was at or above 1000 for more than 99 percent of operating snapshots, so acoustic activity had saturated the cognitive signal.",
+    "Direct piezo contact was measurably stronger than the quiet baseline, showing usable dynamic range even though event classification failed.",
+    "The light-cover segment coincided with a persistent microphone rise, motivating ADC multiplexer settling and cross-channel isolation."
+  ],
+  "observations": {
+    "acoustic_counter_delta": 552,
+    "acoustic_event_rate_hz": 2.605925,
+    "acoustic_event_records": 552,
+    "learned_noise_floor": {
+      "maximum": 4,
+      "mean": 4.0,
+      "median": 4,
+      "minimum": 4
+    },
+    "microphone_envelope": {
+      "maximum": 592,
+      "mean": 377.017833,
+      "median": 340,
+      "minimum": 187
+    },
+    "novelty": {
+      "fraction_at_or_above_1000": 0.993141289,
+      "maximum": 1020,
+      "mean": 1017.602195,
+      "minimum": 208
+    },
+    "segments": [
+      {
+        "acoustic_events": 88,
+        "duration_seconds": 33.629,
+        "event_rate_hz": 2.616789,
+        "external_energy_mean": 675.94958,
+        "label": "quiet baseline begins",
+        "mic_envelope_max": 357,
+        "mic_envelope_mean": 271.184874,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 94,
+        "duration_seconds": 36.67,
+        "event_rate_hz": 2.563403,
+        "external_energy_mean": 792.133858,
+        "label": "quiet baseline complete",
+        "mic_envelope_max": 432,
+        "mic_envelope_mean": 336.11811,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 23,
+        "duration_seconds": 8.982,
+        "event_rate_hz": 2.560677,
+        "external_energy_mean": 815.548387,
+        "label": "three soft desk taps",
+        "mic_envelope_max": 446,
+        "mic_envelope_mean": 344.580645,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 24,
+        "duration_seconds": 9.454,
+        "event_rate_hz": 2.538608,
+        "external_energy_mean": 780.5625,
+        "label": "voice at three feet",
+        "mic_envelope_max": 364,
+        "mic_envelope_mean": 326.21875,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 30,
+        "duration_seconds": 11.566,
+        "event_rate_hz": 2.593809,
+        "external_energy_mean": 900.6,
+        "label": "piezo touched directly",
+        "mic_envelope_max": 592,
+        "mic_envelope_mean": 458.725,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 44,
+        "duration_seconds": 17.53,
+        "event_rate_hz": 2.509983,
+        "external_energy_mean": 1002.362069,
+        "label": "light covered",
+        "mic_envelope_max": 592,
+        "mic_envelope_mean": 582.482759,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 56,
+        "duration_seconds": 19.66,
+        "event_rate_hz": 2.848423,
+        "external_energy_mean": 966.815385,
+        "label": "reaction game started",
+        "mic_envelope_max": 592,
+        "mic_envelope_mean": 523.784615,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 53,
+        "duration_seconds": 21.092,
+        "event_rate_hz": 2.512801,
+        "external_energy_mean": 970.394366,
+        "label": "automatic probe heard",
+        "mic_envelope_max": 574,
+        "mic_envelope_mean": 516.0,
+        "novelty_mean": 1020.0
+      },
+      {
+        "acoustic_events": 43,
+        "duration_seconds": 16.944,
+        "event_rate_hz": 2.537771,
+        "external_energy_mean": 950.836364,
+        "label": "room completely quiet",
+        "mic_envelope_max": 572,
+        "mic_envelope_mean": 466.872727,
+        "novelty_mean": 1020.0
+      }
+    ]
+  },
+  "result": {
+    "development_status": "FAIL",
+    "formal_mncds_status": "UNKNOWN",
+    "formal_mncs_status": "UNKNOWN",
+    "promotion_authorized": false,
+    "reason": "The epoch-1 detector did not distinguish quiet periods from intentional acoustic or mechanical stimuli."
+  },
+  "schema_version": "1.0",
+  "source": {
+    "encoding": "canonical JSON + zlib + base85",
+    "original_capture_sha256": "01c76dca4582673df89d8834d109a1cad6c984d0a5c493063ed8ff526ff74eb3",
+    "path": "artifacts/epoch-1-canonical.json.zlib.b85",
+    "telemetry_protocol": "DSENSE_TELEMETRY_V1"
+  },
+  "study_id": "dsense.desk-pet.calibration.epoch-1"
+}
