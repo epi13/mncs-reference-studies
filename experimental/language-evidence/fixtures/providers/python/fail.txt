@@ -1,0 +1,3 @@
+import pickle
+def f(data: bytes):
+    return pickle.loads(data)

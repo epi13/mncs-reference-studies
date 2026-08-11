@@ -1,0 +1,2 @@
+def f(code: str):
+    return exec(code)

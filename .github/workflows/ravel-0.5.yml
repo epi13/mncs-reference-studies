@@ -1,0 +1,113 @@
+name: RAVEL 0.5 adaptive mechanism correction
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  historical-and-canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Preserve historical RAVEL evidence
+        run: |
+          make ravel-test
+          make ravel-training-check
+          make ravel-unified-check
+          make ravel-0.4-check
+      - name: Reproduce canonical RAVEL 0.5 evidence
+        run: make ravel-0.5-check
+      - name: Verify independent derivation and distinct negative mutations
+        run: |
+          make ravel-0.5-negative-test
+          make ravel-0.5-manifest-negative-test
+      - name: Report development-gate disposition separately
+        continue-on-error: true
+        run: make ravel-0.5-development-gates
+      - name: Confirm reproduction leaves the repository clean
+        shell: bash
+        run: |
+          make ravel-0.5-clean
+          status="$(git status --porcelain --untracked-files=all)"
+          test -z "$status" || { printf '%s\n' "$status"; exit 1; }
+      - name: Upload evidence and diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.5-failure-${{ runner.arch }}
+          path: |
+            case-studies/ravel/ravel-0.5-raw-observations.json
+            case-studies/ravel/ravel-0.5-trial-evidence.json
+            case-studies/ravel/ravel-0.5-negative-evidence.json
+            case-studies/ravel/ravel-0.5-source-and-execution-manifest.json
+            case-studies/ravel/ravel-0.5-assurance-case.json
+            case-studies/ravel/diagnostics-0.5
+          if-no-files-found: warn
+          retention-days: 30
+
+  compiler-and-optimization:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+        optimization: ["-O0", "-O3"]
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Reproduce with compiler and optimization variant
+        env:
+          CC: ${{ matrix.compiler }}
+          RAVEL_OPT: ${{ matrix.optimization }}
+        run: |
+          make -C case-studies/ravel 0.5-clean
+          make -C case-studies/ravel 0.5-check \
+            CC="$CC" \
+            CFLAGS="-std=c11 $RAVEL_OPT -Wall -Wextra -Werror -pedantic"
+      - name: Upload diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.5-${{ matrix.compiler }}-${{ matrix.optimization }}
+          path: case-studies/ravel/diagnostics-0.5
+          if-no-files-found: warn
+          retention-days: 30
+
+  sanitizers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Address and undefined-behavior sanitizers
+        run: make ravel-0.5-sanitizers
+      - name: Upload sanitizer diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.5-sanitizer-failure
+          path: case-studies/ravel/diagnostics-0.5
+          if-no-files-found: warn
+          retention-days: 30
+
+  architecture-reproduction:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Reproduce on native architecture
+        run: make ravel-0.5-check
+      - name: Record architecture
+        run: uname -a
+      - name: Upload architecture diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ravel-0.5-architecture-${{ runner.arch }}
+          path: case-studies/ravel/diagnostics-0.5
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,39 @@
+name: Empirical study checks
+
+on:
+  push:
+    paths:
+      - "GNUmakefile"
+      - "Makefile"
+      - "tools/**"
+      - "case-studies/**"
+      - "studies/**"
+      - "experimental/language-evidence/**"
+      - "schemas/mncs-language-evidence-profile.schema.json"
+      - ".github/workflows/study-checks.yml"
+  pull_request:
+    paths:
+      - "GNUmakefile"
+      - "Makefile"
+      - "tools/**"
+      - "case-studies/**"
+      - "studies/**"
+      - "experimental/language-evidence/**"
+      - "schemas/mncs-language-evidence-profile.schema.json"
+      - ".github/workflows/study-checks.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  destination-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install study-check dependencies
+        run: python -m pip install "jsonschema>=4.23,<5" "pytest>=8.3,<10"
+      - name: Run destination empirical checks
+        run: make check

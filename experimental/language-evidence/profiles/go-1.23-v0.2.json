@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1-experimental",
+  "profile_id": "go-1.23-v0.2",
+  "profile_name": "Go bounded concurrency evidence",
+  "profile_version": "0.2",
+  "status": "experimental",
+  "language": {"name": "Go", "edition_or_runtime": "Go 1.23 language/toolchain family", "implementation_requirements": ["exact go version", "GOOS and GOARCH", "CGO_ENABLED", "module graph and go.sum identity"]},
+  "identities": {"source": ["content-address every .go source"], "generated_artifacts": ["content-address generated bindings"], "build_system": ["go env -json", "go list -deps -json"], "dependency_lock": ["go.mod", "go.sum when dependencies exist"], "providers": [{"id": "mncs.experimental.go-source-provider", "version": "0.2.0", "command": ["python3", "experimental/language-evidence/providers/go_provider.py"], "configuration_identity": "cfg:go-source-provider-0.2.0"}]},
+  "capabilities": {
+    "supported": [
+      {"id": "go-test", "evidence": "unit and integration tests", "coverage": "bounded", "tools": ["go test"], "limitations": []},
+      {"id": "race", "evidence": "instrumented race observations", "coverage": "conditional", "tools": ["go test -race"], "limitations": ["supported targets only"]},
+      {"id": "cancellation", "evidence": "deadline and goroutine lifecycle tests", "coverage": "bounded", "tools": ["runtime.NumGoroutine", "context"], "limitations": ["finite observation window"]}
+    ],
+    "conditional": [
+      {"id": "fuzz", "evidence": "seeded fuzz smoke", "coverage": "conditional", "tools": ["go test -fuzz"], "limitations": ["bounded duration"]},
+      {"id": "cgo", "evidence": "boundary-specific contract required", "coverage": "conditional", "tools": ["cgo", "C compiler"], "limitations": ["native code outside Go safety model"]}
+    ],
+    "unsupported": [{"id": "deadlock-proof", "evidence": "no exhaustive scheduler proof", "coverage": "unsupported", "tools": [], "limitations": ["testing cannot prove absence"]}]
+  },
+  "environment_observations": ["go version", "GOOS", "GOARCH", "CGO_ENABLED", "build tags", "GOMAXPROCS", "garbage collector settings", "CPU and memory limits"],
+  "mechanisms": {"structural_semantic": ["go/parser and go/ast", "go vet", "bounded custom provider"], "runtime_safety": ["race detector", "panic policy", "goroutine lifecycle observations"], "malformed_input": ["table tests and fuzz seeds"], "advanced_testing": ["fuzzing", "mutation fixtures", "property checks"], "resource_performance": ["wall time", "CPU", "allocations", "heap", "goroutine counts", "queue depth"], "nondeterminism": ["fixed GOMAXPROCS where required", "record scheduling-sensitive results statistically"]},
+  "coverage_limitations": ["race detector observes executions only", "goroutine leak detection is time bounded", "build tags may hide code", "cgo requires separate boundary evidence", "garbage collection introduces measurement variance"],
+  "unknown_conditions": ["unsupported build tag", "unavailable module", "unanalyzed generated code", "cgo boundary without contract", "provider timeout", "incomplete race or fuzz coverage", "GOOS or GOARCH mismatch"],
+  "extensions": {"mncs.dev:wave": "two", "mncs.dev:claim": "profile-valid only"}
+}
