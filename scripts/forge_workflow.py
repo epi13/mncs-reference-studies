@@ -41,9 +41,25 @@ class Workflow:
     limitations: tuple[str, ...] = ()
 
 
+def resolve_tooling_inspect_argv() -> tuple[str, ...]:
+    """Locate the MNCS tooling without assuming this repo has its own venv."""
+
+    sibling = ROOT.parent / "machine-native-complexity-standard"
+    for candidate in (
+        sibling / ".venv" / "bin" / "mncs",
+        sibling / "venv" / "bin" / "mncs",
+    ):
+        if candidate.is_file() and os.access(candidate, os.X_OK):
+            return (str(candidate), "version", "--json")
+    found = shutil_which("mncs", os.environ.get("PATH", ""))
+    if found:
+        return (found, "version", "--json")
+    return (sys.executable, "-m", "mncs_validator.cli", "version", "--json")
+
+
 WORKFLOWS = {
     "tooling-inspect": Workflow(
-        (".venv/bin/mncs", "version", "--json"),
+        ("mncs", "version", "--json"),
         30,
         "tooling_inspection",
     ),
@@ -188,8 +204,10 @@ def run_workflow(
     output_cap: int = OUTPUT_CAP,
 ) -> dict[str, object]:
     result = _base_result(name, workflow)
+    declared_argv = resolve_tooling_inspect_argv() if name == "tooling-inspect" else workflow.argv
+    result["command"] = list(declared_argv)
     try:
-        executable = _resolve_executable(workflow.argv)
+        executable = _resolve_executable(declared_argv)
     except (FileNotFoundError, OSError, PermissionError, ValueError) as exc:
         result.update(
             {
@@ -217,7 +235,7 @@ def run_workflow(
         return result
 
     environment = {key: os.environ[key] for key in ENVIRONMENT_ALLOWLIST if key in os.environ}
-    argv = [str(executable), *workflow.argv[1:]]
+    argv = [str(executable), *declared_argv[1:]]
     process = subprocess.Popen(
         argv,
         cwd=ROOT,

@@ -32,3 +32,15 @@ def test_hardened_entrypoint_passes_configured_output_cap(monkeypatch: Any, caps
     assert captured["name"] == "tooling-inspect"
     assert captured["output_cap"] == policy.output_cap
     assert json.loads(capsys.readouterr().out)["status"] == "PASS"
+
+
+def test_tooling_inspect_does_not_require_a_repo_local_venv() -> None:
+    sys.path.insert(0, str(ROOT / "scripts"))
+    try:
+        import forge_workflow
+    finally:
+        sys.path.pop(0)
+    argv = forge_workflow.resolve_tooling_inspect_argv()
+    assert argv[0] != ".venv/bin/mncs"
+    assert argv[-2:] == ("version", "--json")
+    assert Path(argv[0]).is_file() or argv[1:3] == ("-m", "mncs_validator.cli")
