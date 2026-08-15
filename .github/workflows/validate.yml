@@ -17,5 +17,5 @@ jobs:
           python-version: "3.12"
       - name: Validate repository structure
         run: |
-          python -m pip install --quiet pytest
+          python -m pip install --quiet pytest jsonschema
           make check
