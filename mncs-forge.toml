@@ -1,7 +1,7 @@
 # Non-normative project development control plane for the separate MNCS Forge repository.
 version = 1
 environment_allowlist = [
-  "PATH", "LANG", "LC_ALL", "CC", "CFLAGS", "RUSTFLAGS", "CARGO_HOME", "RUSTUP_HOME"
+  "PATH", "PYTHONPATH", "LANG", "LC_ALL", "CC", "CFLAGS", "RUSTFLAGS", "CARGO_HOME", "RUSTUP_HOME"
 ]
 required_capabilities = [
   "evidence-change-impact",
@@ -102,6 +102,7 @@ limitations = [
   "project-owned non-normative development provider",
   "no capability establishes MNCS/MNCDS conformance, independence, custody, certification, or promotion",
 ]
+environment = { PYTHONPATH = "/home/epi13/Documents/Projects/machine-native-complexity-standard/src" }
 
 [[workflows]]
 name = "mncs-project-structural-verifiers"
@@ -111,6 +112,7 @@ command = ["experimental/integrations/mncs-forge/providers/project_provider_hard
 provider_protocol = true
 provider_id = "mncs-project-micro-verifiers"
 subject = "project"
+environment = { PYTHONPATH = "/home/epi13/Documents/Projects/machine-native-complexity-standard/src" }
 disclosure = "compact"
 
 [[workflows]]
@@ -121,6 +123,7 @@ command = ["experimental/integrations/mncs-forge/providers/project_provider_hard
 provider_protocol = true
 provider_id = "mncs-project-micro-verifiers"
 subject = "project"
+environment = { PYTHONPATH = "/home/epi13/Documents/Projects/machine-native-complexity-standard/src" }
 disclosure = "compact"
 
 [[workflows]]
@@ -131,6 +134,7 @@ command = ["experimental/integrations/mncs-forge/providers/project_provider_hard
 provider_protocol = true
 provider_id = "mncs-project-micro-verifiers"
 subject = "project"
+environment = { PYTHONPATH = "/home/epi13/Documents/Projects/machine-native-complexity-standard/src" }
 disclosure = "compact"
 
 [[verifiers]]
