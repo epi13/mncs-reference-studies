@@ -11,7 +11,7 @@ check-generated:
 	PYTHONPATH=$(PYTHONPATH) python tools/generate_policy.py --check
 
 test: check-generated
-	PYTHONPATH=$(PYTHONPATH) pytest -q tests
+	PYTHONPATH=$(PYTHONPATH) python -m pytest -q tests
 
 smoke: check-generated
 	PYTHONPATH=$(PYTHONPATH) python tools/run_study.py smoke
