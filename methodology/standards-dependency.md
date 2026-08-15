@@ -2,7 +2,11 @@
 
 Historical studies may consume normative MNCS/MNCDS schemas or validators for
 full conformance-oriented checks. That implementation remains authoritative in
-the core standards repository and is not copied into this empirical repository.
+the core [standards repository](https://github.com/epi13/machine-native-complexity-standard)
+and is not copied into this empirical repository. MNCDS is now a sibling
+specification, the
+[Machine-Native Complexity Development Specification](https://github.com/epi13/machine-native-complexity-development-specification);
+historical checks may still consume MNCDS records through an MNCS checkout.
 
 Set `MNCS_STANDARDS_ROOT` to a checkout of
 `https://github.com/epi13/machine-native-complexity-standard` when invoking an
