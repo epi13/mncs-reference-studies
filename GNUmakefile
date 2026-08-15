@@ -6,6 +6,7 @@
   ravel-0.4-sanitizers ravel-0.5-test ravel-0.5-evidence ravel-0.5-check \
   ravel-0.5-development-gates ravel-0.5-negative-test ravel-0.5-manifest-negative-test \
   ravel-0.5-compiler-matrix ravel-0.5-sanitizers ravel-0.5-runtime ravel-0.5-clean \
+  ravel-0.5-historical-limitation \
   dsense-check dsense-avr-compile multilingual-stream go-gateway composed-gateway \
   composed-wave-three composed-wave-four composed-wave-five edgestream-validate \
   multilingual-standard-check cacheforge-language-profile
@@ -23,7 +24,8 @@ study-integrity:
 # checked-in evidence. Historical evidence-producing targets remain explicit.
 check: validate study-integrity recursive-study recursive-architecture-study-check \
   recursive-experience-substrate-check cacheforge-test composed-gateway dsense-check \
-  edgestream-smoke go-gateway multilingual-stream ravel-0.4-check remote-water-test
+  edgestream-smoke go-gateway multilingual-stream ravel-0.4-check \
+  ravel-0.5-historical-limitation remote-water-test
 
 recursive-study:
 	PYTHONPATH=src $(PYTHON) studies/recursive-analyzer/run_study.py >/dev/null
@@ -73,6 +75,8 @@ ravel-unified-check:
 	$(MAKE) -C case-studies/ravel unified-check
 ravel-0.4-check:
 	$(MAKE) -C case-studies/ravel 0.4-check
+ravel-0.5-historical-limitation:
+	$(PYTHON) tools/ravel_0_5_historical_limitation.py
 ravel-0.4-compiler-matrix:
 	$(MAKE) -C case-studies/ravel 0.4-compiler-matrix
 ravel-0.4-sanitizers:

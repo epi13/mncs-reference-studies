@@ -1,0 +1,22 @@
+name: RAVEL 0.5 historical limitation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  sentinel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Attest frozen RAVEL 0.5 historical limitation
+        run: make ravel-0.5-historical-limitation
+      - name: Confirm frozen historical files remain unchanged
+        shell: bash
+        run: |
+          status="$(git status --porcelain -- case-studies/ravel/ravel-0.5-*.json case-studies/ravel/RAVEL_0_5_RESULTS.md)"
+          test -z "$status" || { printf '%s\n' "$status"; exit 1; }
