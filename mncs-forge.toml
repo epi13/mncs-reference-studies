@@ -79,6 +79,8 @@ version = "0.1"
 command = ["experimental/integrations/mncs-forge/providers/project_provider_hardened.py"]
 transport = "stdio-jsonl"
 required = true
+module_roots = ["../machine-native-complexity-standard/src"]
+python_packages = ["mncs_validator"]
 capabilities = [
   "evidence-change-impact",
   "artifact-manifest-identity",
