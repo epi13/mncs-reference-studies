@@ -54,7 +54,7 @@ Use a protocol parser to stress incremental state, partial input, ambiguity, mal
 
 ## Phase 3 — distributed and agent evaluation
 
-Integrate the local harness and MNCS Fabric so study runs can be assigned across heterogeneous workers/models while preserving model, machine, tool, environment, and evidence identity. Add repeatable agent task packs and hidden verifier suites.
+Integrate the optional MNCS Harness and MNCS Fabric so study runs can be assigned across heterogeneous workers/models while preserving model, machine, tool, environment, and evidence identity. Add repeatable agent task packs and hidden verifier suites.
 
 ## Phase 4 — Forge and evidence automation
 

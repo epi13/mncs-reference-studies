@@ -93,11 +93,11 @@ make check
 
 The default `make` entrypoint is the destination-owned `GNUmakefile`. It validates migration provenance and MRS metadata, then runs non-evidence-writing checks across the migrated studies. The historical root `Makefile` is retained byte-identically because the frozen RAVEL 0.5 source manifest binds it; use the destination `GNUmakefile` through ordinary `make` commands.
 
-Some historical checks intentionally depend on normative MNCS/MNCDS validator tooling that remains in the standards repository. Those checks are exposed through explicit targets and require `MNCS_STANDARDS_ROOT`; the destination does not duplicate normative conformance code.
+Some historical checks intentionally depend on normative MNCS/MNCDS validator tooling that remains in the [standards repository](https://github.com/epi13/machine-native-complexity-standard). MNCDS itself is now a sibling specification, the [Machine-Native Complexity Development Specification](https://github.com/epi13/machine-native-complexity-development-specification). Those checks are exposed through explicit targets and require `MNCS_STANDARDS_ROOT`; the destination does not duplicate normative conformance code.
 
 ## Relationship to the MNCS family
 
-This repository is intended to become a repeatable workload and evidence source for the wider MNCS family. The local harness and Fabric can eventually distribute and reproduce study tasks; the Forge can contribute verifier/evidence machinery; and RAVEL/MNEL can consume carefully labeled successful and failed trajectories. Future MNCS-Language implementations can rerun the same frozen study contracts rather than inventing new demonstrations.
+This repository is intended to become a repeatable workload and evidence source for the wider MNCS family. The optional [MNCS Harness](https://github.com/epi13/mncs-harness) and Fabric can eventually distribute and reproduce study tasks; the Forge can contribute verifier/evidence machinery; and RAVEL/MNEL can consume carefully labeled successful and failed trajectories. Future MNCS-Language implementations can rerun the same frozen study contracts rather than inventing new demonstrations.
 
 The goal is not to prove MNCS by construction. The goal is to make MNCS easier to falsify, measure, improve, and reproduce.
 
