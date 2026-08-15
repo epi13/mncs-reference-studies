@@ -1,0 +1,28 @@
+{
+  "schema": "ravel-historical-limitation/0.5",
+  "limitation_id": "ravel-0.5-canonical-verify-stale-against-live-root-makefile",
+  "epoch": "0.5",
+  "disposition": "KNOWN_HISTORICAL_LIMITATION",
+  "regeneration_authorized": false,
+  "expected_verify_stderr_prefix": "ravel 0.5 evidence error: canonical artifacts stale or missing:",
+  "expected_stale_or_missing": [
+    "ravel-0.5-source-and-execution-manifest.json",
+    "ravel-0.5-assurance-case.json"
+  ],
+  "scientific_development_result": "FAIL",
+  "claim_boundary": "historical evidence limitation; not a new scientific result",
+  "frozen_inventory": {
+    "ravel-0.5-preregistration.json": "sha256:f240c391b92823471132ffce1eeed154b3f03dc2af1e3e1f789690a99eb4cfaa",
+    "ravel-0.5-raw-observations.json": "sha256:bb34d0292a9286ea321d50d31919dc43793a58b90b4c7a7892f91552b841f354",
+    "ravel-0.5-trial-evidence.json": "sha256:9ffefe97e5331b65e5b998f9c2d3aac91cdf9cca246a377ca421a3bef0ba0e80",
+    "ravel-0.5-negative-evidence.json": "sha256:3c18eb94e0a76019a7fa3f4d2a85972332705867174f5d694d278464fc07cdb9",
+    "RAVEL_0_5_RESULTS.md": "sha256:bd903fac8e8ae8ea4fbb26ad94dac8e7d9956c7fea9e13f37f292d8bde798f7d",
+    "ravel-0.5-source-and-execution-manifest.json": "sha256:18006006db509269ee374a39133bb25d8452edc0fe0103a43fa92c5660fd89d0",
+    "ravel-0.5-assurance-case.json": "sha256:4bcce0a8dbcc6ff2ce085b809736be33511fffdc648f0c1545daeac7e695f429"
+  },
+  "allowed_actions": [
+    "assert frozen package files exist and match recorded sha256",
+    "run verify and require the documented stale set",
+    "never call generate / 0.5-evidence / 0.5-runtime"
+  ]
+}
