@@ -1,0 +1,5 @@
+{
+  "purpose": "Forge workflow normalization revalidation marker",
+  "reason": "Validator and smoke workflow adapters now emit Forge-native status objects.",
+  "promotion_authorized": false
+}

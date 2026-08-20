@@ -53,8 +53,8 @@ max_dependency_identities = 64
 max_question_parameters = 16
 
 [commands]
-mncs = [".venv/bin/mncs"]
-mncds = [".venv/bin/mncds"]
+mncs = ["../machine-native-complexity-standard/.venv/bin/mncs"]
+mncds = ["../machine-native-complexity-standard/.venv/bin/mncds"]
 
 [authority.development]
 may_write_candidates = true
@@ -300,7 +300,7 @@ disclosure = "compact"
 name = "edgestream-smoke"
 category = "differential_behavior"
 mode = "development"
-command = ["python", "case-studies/edgestream/tools/smoke.py"]
+command = ["python3", "-c", "import json, subprocess; p=subprocess.run(['python','case-studies/edgestream/tools/smoke.py'], text=True, capture_output=True); print(json.dumps({'status':'PASS' if p.returncode == 0 else 'FAIL','stdout':p.stdout[-2000:],'stderr':p.stderr[-2000:]}, sort_keys=True)); raise SystemExit(p.returncode)"]
 provider_protocol = false
 disclosure = "compact"
 
@@ -308,7 +308,7 @@ disclosure = "compact"
 name = "edgestream-mncs-validate"
 category = "mncs_bundle_validation"
 mode = "both"
-command = [".venv/bin/mncs", "validate-bundle", "case-studies/edgestream", "--json"]
+command = ["python3", "-c", "import json, subprocess; p=subprocess.run(['../machine-native-complexity-standard/.venv/bin/mncs','validate-bundle','case-studies/edgestream','--json'], text=True, capture_output=True); v=json.loads(p.stdout); print(json.dumps({'status':v.get('computed_status','UNKNOWN'),'validator':v}, sort_keys=True)); raise SystemExit(p.returncode)"]
 provider_protocol = false
 disclosure = "status-only"
 
@@ -316,6 +316,6 @@ disclosure = "status-only"
 name = "edgestream-mncds-validate"
 category = "mncds_record_validation"
 mode = "both"
-command = [".venv/bin/mncds", "validate", "case-studies/edgestream/mncds/development-record.json", "--json"]
+command = ["python3", "-c", "import json, subprocess; p=subprocess.run(['../machine-native-complexity-standard/.venv/bin/mncds','validate','case-studies/edgestream/mncds/development-record.json','--json'], text=True, capture_output=True); v=json.loads(p.stdout); print(json.dumps({'status':v.get('category','UNKNOWN'),'validator':v}, sort_keys=True)); raise SystemExit(p.returncode)"]
 provider_protocol = false
 disclosure = "status-only"

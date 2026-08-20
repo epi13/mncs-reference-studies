@@ -1,0 +1,5 @@
+{
+  "purpose": "Forge development revalidation marker",
+  "reason": "The required workflow policy and validator command paths were repaired after the prior epoch was created.",
+  "promotion_authorized": false
+}

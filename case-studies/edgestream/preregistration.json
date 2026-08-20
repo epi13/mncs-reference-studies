@@ -35,6 +35,22 @@
     "benefit_threshold",
     "worst_regression"
   ],
+  "required_workflows": [
+    "edgestream-read-only-inspect",
+    "edgestream-smoke",
+    "edgestream-mncs-validate",
+    "edgestream-mncds-validate"
+  ],
+  "selection_policy": {
+    "required_workflows": [
+      "edgestream-read-only-inspect",
+      "edgestream-smoke",
+      "edgestream-mncs-validate",
+      "edgestream-mncds-validate"
+    ],
+    "candidate_promotion_allowed": false,
+    "rationale": "Development-only candidate checks; no candidate promotion or certification is authorized by this preregistration."
+  },
   "process_gates": [
     "deterministic_generation",
     "evaluator_regression_corpus"
