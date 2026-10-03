@@ -1,0 +1,17 @@
+{
+  "schema_version": "mncs.project-intent/1",
+  "purpose": "Empirical and validation companion to the MNCS standard: case studies and reference reimplementations that challenge MNCS ideas against controlled workloads, mature software behavior, adversarial tests, and repeatable agent tasks.",
+  "entry": [
+    "make check"
+  ],
+  "milestones": [
+    {
+      "id": "mncs-reference-studies:projection-conformance",
+      "title": "Declared ambient projection surfaces satisfy their contract",
+      "subject_slot": "declarations",
+      "evidence": "projection-conformance",
+      "dependencies": [],
+      "blockers": []
+    }
+  ]
+}

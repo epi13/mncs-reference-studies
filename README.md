@@ -1,5 +1,20 @@
 # MNCS Reference Studies
 
+<!-- MNCS:generated:begin -->
+## Project entry
+
+Empirical and validation companion to the MNCS standard: case studies and reference reimplementations that challenge MNCS ideas against controlled workloads, mature software behavior, adversarial tests, and repeatable agent tasks.
+
+```bash
+make check
+```
+
+Declared capabilities (declarations do not establish execution health):
+
+
+Semantic sources and ownership: `.mncs/projections.json`.
+<!-- MNCS:generated:end -->
+
 Empirical case studies and reference reimplementations for evaluating the Machine-Native Complexity Standard (MNCS) against proven software architectures, using conventional, MNCS-style, and future MNCS-Language implementations.
 
 This repository is the experimental and validation companion to the [Machine-Native Complexity Standard](https://github.com/epi13/machine-native-complexity-standard). The standard defines ideas and requirements; this repository is where those ideas are challenged against controlled workloads, mature software behavior, adversarial tests, and repeatable agent tasks.

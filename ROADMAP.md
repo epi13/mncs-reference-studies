@@ -1,5 +1,11 @@
 # Roadmap
 
+<!-- MNCS:generated:begin -->
+## Evidence-bound roadmap
+
+- **complete** — Declared ambient projection surfaces satisfy their contract (`mncs-reference-studies:projection-conformance`)
+<!-- MNCS:generated:end -->
+
 This roadmap is intentionally evidence-first. Dates are not promises; phases describe dependency order.
 
 ## Phase 0 — repository foundation

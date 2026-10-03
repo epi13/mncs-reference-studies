@@ -1,0 +1,12 @@
+{
+  "capabilities": [],
+  "dependencies": [],
+  "entry": [
+    "make check"
+  ],
+  "purpose": "Empirical and validation companion to the MNCS standard: case studies and reference reimplementations that challenge MNCS ideas against controlled workloads, mature software behavior, adversarial tests, and repeatable agent tasks.",
+  "repository": "mncs-reference-studies",
+  "schema_version": "mncs.project-view/1",
+  "source_identity": "sha256:48237468d5270af4d4e50f15cbdcb1428f30154a4db66ff5e128c11e9bce9d61",
+  "structure": {}
+}
