@@ -1,5 +1,8 @@
 # Roadmap
 
+<!-- MNCS:generated:begin -->
+<!-- MNCS:generated:end -->
+
 This roadmap is intentionally evidence-first. Dates are not promises; phases describe dependency order.
 
 ## Phase 0 — repository foundation

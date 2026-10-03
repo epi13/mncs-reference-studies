@@ -1,0 +1,15 @@
+{
+  "schema_version": "mncs-family.repository-manifest/v0alpha1",
+  "repository": "mncs-reference-studies",
+  "revision": 1,
+  "manifest_location": "in-repository",
+  "authority": {"note": "Reference-studies owns empirical MNCS evaluation: case studies, numbered reference reimplementation studies (MRS series), shared protocol/metrics/evidence methodology, and study templates. It provides evidence, not versioned execution contracts; normative MNCS/MNCDS validation remains a separately declared dependency."},
+  "contracts": {
+    "provides": [],
+    "consumes": [],
+    "tests": [{"test": "studies-check", "covers": [], "obligation": "self", "command": {"argv": ["make", "check"], "timeout_seconds": 1800}}]
+  }
+,
+  "projection_inventory": ".mncs/projections.json",
+  "structure_profile": {"repository": "machine-native-complexity-development-specification", "path": "profiles/semantic-project.json", "identity": "sha256:259e41ea542e7a1400f1471b0316de4fafc888d6f953c8e91165ff2cfe1e78cb"}
+}
