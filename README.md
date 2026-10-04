@@ -11,6 +11,7 @@ make check
 
 Declared capabilities (declarations do not establish execution health):
 
+- `reference-studies/1` — empirical-evidence (experimental)
 
 Semantic sources and ownership: `.mncs/projections.json`.
 <!-- MNCS:generated:end -->

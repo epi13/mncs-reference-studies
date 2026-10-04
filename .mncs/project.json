@@ -5,9 +5,9 @@
   "manifest_location": "in-repository",
   "authority": {"note": "Reference-studies owns empirical MNCS evaluation: case studies, numbered reference reimplementation studies (MRS series), shared protocol/metrics/evidence methodology, and study templates. It provides evidence, not versioned execution contracts; normative MNCS/MNCDS validation remains a separately declared dependency."},
   "contracts": {
-    "provides": [],
+    "provides": [{"contract": "reference-studies", "version": "1", "kind": "empirical-evidence", "stability": "experimental", "notes": "Case studies, MRS reimplementation-study series, shared methodology, and study templates; an evidence surface rather than versioned execution contracts."}],
     "consumes": [],
-    "tests": [{"test": "studies-check", "covers": [], "obligation": "self", "command": {"argv": ["make", "check"], "timeout_seconds": 1800}}]
+    "tests": [{"test": "studies-check", "covers": ["reference-studies"], "obligation": "self", "command": {"argv": ["make", "check"], "timeout_seconds": 1800}}]
   }
 ,
   "projection_inventory": ".mncs/projections.json",

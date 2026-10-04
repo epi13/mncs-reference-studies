@@ -1,5 +1,13 @@
 {
-  "capabilities": [],
+  "capabilities": [
+    {
+      "contract": "reference-studies",
+      "kind": "empirical-evidence",
+      "notes": "Case studies, MRS reimplementation-study series, shared methodology, and study templates; an evidence surface rather than versioned execution contracts.",
+      "stability": "experimental",
+      "version": "1"
+    }
+  ],
   "dependencies": [],
   "entry": [
     "make check"
@@ -7,6 +15,6 @@
   "purpose": "Empirical and validation companion to the MNCS standard: case studies and reference reimplementations that challenge MNCS ideas against controlled workloads, mature software behavior, adversarial tests, and repeatable agent tasks.",
   "repository": "mncs-reference-studies",
   "schema_version": "mncs.project-view/1",
-  "source_identity": "sha256:48237468d5270af4d4e50f15cbdcb1428f30154a4db66ff5e128c11e9bce9d61",
+  "source_identity": "sha256:05f0a72e71b4b61f09c5ddbabd5aa31d76bb5f6e030a00e6a6b8daf0f6d4bfe0",
   "structure": {}
 }
