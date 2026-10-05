@@ -319,3 +319,12 @@ mode = "both"
 command = ["python3", "-c", "import json, subprocess; p=subprocess.run(['../machine-native-complexity-standard/.venv/bin/mncds','validate','case-studies/edgestream/mncds/development-record.json','--json'], text=True, capture_output=True); v=json.loads(p.stdout); print(json.dumps({'status':v.get('category','UNKNOWN'),'validator':v}, sort_keys=True)); raise SystemExit(p.returncode)"]
 provider_protocol = false
 disclosure = "status-only"
+
+[continuous]
+enabled = true
+start_timeout_seconds = 60
+poll_interval_seconds = 1.0
+poll_max_events = 32
+# Keep the resident available for explicitly routed work; no autonomous
+# verification or repair triggers are declared by this project profile.
+triggers = []
